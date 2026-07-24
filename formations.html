@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formations IA certifiantes CPF/OPCO | Nelion</title>
+<meta name="description" content="Deux formations certifiantes IA éligibles CPF/OPCO : création de contenus par l'IA (RS6776) et pilotage de TPE par l'IA (RS7311).">
+<link rel="canonical" href="https://www.nelion.fr/formations.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Formations IA certifiantes CPF/OPCO | Nelion">
+<meta property="og:description" content="Deux formations certifiantes IA éligibles CPF/OPCO : création de contenus par l'IA (RS6776) et pilotage de TPE par l'IA (RS7311).">
+<meta property="og:url" content="https://www.nelion.fr/formations.html">
+<meta property="og:image" content="https://www.nelion.fr/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Formations IA certifiantes CPF/OPCO | Nelion">
+<meta name="twitter:description" content="Deux formations certifiantes IA éligibles CPF/OPCO : création de contenus par l'IA (RS6776) et pilotage de TPE par l'IA (RS7311).">
+<meta name="twitter:image" content="https://www.nelion.fr/og-image.png">
+
+<!-- Plausible Analytics : mesure d'audience sans cookie, aucun consentement requis -->
+<script defer data-domain="nelion.fr" src="https://plausible.io/js/script.js"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Nelion Consulting",
+  "url": "https://www.nelion.fr/",
+  "logo": "https://www.nelion.fr/favicon.svg",
+  "email": "maxime@nelion.fr",
+  "founder": { "@type": "Person", "name": "Maxime Strauss" },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "17 rue des Pommiers",
+    "postalCode": "68180",
+    "addressLocality": "Horbourg-Wihr",
+    "addressCountry": "FR"
+  },
+  "areaServed": "FR"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Course",
+      "name": "Création de contenus rédactionnels et visuels par l'usage responsable de l'IA générative",
+      "description": "Formation certifiante CPF RS6776 : produire des contenus texte et visuels professionnels avec l'IA générative, dans le respect du RGPD et de l'IA Act.",
+      "provider": { "@type": "Organization", "name": "Nelion Consulting", "sameAs": "https://www.nelion.fr/" },
+      "educationalCredentialAwarded": "RS6776",
+      "offers": { "@type": "Offer", "price": "1790", "priceCurrency": "EUR" }
+    },
+    {
+      "@type": "Course",
+      "name": "Améliorer l'efficacité de sa TPE à l'aide de l'intelligence artificielle",
+      "description": "Formation certifiante CPF RS7311 : identifier ses opportunités IA, automatiser ses tâches récurrentes et piloter son entreprise avec l'IA.",
+      "provider": { "@type": "Organization", "name": "Nelion Consulting", "sameAs": "https://www.nelion.fr/" },
+      "educationalCredentialAwarded": "RS7311",
+      "offers": { "@type": "Offer", "price": "1990", "priceCurrency": "EUR" }
+    }
+  ]
+}
+</script>
+
+<style>
+  /* Police self-hostée (plus de dépendance à Google Fonts) */
+  @font-face {
+    font-family: 'JetBrains Mono';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('fonts/jetbrains-mono-700.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'JetBrains Mono';
+    font-style: normal;
+    font-weight: 800;
+    font-display: swap;
+    src: url('fonts/jetbrains-mono-800.ttf') format('truetype');
+  }
+  :root {
+    --bg: #0b0c0e;
+    --bg-alt: #131519;
+    --card: #1a1d22;
+    --border: #262a31;
+    --text: #f2f3f5;
+    --text-dim: #a6acb5;
+    --accent: #ffb020;
+    --accent2: #ff7a1a;
+    --accent-text: #0b0c0e;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+  a { text-decoration: none; color: inherit; }
+  .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+  .grad { background: linear-gradient(90deg, var(--accent), var(--accent2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+  header {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(11,12,14,0.9);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+  }
+  .header-inner { display: flex; align-items: center; justify-content: space-between; padding: 18px 0; }
+  .logo { font-size: 20px; font-weight: 800; letter-spacing: 0.5px; }
+  .logo span { color: var(--accent); }
+  nav { display: none; }
+  @media (min-width: 900px) { nav { display: block; } }
+  nav ul { list-style: none; display: flex; gap: 30px; font-size: 14.5px; }
+  nav a { color: var(--text-dim); font-weight: 500; }
+  nav a:hover, nav a.active { color: var(--text); }
+  .btn {
+    display: inline-block; font-weight: 700; font-size: 14.5px;
+    padding: 12px 24px; border-radius: 6px; transition: all 0.2s ease; white-space: nowrap;
+    text-align: center;
+  }
+  .btn-primary { background: linear-gradient(90deg, var(--accent), var(--accent2)); color: var(--accent-text); }
+  .btn-primary:hover { filter: brightness(1.08); transform: translateY(-1px); }
+  .btn-outline { border: 1.5px solid var(--border); color: var(--text); }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+  .btn-sticky {
+    background: linear-gradient(90deg, #35e6ff, #00b8d9);
+    color: var(--accent-text);
+    box-shadow: 0 0 18px rgba(53,230,255,0.35);
+  }
+  .btn-sticky:hover { filter: brightness(1.08); transform: translateY(-1px); box-shadow: 0 0 24px rgba(53,230,255,0.5); }
+  .header-cta { display: none; }
+  @media (min-width: 640px) { .header-cta { display: inline-block; } }
+
+  .hero { padding: 80px 0 60px; text-align: center; position: relative; overflow: hidden; }
+  .hero::before {
+    content: ""; position: absolute; top: -200px; left: 50%; transform: translateX(-50%);
+    width: 700px; height: 500px; background: radial-gradient(circle, rgba(255,176,32,0.15), transparent 70%);
+    pointer-events: none;
+  }
+  .hero-inner { position: relative; }
+  .badge {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: linear-gradient(90deg, rgba(255,176,32,0.16), rgba(255,122,26,0.16));
+    border: 1px solid rgba(255,176,32,0.4);
+    padding: 12px 26px; border-radius: 999px; font-size: 15.5px; font-weight: 700; color: var(--accent);
+    margin-bottom: 30px; box-shadow: 0 0 24px rgba(255,176,32,0.15);
+  }
+  .badge .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 8px var(--accent); }
+  .hero h1 { font-size: 42px; font-weight: 800; max-width: 820px; margin: 0 auto 22px; line-height: 1.2; letter-spacing: -0.5px; }
+  .hero p.sub { font-size: 17px; color: var(--text-dim); max-width: 660px; margin: 0 auto 36px; }
+  .hero-ctas { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px; }
+
+  section { padding: 80px 0; }
+  .section-label {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    text-transform: uppercase; letter-spacing: 2px; font-size: 12.5px;
+    color: var(--accent); font-weight: 700; margin-bottom: 14px;
+  }
+  h2 { font-size: 30px; font-weight: 800; max-width: 700px; margin-bottom: 16px; letter-spacing: -0.3px; }
+  .lead { font-size: 16.5px; color: var(--text-dim); max-width: 640px; margin-bottom: 40px; }
+  .center { text-align: center; margin-left: auto; margin-right: auto; }
+
+  /* Vue d'ensemble : cartes de comparaison */
+  .compare-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
+  @media (min-width: 760px) { .compare-grid { grid-template-columns: repeat(2, 1fr); } }
+  .compare-card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+    padding: 32px; display: flex; flex-direction: column;
+  }
+  .compare-card:hover { border-color: var(--accent); }
+  .compare-card .tag {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: 0.4px;
+    color: var(--accent); border: 1px solid var(--border); padding: 4px 10px; border-radius: 999px;
+    margin-bottom: 16px; align-self: flex-start;
+  }
+  .compare-card h3 { font-size: 19px; margin-bottom: 20px; }
+  .meta-row { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
+  .meta-row:last-of-type { border-bottom: none; }
+  .meta-row .k { color: var(--text-dim); }
+  .meta-row .v { color: var(--text); font-weight: 600; text-align: right; }
+  .compare-card .btn { margin-top: 24px; }
+
+  /* Fiches détaillées */
+  .course-block { border-top: 1px solid var(--border); padding: 90px 0; }
+  .course-stats { display: flex; flex-wrap: wrap; gap: 32px; margin: 32px 0 40px; }
+  .course-stat-num { font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 28px; font-weight: 800; color: var(--accent); }
+  .course-stat-label { font-size: 13px; color: var(--text-dim); margin-top: 4px; }
+  .course-grid { display: grid; grid-template-columns: 1fr; gap: 40px; }
+  @media (min-width: 900px) { .course-grid { grid-template-columns: 1.2fr 0.8fr; } }
+  .obj-list { list-style: none; margin: 16px 0 32px; }
+  .obj-list li { color: var(--text-dim); font-size: 14.5px; margin-bottom: 12px; padding-left: 24px; position: relative; }
+  .obj-list li::before { content: "→"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+  .pill-row { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 8px; }
+  .pill {
+    background: var(--bg-alt); border: 1px solid var(--border); border-radius: 8px;
+    padding: 12px 18px; font-size: 13.5px; color: var(--text);
+  }
+  .side-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 28px; align-self: start; }
+  .side-card h4 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-dim); margin-bottom: 18px; }
+  .info-row { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 13.5px; }
+  .info-row:last-of-type { border-bottom: none; }
+  .info-row .k { color: var(--text-dim); }
+  .info-row .v { color: var(--text); font-weight: 600; text-align: right; max-width: 60%; }
+  .price-block { margin-top: 22px; padding-top: 22px; border-top: 1px solid var(--border); }
+  .price-num { font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 30px; font-weight: 800; color: var(--accent); }
+  .price-note { font-size: 12px; color: var(--text-dim); margin: 6px 0 18px; }
+
+  /* CTA band */
+  .cta-band { text-align: center; background: var(--bg-alt); border-top: 1px solid var(--border); }
+  .cta-band h2 { margin: 0 auto 14px; }
+  .cta-band .lead { margin: 0 auto 32px; }
+
+  footer { padding: 44px 0; border-top: 1px solid var(--border); font-size: 13.5px; color: var(--text-dim); }
+  .footer-inner { display: flex; flex-direction: column; gap: 10px; align-items: center; text-align: center; justify-content: center; }
+  footer a { color: var(--text); font-weight: 600; }
+  footer a:hover { color: var(--accent); }
+
+  /* Cookie consent banner */
+  #cookie-banner {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 100;
+    background: var(--bg-alt); border-top: 1px solid var(--border);
+    box-shadow: 0 -4px 24px rgba(0,0,0,0.4);
+  }
+  .cookie-banner-inner {
+    max-width: 1140px; margin: 0 auto; padding: 20px 24px;
+    display: flex; flex-wrap: wrap; align-items: center; gap: 18px; justify-content: space-between;
+  }
+  .cookie-banner-inner p { font-size: 13.5px; color: var(--text-dim); max-width: 720px; margin: 0; }
+  .cookie-banner-inner a { color: var(--text); text-decoration: underline; }
+  .cookie-banner-actions { display: flex; gap: 10px; flex-shrink: 0; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container header-inner">
+    <a href="index.html" class="logo">NELION<span>.</span></a>
+    <nav>
+      <ul>
+        <li><a href="index.html#offre">L'offre</a></li>
+        <li><a href="formations.html" class="active">Formations</a></li>
+        <li><a href="index.html#temoignages">Témoignages</a></li>
+        <li><a href="audit-ia.html">Audit gratuit</a></li>
+      </ul>
+    </nav>
+    <a href="https://calendar.app.google/tMXi9i3qAubQbQXa7" target="_blank" rel="noopener" class="btn btn-sticky header-cta">Réserver un RDV découverte</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="badge"><span class="dot"></span> Éligible CPF & OPCO</div>
+    <h1>Deux formations certifiantes pour maîtriser l'<span class="grad">IA</span> dans votre activité</h1>
+    <p class="sub">Que vous soyez salarié, indépendant ou dirigeant de TPE/PME, choisissez le parcours certifiant adapté à votre métier : contenus rédactionnels et visuels, ou pilotage global de votre entreprise avec l'IA.</p>
+    <div class="hero-ctas">
+      <a href="#initiation" class="btn btn-primary">Formation Initiation</a>
+      <a href="#expertise" class="btn btn-outline">Formation Expertise</a>
+    </div>
+  </div>
+</section>
+
+<section id="vue-ensemble" style="padding-top:0;">
+  <div class="container">
+    <div class="section-label">Vue d'ensemble</div>
+    <h2>Quelle formation pour votre profil ?</h2>
+    <p class="lead">Un aperçu rapide pour identifier le parcours le plus adapté avant d'aller dans le détail.</p>
+    <div class="compare-grid">
+      <div class="compare-card">
+        <span class="tag">RS6776 · Formation Initiation</span>
+        <h3>Création de contenus rédactionnels &amp; visuels par l'IA</h3>
+        <div class="meta-row"><span class="k">Durée</span><span class="v">40h (26h e-learning + 14h présentiel)</span></div>
+        <div class="meta-row"><span class="k">Public</span><span class="v">Salariés, assistants de direction, commerciaux</span></div>
+        <div class="meta-row"><span class="k">Tarif</span><span class="v">1 790 € (TVA exonérée)</span></div>
+        <div class="meta-row"><span class="k">Financement</span><span class="v">CPF, OPCO, France Travail</span></div>
+        <a href="#initiation" class="btn btn-outline">Voir le programme détaillé</a>
+      </div>
+      <div class="compare-card">
+        <span class="tag">RS7311 · Formation Expertise</span>
+        <h3>Améliorer l'efficacité de sa TPE à l'aide de l'IA</h3>
+        <div class="meta-row"><span class="k">Durée</span><span class="v">44h (30h e-learning + 14h présentiel)</span></div>
+        <div class="meta-row"><span class="k">Public</span><span class="v">Dirigeant(e)s, indépendants, porteurs de projet</span></div>
+        <div class="meta-row"><span class="k">Tarif</span><span class="v">1 990 €</span></div>
+        <div class="meta-row"><span class="k">Financement</span><span class="v">CPF, OPCO, France Travail</span></div>
+        <a href="#expertise" class="btn btn-outline">Voir le programme détaillé</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMATION INITIATION -->
+<section class="course-block" id="initiation">
+  <div class="container">
+    <div class="section-label">Formation Initiation · Certification CPF — RS6776 · Certificateur Inkréa Certifications</div>
+    <h2>Création de contenus rédactionnels et visuels par l'usage responsable de l'IA générative</h2>
+    <p class="lead">Produisez rapidement des contenus texte et visuels professionnels, accessibles et conformes au RGPD et à l'IA Act — sur vos propres cas métier.</p>
+
+    <div class="course-stats">
+      <div>
+        <div class="course-stat-num">40h</div>
+        <div class="course-stat-label">au total</div>
+      </div>
+      <div>
+        <div class="course-stat-num">26h</div>
+        <div class="course-stat-label">e-learning · 12 mois d'accès</div>
+      </div>
+      <div>
+        <div class="course-stat-num">14h</div>
+        <div class="course-stat-label">en présentiel · 9 ateliers</div>
+      </div>
+    </div>
+
+    <div class="course-grid">
+      <div>
+        <h3 style="font-size:18px; margin-bottom:6px;">Objectifs pédagogiques</h3>
+        <ul class="obj-list">
+          <li>Définir une stratégie d'implémentation de l'IA générative adaptée à son contexte professionnel et aux outils existants (ChatGPT, Google Gemini, Adobe Firefly, Microsoft Copilot)</li>
+          <li>Utiliser de manière optimale les outils d'IA générative pour créer des contenus rédactionnels et visuels accessibles et respectueux de la confidentialité des données</li>
+          <li>Évaluer et résoudre les problématiques éthiques et réglementaires liées à l'IA générative, dans le cadre de l'IA Act et du RGPD</li>
+        </ul>
+        <div class="pill-row">
+          <div class="pill">Programme e-learning — 26h</div>
+          <div class="pill">Ateliers en présentiel — 14h</div>
+        </div>
+      </div>
+
+      <div class="side-card">
+        <h4>Informations pratiques</h4>
+        <div class="info-row"><span class="k">Public visé</span><span class="v">Salariés, assistants de direction, commerciaux</span></div>
+        <div class="info-row"><span class="k">Prérequis</span><span class="v">Aucune connaissance IA requise</span></div>
+        <div class="info-row"><span class="k">Accès plateforme</span><span class="v">12 mois, 7j/7</span></div>
+        <div class="info-row"><span class="k">Format présentiel</span><span class="v">Effectif réduit</span></div>
+        <div class="info-row"><span class="k">Évaluation</span><span class="v">Écrit (6 cas) + oral 20 min</span></div>
+        <div class="info-row"><span class="k">Délai d'accès</span><span class="v">48h à 2 mois</span></div>
+        <div class="price-block">
+          <div class="price-num">1 790 €</div>
+          <p class="price-note">TVA exonérée (formation professionnelle) · éligible CPF, Fonds de formation, France Travail, autofinancement</p>
+          <a href="https://calendar.app.google/tMXi9i3qAubQbQXa7" target="_blank" rel="noopener" class="btn btn-primary btn-full" style="width:100%;">Réserver un RDV découverte</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMATION EXPERTISE -->
+<section class="course-block" id="expertise">
+  <div class="container">
+    <div class="section-label">Formation Expertise · Certification CPF — RS7311 · Porteur CréActifs</div>
+    <h2>Améliorer l'efficacité de sa TPE à l'aide de l'intelligence artificielle</h2>
+    <p class="lead">Identifiez vos opportunités IA, automatisez vos tâches récurrentes et pilotez votre entreprise avec l'IA — jusqu'à un projet concret présenté devant jury.</p>
+
+    <div class="course-stats">
+      <div>
+        <div class="course-stat-num">44h</div>
+        <div class="course-stat-label">au total</div>
+      </div>
+      <div>
+        <div class="course-stat-num">30h</div>
+        <div class="course-stat-label">e-learning · 12 mois d'accès</div>
+      </div>
+      <div>
+        <div class="course-stat-num">14h</div>
+        <div class="course-stat-label">en présentiel · 2 jours × 7h</div>
+      </div>
+    </div>
+
+    <div class="course-grid">
+      <div>
+        <h3 style="font-size:18px; margin-bottom:6px;">Objectifs de la formation</h3>
+        <ul class="obj-list">
+          <li>Identifier les opportunités d'application de l'IA au sein de votre entreprise</li>
+          <li>Générer des contenus (texte, image, vidéo) à l'aide de l'IA et maîtriser le prompt engineering</li>
+          <li>Analyser et synthétiser des données avec l'IA pour faciliter la prise de décision</li>
+          <li>Automatiser des tâches et workflows récurrents avec des outils no-code</li>
+          <li>Construire une stratégie d'implémentation de l'IA adaptée à votre structure</li>
+          <li>Intégrer les dernières évolutions de l'IA dans votre pratique professionnelle</li>
+        </ul>
+        <div class="pill-row">
+          <div class="pill">Programme e-learning — 30h</div>
+          <div class="pill">Séances en présentiel — 14h</div>
+        </div>
+      </div>
+
+      <div class="side-card">
+        <h4>Informations pratiques</h4>
+        <div class="info-row"><span class="k">Public visé</span><span class="v">Dirigeant(e)s, indépendants, porteurs de projet</span></div>
+        <div class="info-row"><span class="k">Prérequis</span><span class="v">Notions de base en IA générative</span></div>
+        <div class="info-row"><span class="k">Accès plateforme</span><span class="v">12 mois, 7j/7</span></div>
+        <div class="info-row"><span class="k">Format présentiel</span><span class="v">2 jours × 7h, en groupe</span></div>
+        <div class="info-row"><span class="k">Évaluation</span><span class="v">Dossier de projet + oral 20 min</span></div>
+        <div class="info-row"><span class="k">Délai d'accès</span><span class="v">48h à 2 mois</span></div>
+        <div class="price-block">
+          <div class="price-num">1 990 €</div>
+          <p class="price-note">Éligible CPF, Fonds de formation, France Travail, autofinancement</p>
+          <a href="https://calendar.app.google/tMXi9i3qAubQbQXa7" target="_blank" rel="noopener" class="btn btn-primary btn-full" style="width:100%;">Réserver un RDV découverte</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container">
+    <div class="section-label" style="margin-left:auto; margin-right:auto;">Pas sûr du bon choix ?</div>
+    <h2 class="center">Faisons le point ensemble</h2>
+    <p class="lead center">15 minutes suffisent pour vérifier votre éligibilité au financement et identifier la formation la plus utile pour votre activité.</p>
+    <div class="hero-ctas">
+      <a href="https://calendar.app.google/tMXi9i3qAubQbQXa7" target="_blank" rel="noopener" class="btn btn-primary">Réserver un RDV découverte</a>
+      <a href="audit-ia.html" class="btn btn-outline">Faire mon audit rapide gratuit</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-inner">
+    <div>© <span id="year"></span> Nelion — Accompagnement à la transition IA pour TPE/PME</div>
+    <div><a href="mentions-legales.html">Mentions légales</a> · <a href="confidentialite.html">Politique de confidentialité</a></div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// Tracking des clics sur les CTA externes vers Google Calendar (RDV découverte)
+document.querySelectorAll('a[href*="calendar.app.google"]').forEach(function (link) {
+  link.addEventListener('click', function () {
+    if (typeof plausible === 'function') {
+      plausible('RDV Calendar Click', { props: { page: 'formations' } });
+    }
+  });
+});
+</script>
+
+<script src="cookie-consent.js" defer></script>
+
+</body>
+</html>
