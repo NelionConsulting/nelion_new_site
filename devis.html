@@ -5,10 +5,59 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Demande de devis | Nelion</title>
 <meta name="description" content="Décrivez votre projet — agents IA sur-mesure ou accompagnement à la transition — et recevez un devis personnalisé.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700;800&display=swap" rel="stylesheet">
+<link rel="canonical" href="https://www.nelion.fr/devis.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Demande de devis | Nelion">
+<meta property="og:description" content="Décrivez votre projet — agents IA sur-mesure ou accompagnement à la transition — et recevez un devis personnalisé.">
+<meta property="og:url" content="https://www.nelion.fr/devis.html">
+<meta property="og:image" content="https://www.nelion.fr/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Demande de devis | Nelion">
+<meta name="twitter:description" content="Décrivez votre projet — agents IA sur-mesure ou accompagnement à la transition — et recevez un devis personnalisé.">
+<meta name="twitter:image" content="https://www.nelion.fr/og-image.png">
+
+<!-- Plausible Analytics : mesure d'audience sans cookie, aucun consentement requis -->
+<script defer data-domain="nelion.fr" src="https://plausible.io/js/script.js"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Nelion Consulting",
+  "url": "https://www.nelion.fr/",
+  "logo": "https://www.nelion.fr/favicon.svg",
+  "email": "maxime@nelion.fr",
+  "founder": { "@type": "Person", "name": "Maxime Strauss" },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "17 rue des Pommiers",
+    "postalCode": "68180",
+    "addressLocality": "Horbourg-Wihr",
+    "addressCountry": "FR"
+  },
+  "areaServed": "FR"
+}
+</script>
+
 <style>
+  /* Police self-hostée (plus de dépendance à Google Fonts) */
+  @font-face {
+    font-family: 'JetBrains Mono';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('fonts/jetbrains-mono-700.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'JetBrains Mono';
+    font-style: normal;
+    font-weight: 800;
+    font-display: swap;
+    src: url('fonts/jetbrains-mono-800.ttf') format('truetype');
+  }
   :root {
     --bg: #0b0c0e;
     --bg-alt: #131519;
@@ -76,6 +125,7 @@
   .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
   @media (max-width: 520px) { .field-row { grid-template-columns: 1fr; } }
   .form-note { font-size: 12.5px; color: var(--text-dim); margin: -6px 0 24px; }
+  .field-error { display: none; color: #ff6b6b; font-size: 12.5px; margin-top: 6px; }
   .section-title { font-size: 13.5px; color: var(--text-dim); font-weight: 600; margin: 32px 0 14px; text-transform: uppercase; letter-spacing: 0.5px; }
 
   .options { display: flex; flex-direction: column; gap: 12px; margin-bottom: 4px; }
@@ -110,6 +160,22 @@
   .result-ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 
   footer { border-top: 1px solid var(--border); padding: 30px 0; text-align: center; font-size: 13px; color: var(--text-dim); }
+  footer a { color: var(--text-dim); text-decoration: underline; }
+  footer a:hover { color: var(--accent); }
+
+  /* Cookie consent banner */
+  #cookie-banner {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 100;
+    background: var(--bg-alt); border-top: 1px solid var(--border);
+    box-shadow: 0 -4px 24px rgba(0,0,0,0.4);
+  }
+  .cookie-banner-inner {
+    max-width: 720px; margin: 0 auto; padding: 20px 24px;
+    display: flex; flex-wrap: wrap; align-items: center; gap: 18px; justify-content: space-between;
+  }
+  .cookie-banner-inner p { font-size: 13.5px; color: var(--text-dim); max-width: 720px; margin: 0; }
+  .cookie-banner-inner a { color: var(--text); text-decoration: underline; }
+  .cookie-banner-actions { display: flex; gap: 10px; flex-shrink: 0; }
 </style>
 </head>
 <body>
@@ -146,7 +212,8 @@
         </div>
         <div class="field">
           <label for="telephone">Téléphone *</label>
-          <input type="tel" id="telephone" required placeholder="06 12 34 56 78">
+          <input type="tel" id="telephone" required placeholder="06 12 34 56 78" pattern="^(?:\+33|0)[1-9](?:[\s.-]?\d{2}){4}$">
+          <div class="field-error" id="telephone-error">Merci de saisir un numéro de téléphone français valide (ex : 06 12 34 56 78).</div>
         </div>
       </div>
       <div class="field-row">
@@ -185,8 +252,15 @@
         </select>
       </div>
 
-      <div class="form-note">En validant, vous acceptez d'être recontacté par Nelion au sujet de votre demande de devis.</div>
+      <!-- Honeypot anti-spam : champ invisible pour les humains, rempli seulement par les bots -->
+      <div style="position:absolute; left:-9999px; top:-9999px;" aria-hidden="true">
+        <label for="societe_site">Ne pas remplir ce champ</label>
+        <input type="text" id="societe_site" name="societe_site" tabindex="-1" autocomplete="off">
+      </div>
+
+      <div class="form-note">En validant, vous acceptez d'être recontacté par Nelion au sujet de votre demande de devis. Vos données sont transmises à Google Forms pour traitement — voir notre <a href="confidentialite.html" style="color:var(--text);text-decoration:underline;">politique de confidentialité</a>.</div>
       <button type="submit" class="btn btn-primary btn-full" id="submitBtn">Envoyer ma demande de devis</button>
+      <div id="formStatus" style="display:none; margin-top:14px; font-size:13.5px; color:var(--text-dim);"></div>
     </form>
   </div>
 
@@ -194,7 +268,7 @@
   <div class="result-card" id="resultCard">
     <div class="check-ring">✓</div>
     <div class="result-title">Votre demande a bien été envoyée</div>
-    <p class="result-text">Merci ! Nous revenons vers vous sous peu avec un devis adapté à votre projet. Pour aller plus vite, vous pouvez aussi réserver directement un RDV découverte.</p>
+    <p class="result-text">Merci ! Nous revenons vers vous sous peu avec un devis adapté à votre projet. Si vous ne recevez rien sous 24h, contactez-nous directement à <a href="mailto:maxime@nelion.fr" style="color:var(--accent);text-decoration:underline;">maxime@nelion.fr</a>. Pour aller plus vite, vous pouvez aussi réserver directement un RDV découverte.</p>
     <div class="result-ctas">
       <a href="https://calendar.app.google/tMXi9i3qAubQbQXa7" target="_blank" rel="noopener" class="btn btn-primary">Réserver mon RDV découverte</a>
       <a href="index.html" class="btn btn-outline">Retour au site</a>
@@ -203,10 +277,19 @@
 
 </main>
 
-<footer>© <span id="year"></span> Nelion — Accompagnement à la transition IA pour TPE/PME</footer>
+<footer>© <span id="year"></span> Nelion — Accompagnement à la transition IA pour TPE/PME · <a href="mentions-legales.html">Mentions légales</a> · <a href="confidentialite.html">Confidentialité</a></footer>
 
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
+
+// Tracking des clics sur les CTA externes vers Google Calendar (RDV découverte)
+document.querySelectorAll('a[href*="calendar.app.google"]').forEach(function (link) {
+  link.addEventListener('click', function () {
+    if (typeof plausible === 'function') {
+      plausible('RDV Calendar Click', { props: { page: 'devis' } });
+    }
+  });
+});
 
 // Besoin selector
 const besoinOptions = document.querySelectorAll('#besoinOptions .option');
@@ -219,15 +302,35 @@ besoinOptions.forEach(opt => {
   });
 });
 
+// Validation format téléphone français (mobile ou fixe, avec ou sans indicatif +33)
+const PHONE_REGEX = /^(?:\+33|0)[1-9](?:[\s.-]?\d{2}){4}$/;
+
 function submitDevis(e) {
   e.preventDefault();
+
+  // Honeypot anti-spam : si ce champ caché est rempli, on ignore silencieusement la soumission
+  const honeypot = document.getElementById('societe_site');
+  if (honeypot && honeypot.value.trim() !== '') {
+    console.warn('Soumission ignorée (honeypot rempli).');
+    return false;
+  }
 
   if (!besoinInput.value) {
     alert('Merci de sélectionner votre besoin principal.');
     return false;
   }
 
+  const telField = document.getElementById('telephone');
+  const telError = document.getElementById('telephone-error');
+  if (!PHONE_REGEX.test(telField.value.trim())) {
+    telError.style.display = 'block';
+    telField.focus();
+    return false;
+  }
+  telError.style.display = 'none';
+
   const submitBtn = document.getElementById('submitBtn');
+  const formStatus = document.getElementById('formStatus');
   submitBtn.disabled = true;
   submitBtn.textContent = 'Envoi en cours…';
 
@@ -235,7 +338,7 @@ function submitDevis(e) {
     prenom: document.getElementById('prenom').value.trim(),
     nom: document.getElementById('nom').value.trim(),
     email: document.getElementById('email').value.trim(),
-    telephone: document.getElementById('telephone').value.trim(),
+    telephone: telField.value.trim(),
     ville: document.getElementById('ville').value.trim(),
     entreprise: document.getElementById('entreprise').value.trim(),
     besoin: besoinInput.value,
@@ -243,10 +346,16 @@ function submitDevis(e) {
     budget: document.getElementById('budget').value
   };
 
-  sendToGoogleForm(data);
+  sendToGoogleForm(data).finally(() => {
+    // Google Forms est appelé en mode no-cors : on ne peut jamais lire la réponse côté Google.
+    // On affiche donc toujours un message de confirmation clair, avec une solution de repli
+    // (email direct) si jamais l'envoi n'était pas arrivé côté Nelion.
+    formStatus.style.display = 'block';
+    formStatus.textContent = 'Demande envoyée.';
+    document.getElementById('quoteForm').classList.add('hidden');
+    document.getElementById('resultCard').classList.add('active');
+  });
 
-  document.getElementById('quoteForm').classList.add('hidden');
-  document.getElementById('resultCard').classList.add('active');
   return false;
 }
 
@@ -279,13 +388,19 @@ function sendToGoogleForm(data) {
   formData.append(ENTRY_IDS.description, data.description);
   if (data.budget) formData.append(ENTRY_IDS.budget, data.budget);
 
-  fetch(GOOGLE_FORM_ACTION_URL, {
+  if (typeof plausible === 'function') {
+    plausible('Devis soumis', { props: { besoin: data.besoin } });
+  }
+
+  return fetch(GOOGLE_FORM_ACTION_URL, {
     method: 'POST',
     mode: 'no-cors',
     body: formData
   }).catch(() => { /* no-cors: on ne peut pas lire la réponse, c'est normal */ });
 }
 </script>
+
+<script src="cookie-consent.js" defer></script>
 
 </body>
 </html>

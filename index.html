@@ -4,11 +4,91 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nelion | Accompagnement à la transition IA pour TPE & PME</title>
-<meta name="description" content="Formations certifiantes IA éligibles CPF/OPCO, mise en place d'agents IA sur-mesure et accompagnement à la transition pour les TPE/PME partout en France. Réservez un audit rapide gratuit.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700;800&display=swap" rel="stylesheet">
+<meta name="description" content="Formations IA éligibles CPF/OPCO, agents IA sur-mesure et accompagnement à la transition pour les TPE/PME en France.">
+<link rel="canonical" href="https://www.nelion.fr/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Nelion | Accompagnement à la transition IA pour TPE & PME">
+<meta property="og:description" content="Formations IA éligibles CPF/OPCO, agents IA sur-mesure et accompagnement à la transition pour les TPE/PME en France.">
+<meta property="og:url" content="https://www.nelion.fr/">
+<meta property="og:image" content="https://www.nelion.fr/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Nelion | Accompagnement à la transition IA pour TPE & PME">
+<meta name="twitter:description" content="Formations IA éligibles CPF/OPCO, agents IA sur-mesure et accompagnement à la transition pour les TPE/PME en France.">
+<meta name="twitter:image" content="https://www.nelion.fr/og-image.png">
+
+<!-- Plausible Analytics : mesure d'audience sans cookie, aucun consentement requis -->
+<script defer data-domain="nelion.fr" src="https://plausible.io/js/script.js"></script>
+
+<!-- JetBrains Mono est self-hostée (voir @font-face plus bas + fichiers dans /fonts) : plus de dépendance à Google Fonts. -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Nelion Consulting",
+  "url": "https://www.nelion.fr/",
+  "logo": "https://www.nelion.fr/favicon.svg",
+  "email": "maxime@nelion.fr",
+  "founder": { "@type": "Person", "name": "Maxime Strauss" },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "17 rue des Pommiers",
+    "postalCode": "68180",
+    "addressLocality": "Horbourg-Wihr",
+    "addressCountry": "FR"
+  },
+  "areaServed": "FR",
+  "description": "Formations certifiantes IA éligibles CPF/OPCO, agents IA sur-mesure et accompagnement à la transition IA pour les TPE/PME."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "La formation est-elle vraiment finançable via CPF ou OPCO ?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Oui, selon votre statut et votre OPCO. On vérifie ensemble votre éligibilité au financement dès le premier échange." }
+    },
+    {
+      "@type": "Question",
+      "name": "Faut-il déjà connaître l'IA pour se lancer ?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Non. L'accompagnement s'adapte à votre niveau de départ, que vous partiez de zéro ou que vous cherchiez à structurer des usages déjà en place." }
+    },
+    {
+      "@type": "Question",
+      "name": "Qu'est-ce qu'un \"agent IA sur-mesure\" concrètement ?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Un outil conçu pour automatiser une tâche précise de votre activité (réponses clients, traitement de documents, reporting...), configuré et testé sur votre contexte réel." }
+    },
+    {
+      "@type": "Question",
+      "name": "Intervenez-vous partout en France ?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Oui, à distance ou sur site selon les besoins, pour des entreprises de tous secteurs." }
+    }
+  ]
+}
+</script>
+
 <style>
+  /* Police self-hostée (plus de dépendance à Google Fonts) */
+  @font-face {
+    font-family: 'JetBrains Mono';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('fonts/jetbrains-mono-700.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'JetBrains Mono';
+    font-style: normal;
+    font-weight: 800;
+    font-display: swap;
+    src: url('fonts/jetbrains-mono-800.ttf') format('truetype');
+  }
   :root {
     --bg: #0b0c0e;
     --bg-alt: #131519;
@@ -58,6 +138,13 @@
   .btn-primary:hover { filter: brightness(1.08); transform: translateY(-1px); }
   .btn-outline { border: 1.5px solid var(--border); color: var(--text); }
   .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+  /* CTA sticky du header : néon cyan pour se distinguer des CTA amber/orange qui apparaissent au scroll */
+  .btn-sticky {
+    background: linear-gradient(90deg, #35e6ff, #00b8d9);
+    color: var(--accent-text);
+    box-shadow: 0 0 18px rgba(53,230,255,0.35);
+  }
+  .btn-sticky:hover { filter: brightness(1.08); transform: translateY(-1px); box-shadow: 0 0 24px rgba(53,230,255,0.5); }
   .header-cta { display: none; }
   @media (min-width: 640px) { .header-cta { display: inline-block; } }
 
@@ -224,6 +311,20 @@
   .footer-inner { display: flex; flex-direction: column; gap: 10px; align-items: center; text-align: center; justify-content: center; }
   footer a { color: var(--text); font-weight: 600; }
   footer a:hover { color: var(--accent); }
+
+  /* Cookie consent banner */
+  #cookie-banner {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 100;
+    background: var(--bg-alt); border-top: 1px solid var(--border);
+    box-shadow: 0 -4px 24px rgba(0,0,0,0.4);
+  }
+  .cookie-banner-inner {
+    max-width: 1140px; margin: 0 auto; padding: 20px 24px;
+    display: flex; flex-wrap: wrap; align-items: center; gap: 18px; justify-content: space-between;
+  }
+  .cookie-banner-inner p { font-size: 13.5px; color: var(--text-dim); max-width: 720px; margin: 0; }
+  .cookie-banner-inner a { color: var(--text); text-decoration: underline; }
+  .cookie-banner-actions { display: flex; gap: 10px; flex-shrink: 0; }
 </style>
 </head>
 <body>
@@ -239,7 +340,7 @@
         <li><a href="#audit">Audit gratuit</a></li>
       </ul>
     </nav>
-    <a href="https://calendar.app.google/tMXi9i3qAubQbQXa7" target="_blank" rel="noopener" class="btn btn-primary header-cta">Réserver un RDV découverte</a>
+    <a href="https://calendar.app.google/tMXi9i3qAubQbQXa7" target="_blank" rel="noopener" class="btn btn-sticky header-cta">Réserver un RDV découverte</a>
   </div>
 </header>
 
@@ -471,10 +572,24 @@
 <footer>
   <div class="container footer-inner">
     <div>© <span id="year"></span> Nelion — Accompagnement à la transition IA pour TPE/PME</div>
+    <div><a href="mentions-legales.html">Mentions légales</a> · <a href="confidentialite.html">Politique de confidentialité</a></div>
   </div>
 </footer>
 
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// Tracking des clics sur les CTA externes vers Google Calendar (RDV découverte)
+document.querySelectorAll('a[href*="calendar.app.google"]').forEach(function (link) {
+  link.addEventListener('click', function () {
+    if (typeof plausible === 'function') {
+      plausible('RDV Calendar Click', { props: { page: 'index' } });
+    }
+  });
+});
+</script>
+
+<script src="cookie-consent.js" defer></script>
 
 </body>
 </html>
