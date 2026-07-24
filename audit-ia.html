@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Audit IA gratuit en 2 minutes | Nelion</title>
+<meta name="description" content="Évaluez en 2 minutes le potentiel IA de votre entreprise et obtenez votre score sur 10, avec des recommandations concrètes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0b0c0e;
+    --bg-alt: #131519;
+    --card: #1a1d22;
+    --border: #262a31;
+    --text: #f2f3f5;
+    --text-dim: #a6acb5;
+    --accent: #ffb020;
+    --accent2: #ff7a1a;
+    --accent-text: #0b0c0e;
+    --mono: 'JetBrains Mono', 'Courier New', monospace;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+  a { text-decoration: none; color: inherit; }
+  .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+  header {
+    border-bottom: 1px solid var(--border);
+    padding: 18px 0;
+  }
+  .header-inner { display: flex; align-items: center; justify-content: space-between; max-width: 720px; margin: 0 auto; padding: 0 24px; }
+  .logo { font-size: 20px; font-weight: 800; }
+  .logo span { color: var(--accent); }
+  .back-link { font-size: 13.5px; color: var(--text-dim); }
+  .back-link:hover { color: var(--text); }
+
+  main { padding: 56px 0 90px; }
+
+  .eyebrow {
+    font-family: var(--mono); text-transform: uppercase; letter-spacing: 2px;
+    font-size: 12.5px; color: var(--accent); font-weight: 700; margin-bottom: 14px;
+  }
+  h1 { font-size: 32px; font-weight: 800; margin-bottom: 14px; letter-spacing: -0.5px; }
+  .intro p { color: var(--text-dim); font-size: 16px; margin-bottom: 28px; max-width: 560px; }
+  .intro ul { list-style: none; margin-bottom: 36px; }
+  .intro li { color: var(--text-dim); font-size: 14.5px; margin-bottom: 10px; padding-left: 22px; position: relative; }
+  .intro li::before { content: "→"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    font-weight: 700; font-size: 15px; padding: 14px 30px; border-radius: 6px;
+    border: none; cursor: pointer; transition: all 0.2s ease; font-family: inherit;
+  }
+  .btn-primary { background: linear-gradient(90deg, var(--accent), var(--accent2)); color: var(--accent-text); }
+  .btn-primary:hover { filter: brightness(1.08); transform: translateY(-1px); }
+  .btn-primary:disabled { opacity: 0.4; cursor: not-allowed; transform: none; filter: none; }
+  .btn-outline { border: 1.5px solid var(--border); color: var(--text); background: transparent; }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+  .btn-full { width: 100%; }
+
+  /* Progress */
+  .progress-wrap { margin-bottom: 40px; }
+  .progress-label { display: flex; justify-content: space-between; font-family: var(--mono); font-size: 12px; color: var(--text-dim); margin-bottom: 10px; }
+  .progress-bar { height: 6px; background: var(--card); border-radius: 999px; overflow: hidden; }
+  .progress-fill { height: 100%; background: linear-gradient(90deg, var(--accent), var(--accent2)); border-radius: 999px; transition: width 0.3s ease; width: 0%; }
+
+  /* Question card */
+  .q-card { display: none; }
+  .q-card.active { display: block; animation: fadeIn 0.25s ease; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+  .q-num { font-family: var(--mono); font-size: 12.5px; color: var(--accent); font-weight: 700; margin-bottom: 10px; }
+  .q-title { font-size: 21px; font-weight: 700; margin-bottom: 24px; max-width: 560px; }
+  .options { display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
+  .option {
+    background: var(--card); border: 1.5px solid var(--border); border-radius: 8px;
+    padding: 16px 18px; cursor: pointer; font-size: 15px; transition: all 0.15s ease;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .option:hover { border-color: var(--accent); }
+  .option.selected { border-color: var(--accent); background: rgba(255,176,32,0.08); }
+  .option .radio {
+    width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid var(--text-dim);
+    flex-shrink: 0; position: relative;
+  }
+  .option.selected .radio { border-color: var(--accent); }
+  .option.selected .radio::after {
+    content: ""; position: absolute; inset: 3px; border-radius: 50%; background: var(--accent);
+  }
+  .q-nav { display: flex; justify-content: space-between; gap: 12px; }
+
+  /* Contact gate */
+  .form-card { display: none; }
+  .form-card.active { display: block; animation: fadeIn 0.25s ease; }
+  .field { margin-bottom: 18px; }
+  .field label { display: block; font-size: 13.5px; color: var(--text-dim); margin-bottom: 8px; font-weight: 600; }
+  .field input, .field select {
+    width: 100%; background: var(--card); border: 1.5px solid var(--border); border-radius: 6px;
+    padding: 13px 14px; color: var(--text); font-size: 15px; font-family: inherit;
+  }
+  .field input:focus, .field select:focus { outline: none; border-color: var(--accent); }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 520px) { .field-row { grid-template-columns: 1fr; } }
+  .form-note { font-size: 12.5px; color: var(--text-dim); margin: -4px 0 24px; }
+
+  /* Results */
+  .result-card { display: none; text-align: center; }
+  .result-card.active { display: block; animation: fadeIn 0.3s ease; }
+  .score-ring {
+    width: 180px; height: 180px; border-radius: 50%; margin: 0 auto 28px;
+    display: flex; align-items: center; justify-content: center; flex-direction: column;
+    background: radial-gradient(circle, rgba(255,176,32,0.12), transparent 70%);
+    border: 3px solid var(--accent);
+  }
+  .score-num { font-family: var(--mono); font-size: 52px; font-weight: 800; color: var(--accent); line-height: 1; }
+  .score-den { font-family: var(--mono); font-size: 15px; color: var(--text-dim); margin-top: 4px; }
+  .result-title { font-size: 24px; font-weight: 800; margin-bottom: 14px; }
+  .result-text { color: var(--text-dim); font-size: 15.5px; max-width: 500px; margin: 0 auto 32px; }
+  .result-ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+  footer { border-top: 1px solid var(--border); padding: 30px 0; text-align: center; font-size: 13px; color: var(--text-dim); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">NELION<span>.</span></div>
+    <a href="index.html" class="back-link">← Retour au site</a>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- INTRO -->
+  <div class="q-card active" id="intro">
+    <div class="eyebrow">Audit IA gratuit · 2 minutes</div>
+    <h1>Quel est le potentiel IA de votre entreprise ?</h1>
+    <div class="intro">
+      <p>Répondez à 10 questions rapides sur votre activité. Vous obtenez immédiatement un score sur 10 et des pistes concrètes pour gagner du temps grâce à l'IA.</p>
+      <ul>
+        <li>10 questions, 2 minutes maximum</li>
+        <li>Un score sur 10 et une lecture claire de votre potentiel</li>
+        <li>Une proposition de RDV découverte pour aller plus loin, sans obligation</li>
+      </ul>
+      <button class="btn btn-primary" onclick="startQuiz()">Démarrer mon audit gratuit</button>
+    </div>
+  </div>
+
+  <!-- PROGRESS (shown during questions) -->
+  <div class="progress-wrap" id="progressWrap" style="display:none;">
+    <div class="progress-label"><span id="progressText">Question 1 / 10</span><span id="progressPct">10%</span></div>
+    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+  </div>
+
+  <!-- QUESTIONS injected by JS -->
+  <div id="questionsWrap"></div>
+
+  <!-- CONTACT GATE -->
+  <div class="form-card" id="contactGate">
+    <div class="eyebrow">Dernière étape</div>
+    <h1 style="font-size:26px;">Où doit-on envoyer votre score ?</h1>
+    <p style="color:var(--text-dim); font-size:15px; margin-bottom:28px;">Vos coordonnées nous permettent de vous transmettre votre résultat détaillé et, si vous le souhaitez, de vous recontacter pour en discuter.</p>
+    <form id="contactForm" onsubmit="return submitContact(event)">
+      <div class="field-row">
+        <div class="field">
+          <label for="prenom">Prénom *</label>
+          <input type="text" id="prenom" required>
+        </div>
+        <div class="field">
+          <label for="nom">Nom *</label>
+          <input type="text" id="nom" required>
+        </div>
+      </div>
+      <div class="field">
+        <label for="email">Email *</label>
+        <input type="email" id="email" required>
+      </div>
+      <div class="field">
+        <label for="mobile">Téléphone mobile *</label>
+        <input type="tel" id="mobile" required placeholder="06 12 34 56 78">
+      </div>
+      <div class="field">
+        <label for="secteur">Secteur d'activité *</label>
+        <select id="secteur" required>
+          <option value="" disabled selected>Sélectionnez votre secteur</option>
+          <option>Commerce / Distribution</option>
+          <option>Artisanat / BTP</option>
+          <option>Services aux entreprises</option>
+          <option>Santé / Bien-être</option>
+          <option>Restauration / Hôtellerie</option>
+          <option>Industrie / Production</option>
+          <option>Conseil / Formation</option>
+          <option>Immobilier</option>
+          <option>Technologie / Digital</option>
+          <option>Autre</option>
+        </select>
+      </div>
+      <div class="form-note">En validant, vous acceptez d'être recontacté par Nelion au sujet de votre audit IA.</div>
+      <button type="submit" class="btn btn-primary btn-full">Voir mon score</button>
+    </form>
+  </div>
+
+  <!-- RESULTS -->
+  <div class="result-card" id="resultCard">
+    <div class="eyebrow" style="justify-content:center; display:flex;">Votre résultat</div>
+    <div class="score-ring">
+      <div class="score-num" id="scoreNum">0</div>
+      <div class="score-den">/ 10</div>
+    </div>
+    <div class="result-title" id="resultTitle"></div>
+    <p class="result-text" id="resultText"></p>
+    <div class="result-ctas">
+      <a href="https://calendar.app.google/tMXi9i3qAubQbQXa7" target="_blank" rel="noopener" class="btn btn-primary">Réserver mon RDV découverte</a>
+      <a href="index.html" class="btn btn-outline">Retour au site</a>
+    </div>
+  </div>
+
+</main>
+
+<footer>© <span id="year"></span> Nelion — Accompagnement à la transition IA pour TPE/PME</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// ---- QUESTIONS -------------------------------------------------------
+// Each option value = points (0, 0.5 or 1). Sum of the 10 answers = score /10.
+const questions = [
+  {
+    q: "Combien de temps votre équipe passe-t-elle chaque semaine sur des tâches répétitives (emails, saisie, reporting) ?",
+    options: [
+      { label: "Moins de 2 heures", v: 0 },
+      { label: "Entre 2 et 8 heures", v: 0.5 },
+      { label: "Plus de 8 heures", v: 1 }
+    ]
+  },
+  {
+    q: "Utilisez-vous déjà un outil d'IA générative (ChatGPT, Copilot...) dans votre activité ?",
+    options: [
+      { label: "Jamais utilisé", v: 1 },
+      { label: "Usage ponctuel, sans méthode", v: 0.5 },
+      { label: "Oui, de façon régulière et structurée", v: 0 }
+    ]
+  },
+  {
+    q: "Comment traitez-vous vos demandes clients (mails, appels, devis) ?",
+    options: [
+      { label: "Tout est traité manuellement", v: 1 },
+      { label: "Quelques modèles ou réponses types", v: 0.5 },
+      { label: "Déjà en partie automatisé", v: 0 }
+    ]
+  },
+  {
+    q: "La rédaction de contenus (devis, mails, comptes-rendus, posts) prend-elle du temps à votre équipe ?",
+    options: [
+      { label: "Non, peu de rédaction au quotidien", v: 0 },
+      { label: "Oui, c'est régulier et chronophage", v: 0.5 },
+      { label: "Oui, c'est un vrai point de friction", v: 1 }
+    ]
+  },
+  {
+    q: "Comment qualifieriez-vous votre gestion administrative et votre reporting ?",
+    options: [
+      { label: "Déjà automatisée ou externalisée", v: 0 },
+      { label: "Semi-manuelle", v: 0.5 },
+      { label: "Entièrement manuelle, source d'erreurs", v: 1 }
+    ]
+  },
+  {
+    q: "La recherche d'informations ou la veille métier vous prend-elle du temps ?",
+    options: [
+      { label: "Rarement", v: 0 },
+      { label: "Occasionnellement, ça prend du temps", v: 0.5 },
+      { label: "Quotidiennement, c'est chronophage", v: 1 }
+    ]
+  },
+  {
+    q: "Qu'est-ce qui vous a le plus freiné jusqu'ici face à l'IA ?",
+    options: [
+      { label: "Je maîtrise déjà bien le sujet", v: 0 },
+      { label: "J'ai essayé seul, sans résultat concret", v: 0.5 },
+      { label: "Je n'ai jamais pris le temps de m'y mettre", v: 1 }
+    ]
+  },
+  {
+    q: "Un budget formation ou innovation est-il prévu cette année ?",
+    options: [
+      { label: "Aucun budget prévu", v: 0 },
+      { label: "Un budget potentiel, à définir", v: 0.5 },
+      { label: "Oui, un budget est déjà prévu", v: 1 }
+    ]
+  },
+  {
+    q: "Quel est votre objectif prioritaire pour les 12 prochains mois ?",
+    options: [
+      { label: "Réduire mes coûts", v: 0.5 },
+      { label: "Gagner du temps sur les tâches répétitives", v: 1 },
+      { label: "Me différencier et innover face à la concurrence", v: 1 }
+    ]
+  },
+  {
+    q: "À quelle vitesse souhaitez-vous avancer sur le sujet IA ?",
+    options: [
+      { label: "Je découvre, pas de calendrier précis", v: 0 },
+      { label: "Je veux avancer dans les prochains mois", v: 0.5 },
+      { label: "Je veux agir dès maintenant", v: 1 }
+    ]
+  }
+];
+
+let current = -1; // -1 = intro
+let answers = new Array(questions.length).fill(null);
+let contact = {};
+
+const questionsWrap = document.getElementById('questionsWrap');
+const progressWrap = document.getElementById('progressWrap');
+const progressFill = document.getElementById('progressFill');
+const progressText = document.getElementById('progressText');
+const progressPct = document.getElementById('progressPct');
+
+// Build question cards
+questions.forEach((q, i) => {
+  const card = document.createElement('div');
+  card.className = 'q-card';
+  card.id = 'q-' + i;
+  card.innerHTML = `
+    <div class="q-num">Question ${i + 1} sur ${questions.length}</div>
+    <div class="q-title">${q.q}</div>
+    <div class="options" id="opts-${i}"></div>
+    <div class="q-nav">
+      <button class="btn btn-outline" onclick="prevQuestion()" ${i === 0 ? 'style="visibility:hidden"' : ''}>← Précédent</button>
+      <button class="btn btn-primary" id="next-${i}" disabled onclick="nextQuestion()">${i === questions.length - 1 ? 'Voir le formulaire' : 'Suivant →'}</button>
+    </div>
+  `;
+  questionsWrap.appendChild(card);
+
+  const optsWrap = card.querySelector(`#opts-${i}`);
+  q.options.forEach((opt, oi) => {
+    const div = document.createElement('div');
+    div.className = 'option';
+    div.innerHTML = `<div class="radio"></div><div>${opt.label}</div>`;
+    div.onclick = () => selectOption(i, oi, opt.v);
+    optsWrap.appendChild(div);
+  });
+});
+
+function selectOption(qi, oi, value) {
+  answers[qi] = value;
+  const optsWrap = document.getElementById(`opts-${qi}`);
+  [...optsWrap.children].forEach((el, idx) => el.classList.toggle('selected', idx === oi));
+  document.getElementById(`next-${qi}`).disabled = false;
+}
+
+function startQuiz() {
+  document.getElementById('intro').classList.remove('active');
+  progressWrap.style.display = 'block';
+  current = 0;
+  showQuestion(0);
+}
+
+function showQuestion(i) {
+  document.querySelectorAll('.q-card').forEach(c => c.classList.remove('active'));
+  document.getElementById('q-' + i).classList.add('active');
+  progressText.textContent = `Question ${i + 1} / ${questions.length}`;
+  const pct = Math.round(((i + 1) / questions.length) * 100);
+  progressFill.style.width = pct + '%';
+  progressPct.textContent = pct + '%';
+}
+
+function nextQuestion() {
+  if (current < questions.length - 1) {
+    current++;
+    showQuestion(current);
+  } else {
+    // move to contact gate
+    document.getElementById('q-' + current).classList.remove('active');
+    progressWrap.style.display = 'none';
+    document.getElementById('contactGate').classList.add('active');
+  }
+}
+
+function prevQuestion() {
+  if (current > 0) {
+    current--;
+    showQuestion(current);
+  }
+}
+
+function computeScore() {
+  const sum = answers.reduce((a, b) => a + (b || 0), 0);
+  return Math.round(sum * 10) / 10;
+}
+
+function submitContact(e) {
+  e.preventDefault();
+  contact = {
+    prenom: document.getElementById('prenom').value.trim(),
+    nom: document.getElementById('nom').value.trim(),
+    email: document.getElementById('email').value.trim(),
+    mobile: document.getElementById('mobile').value.trim(),
+    secteur: document.getElementById('secteur').value,
+    score: computeScore()
+  };
+
+  sendToGoogleForm(contact, answers);
+
+  document.getElementById('contactGate').classList.remove('active');
+  showResult(contact.score);
+  return false;
+}
+
+function showResult(score) {
+  document.getElementById('resultCard').classList.add('active');
+  document.getElementById('scoreNum').textContent = score;
+  const title = document.getElementById('resultTitle');
+  const text = document.getElementById('resultText');
+
+  if (score <= 3.5) {
+    title.textContent = "Un vrai potentiel encore inexploité";
+    text.textContent = "Votre activité comporte déjà plusieurs tâches qui pourraient être allégées par l'IA. Rien n'est encore en place : c'est le meilleur moment pour poser les bases sans perdre de temps ni faire d'erreurs de débutant.";
+  } else if (score <= 6.5) {
+    title.textContent = "Un potentiel IA solide, prêt à être activé";
+    text.textContent = "Vous avez déjà quelques usages ou une vraie prise de conscience. Plusieurs quick-wins concrets peuvent être mis en place rapidement pour gagner du temps sur votre activité.";
+  } else {
+    title.textContent = "Un fort potentiel : vous êtes prêt à passer à l'échelle";
+    text.textContent = "Votre activité présente un potentiel IA élevé et vous semblez prêt à agir vite. C'est le bon moment pour structurer une vraie stratégie plutôt que d'avancer par tâtonnements.";
+  }
+}
+
+// ---- GOOGLE FORM SUBMISSION ------------------------------------------
+// Connecté au Google Form "Audit IA - Nelion" (Drive > Nouveau site web).
+// Les réponses du quiz sont envoyées automatiquement à ce formulaire à la soumission du contact.
+const GOOGLE_FORM_ACTION_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfX2vym_s3VFovq4EZOpwGuNB488nbXeNUur1lCtzX4mUpjbg/formResponse";
+const ENTRY_IDS = {
+  prenom: "entry.133036518",
+  nom: "entry.486438287",
+  email: "entry.415233429",
+  mobile: "entry.793098335",
+  secteur: "entry.1038416738",
+  score: "entry.1360755224",
+  reponses: "entry.745666101" // on regroupe les 10 réponses dans un seul champ texte
+};
+
+function sendToGoogleForm(contactData, answersData) {
+  if (GOOGLE_FORM_ACTION_URL.includes('REPLACE_WITH_YOUR_FORM_ID')) {
+    // Google Form non configuré : on n'envoie rien, on log juste pour debug.
+    console.warn('Google Form non configuré — voir les commentaires en haut de sendToGoogleForm().');
+    return;
+  }
+  const formData = new FormData();
+  formData.append(ENTRY_IDS.prenom, contactData.prenom);
+  formData.append(ENTRY_IDS.nom, contactData.nom);
+  formData.append(ENTRY_IDS.email, contactData.email);
+  formData.append(ENTRY_IDS.mobile, contactData.mobile);
+  formData.append(ENTRY_IDS.secteur, contactData.secteur);
+  formData.append(ENTRY_IDS.score, contactData.score);
+  formData.append(ENTRY_IDS.reponses, JSON.stringify(answersData));
+
+  fetch(GOOGLE_FORM_ACTION_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    body: formData
+  }).catch(() => { /* no-cors: on ne peut pas lire la réponse, c'est normal */ });
+}
+</script>
+
+</body>
+</html>

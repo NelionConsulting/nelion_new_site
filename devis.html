@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demande de devis | Nelion</title>
+<meta name="description" content="Décrivez votre projet — agents IA sur-mesure ou accompagnement à la transition — et recevez un devis personnalisé.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0b0c0e;
+    --bg-alt: #131519;
+    --card: #1a1d22;
+    --border: #262a31;
+    --text: #f2f3f5;
+    --text-dim: #a6acb5;
+    --accent: #ffb020;
+    --accent2: #ff7a1a;
+    --accent-text: #0b0c0e;
+    --mono: 'JetBrains Mono', 'Courier New', monospace;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+  a { text-decoration: none; color: inherit; }
+  .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+  header {
+    border-bottom: 1px solid var(--border);
+    padding: 18px 0;
+  }
+  .header-inner { display: flex; align-items: center; justify-content: space-between; max-width: 720px; margin: 0 auto; padding: 0 24px; }
+  .logo { font-size: 20px; font-weight: 800; }
+  .logo span { color: var(--accent); }
+  .back-link { font-size: 13.5px; color: var(--text-dim); }
+  .back-link:hover { color: var(--text); }
+
+  main { padding: 56px 0 90px; }
+
+  .eyebrow {
+    font-family: var(--mono); text-transform: uppercase; letter-spacing: 2px;
+    font-size: 12.5px; color: var(--accent); font-weight: 700; margin-bottom: 14px;
+  }
+  h1 { font-size: 32px; font-weight: 800; margin-bottom: 14px; letter-spacing: -0.5px; }
+  .intro-text { color: var(--text-dim); font-size: 16px; margin-bottom: 36px; max-width: 560px; }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    font-weight: 700; font-size: 15px; padding: 14px 30px; border-radius: 6px;
+    border: none; cursor: pointer; transition: all 0.2s ease; font-family: inherit;
+  }
+  .btn-primary { background: linear-gradient(90deg, var(--accent), var(--accent2)); color: var(--accent-text); }
+  .btn-primary:hover { filter: brightness(1.08); transform: translateY(-1px); }
+  .btn-primary:disabled { opacity: 0.4; cursor: not-allowed; transform: none; filter: none; }
+  .btn-outline { border: 1.5px solid var(--border); color: var(--text); background: transparent; }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+  .btn-full { width: 100%; }
+
+  .form-card { display: block; }
+  .form-card.hidden { display: none; }
+  .field { margin-bottom: 20px; }
+  .field label { display: block; font-size: 13.5px; color: var(--text-dim); margin-bottom: 8px; font-weight: 600; }
+  .field input, .field select, .field textarea {
+    width: 100%; background: var(--card); border: 1.5px solid var(--border); border-radius: 6px;
+    padding: 13px 14px; color: var(--text); font-size: 15px; font-family: inherit;
+  }
+  .field textarea { resize: vertical; min-height: 110px; }
+  .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--accent); }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 520px) { .field-row { grid-template-columns: 1fr; } }
+  .form-note { font-size: 12.5px; color: var(--text-dim); margin: -6px 0 24px; }
+  .section-title { font-size: 13.5px; color: var(--text-dim); font-weight: 600; margin: 32px 0 14px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+  .options { display: flex; flex-direction: column; gap: 12px; margin-bottom: 4px; }
+  .option {
+    background: var(--card); border: 1.5px solid var(--border); border-radius: 8px;
+    padding: 16px 18px; cursor: pointer; font-size: 15px; transition: all 0.15s ease;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .option:hover { border-color: var(--accent); }
+  .option.selected { border-color: var(--accent); background: rgba(255,176,32,0.08); }
+  .option .radio {
+    width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid var(--text-dim);
+    flex-shrink: 0; position: relative;
+  }
+  .option.selected .radio { border-color: var(--accent); }
+  .option.selected .radio::after {
+    content: ""; position: absolute; inset: 3px; border-radius: 50%; background: var(--accent);
+  }
+
+  /* Confirmation */
+  .result-card { display: none; text-align: center; }
+  .result-card.active { display: block; animation: fadeIn 0.3s ease; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+  .check-ring {
+    width: 96px; height: 96px; border-radius: 50%; margin: 0 auto 28px;
+    display: flex; align-items: center; justify-content: center;
+    background: radial-gradient(circle, rgba(255,176,32,0.14), transparent 70%);
+    border: 3px solid var(--accent); font-size: 40px; color: var(--accent);
+  }
+  .result-title { font-size: 24px; font-weight: 800; margin-bottom: 14px; }
+  .result-text { color: var(--text-dim); font-size: 15.5px; max-width: 500px; margin: 0 auto 32px; }
+  .result-ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+  footer { border-top: 1px solid var(--border); padding: 30px 0; text-align: center; font-size: 13px; color: var(--text-dim); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">NELION<span>.</span></div>
+    <a href="index.html" class="back-link">← Retour au site</a>
+  </div>
+</header>
+
+<main class="container">
+
+  <div class="form-card" id="quoteForm">
+    <div class="eyebrow">Demande de devis</div>
+    <h1>Parlons de votre projet</h1>
+    <p class="intro-text">Agents IA sur-mesure, accompagnement récurrent, ou les deux : décrivez votre besoin et vos coordonnées, on revient vers vous avec un devis adapté.</p>
+
+    <form id="devisForm" onsubmit="return submitDevis(event)">
+      <div class="field-row">
+        <div class="field">
+          <label for="prenom">Prénom *</label>
+          <input type="text" id="prenom" required>
+        </div>
+        <div class="field">
+          <label for="nom">Nom *</label>
+          <input type="text" id="nom" required>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="email">Email *</label>
+          <input type="email" id="email" required>
+        </div>
+        <div class="field">
+          <label for="telephone">Téléphone *</label>
+          <input type="tel" id="telephone" required placeholder="06 12 34 56 78">
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="ville">Ville *</label>
+          <input type="text" id="ville" required>
+        </div>
+        <div class="field">
+          <label for="entreprise">Entreprise *</label>
+          <input type="text" id="entreprise" required>
+        </div>
+      </div>
+
+      <div class="section-title">Votre besoin</div>
+      <div class="options" id="besoinOptions">
+        <div class="option" data-value="Agents IA sur-mesure"><div class="radio"></div><div>Agents IA sur-mesure</div></div>
+        <div class="option" data-value="Accompagnement à la transition"><div class="radio"></div><div>Accompagnement à la transition</div></div>
+        <div class="option" data-value="Les deux"><div class="radio"></div><div>Les deux</div></div>
+      </div>
+      <input type="hidden" id="besoin" required>
+
+      <div class="field" style="margin-top:24px;">
+        <label for="description">Décrivez votre projet / besoin en quelques lignes *</label>
+        <textarea id="description" required></textarea>
+      </div>
+
+      <div class="field">
+        <label for="budget">Budget indicatif (optionnel)</label>
+        <select id="budget">
+          <option value="" selected>Sélectionnez une fourchette</option>
+          <option>Moins de 2 000 €</option>
+          <option>2 000 – 5 000 €</option>
+          <option>5 000 – 10 000 €</option>
+          <option>Plus de 10 000 €</option>
+          <option>À définir avec vous</option>
+        </select>
+      </div>
+
+      <div class="form-note">En validant, vous acceptez d'être recontacté par Nelion au sujet de votre demande de devis.</div>
+      <button type="submit" class="btn btn-primary btn-full" id="submitBtn">Envoyer ma demande de devis</button>
+    </form>
+  </div>
+
+  <!-- CONFIRMATION -->
+  <div class="result-card" id="resultCard">
+    <div class="check-ring">✓</div>
+    <div class="result-title">Votre demande a bien été envoyée</div>
+    <p class="result-text">Merci ! Nous revenons vers vous sous peu avec un devis adapté à votre projet. Pour aller plus vite, vous pouvez aussi réserver directement un RDV découverte.</p>
+    <div class="result-ctas">
+      <a href="https://calendar.app.google/tMXi9i3qAubQbQXa7" target="_blank" rel="noopener" class="btn btn-primary">Réserver mon RDV découverte</a>
+      <a href="index.html" class="btn btn-outline">Retour au site</a>
+    </div>
+  </div>
+
+</main>
+
+<footer>© <span id="year"></span> Nelion — Accompagnement à la transition IA pour TPE/PME</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// Besoin selector
+const besoinOptions = document.querySelectorAll('#besoinOptions .option');
+const besoinInput = document.getElementById('besoin');
+besoinOptions.forEach(opt => {
+  opt.addEventListener('click', () => {
+    besoinOptions.forEach(o => o.classList.remove('selected'));
+    opt.classList.add('selected');
+    besoinInput.value = opt.dataset.value;
+  });
+});
+
+function submitDevis(e) {
+  e.preventDefault();
+
+  if (!besoinInput.value) {
+    alert('Merci de sélectionner votre besoin principal.');
+    return false;
+  }
+
+  const submitBtn = document.getElementById('submitBtn');
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Envoi en cours…';
+
+  const data = {
+    prenom: document.getElementById('prenom').value.trim(),
+    nom: document.getElementById('nom').value.trim(),
+    email: document.getElementById('email').value.trim(),
+    telephone: document.getElementById('telephone').value.trim(),
+    ville: document.getElementById('ville').value.trim(),
+    entreprise: document.getElementById('entreprise').value.trim(),
+    besoin: besoinInput.value,
+    description: document.getElementById('description').value.trim(),
+    budget: document.getElementById('budget').value
+  };
+
+  sendToGoogleForm(data);
+
+  document.getElementById('quoteForm').classList.add('hidden');
+  document.getElementById('resultCard').classList.add('active');
+  return false;
+}
+
+// ---- GOOGLE FORM SUBMISSION ------------------------------------------
+// Connecté au Google Form "Demande de devis - Nelion" (Drive > Nouveau site web).
+// Les réponses sont envoyées automatiquement à ce formulaire à la soumission,
+// et centralisées dans le Google Sheet lié.
+const GOOGLE_FORM_ACTION_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdwKBG79jvF_Di09nw88Lft40WYyApFOq7h7xrKMcEAhRuxsg/formResponse";
+const ENTRY_IDS = {
+  prenom: "entry.406324740",
+  nom: "entry.766231351",
+  email: "entry.1142975396",
+  telephone: "entry.944626480",
+  ville: "entry.2077730846",
+  entreprise: "entry.1499728285",
+  besoin: "entry.1126407299",
+  description: "entry.2028042022",
+  budget: "entry.208303359"
+};
+
+function sendToGoogleForm(data) {
+  const formData = new FormData();
+  formData.append(ENTRY_IDS.prenom, data.prenom);
+  formData.append(ENTRY_IDS.nom, data.nom);
+  formData.append(ENTRY_IDS.email, data.email);
+  formData.append(ENTRY_IDS.telephone, data.telephone);
+  formData.append(ENTRY_IDS.ville, data.ville);
+  formData.append(ENTRY_IDS.entreprise, data.entreprise);
+  formData.append(ENTRY_IDS.besoin, data.besoin);
+  formData.append(ENTRY_IDS.description, data.description);
+  if (data.budget) formData.append(ENTRY_IDS.budget, data.budget);
+
+  fetch(GOOGLE_FORM_ACTION_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    body: formData
+  }).catch(() => { /* no-cors: on ne peut pas lire la réponse, c'est normal */ });
+}
+</script>
+
+</body>
+</html>

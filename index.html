@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nelion | Accompagnement à la transition IA pour TPE & PME</title>
+<meta name="description" content="Formations certifiantes IA éligibles CPF/OPCO, mise en place d'agents IA sur-mesure et accompagnement à la transition pour les TPE/PME partout en France. Réservez un audit rapide gratuit.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0b0c0e;
+    --bg-alt: #131519;
+    --card: #1a1d22;
+    --border: #262a31;
+    --text: #f2f3f5;
+    --text-dim: #a6acb5;
+    --accent: #ffb020;
+    --accent2: #ff7a1a;
+    --accent-text: #0b0c0e;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+  a { text-decoration: none; color: inherit; }
+  img { max-width: 100%; display: block; }
+  .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+  .accent { color: var(--accent); }
+  .grad { background: linear-gradient(90deg, var(--accent), var(--accent2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+  /* Header */
+  header {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(11,12,14,0.9);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+  }
+  .header-inner { display: flex; align-items: center; justify-content: space-between; padding: 18px 0; }
+  .logo { font-size: 20px; font-weight: 800; letter-spacing: 0.5px; }
+  .logo span { color: var(--accent); }
+  nav { display: none; }
+  @media (min-width: 900px) { nav { display: block; } }
+  nav ul { list-style: none; display: flex; gap: 30px; font-size: 14.5px; }
+  nav a { color: var(--text-dim); font-weight: 500; }
+  nav a:hover { color: var(--text); }
+  .btn {
+    display: inline-block; font-weight: 700; font-size: 14.5px;
+    padding: 12px 24px; border-radius: 6px; transition: all 0.2s ease; white-space: nowrap;
+    text-align: center;
+  }
+  .btn-primary { background: linear-gradient(90deg, var(--accent), var(--accent2)); color: var(--accent-text); }
+  .btn-primary:hover { filter: brightness(1.08); transform: translateY(-1px); }
+  .btn-outline { border: 1.5px solid var(--border); color: var(--text); }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+  .header-cta { display: none; }
+  @media (min-width: 640px) { .header-cta { display: inline-block; } }
+
+  /* Hero */
+  .hero { padding: 90px 0 70px; text-align: center; position: relative; overflow: hidden; }
+  .hero::before {
+    content: ""; position: absolute; top: -200px; left: 50%; transform: translateX(-50%);
+    width: 700px; height: 500px; background: radial-gradient(circle, rgba(255,176,32,0.15), transparent 70%);
+    pointer-events: none;
+  }
+  .hero-inner { position: relative; }
+  .badge {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: linear-gradient(90deg, rgba(255,176,32,0.16), rgba(255,122,26,0.16));
+    border: 1px solid rgba(255,176,32,0.4);
+    padding: 12px 26px; border-radius: 999px; font-size: 15.5px; font-weight: 700; color: var(--accent);
+    margin-bottom: 30px; box-shadow: 0 0 24px rgba(255,176,32,0.15);
+  }
+  .badge .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 8px var(--accent); }
+  .hero h1 { font-size: 46px; font-weight: 800; max-width: 800px; margin: 0 auto 22px; line-height: 1.2; letter-spacing: -0.5px; }
+  .hero p.sub { font-size: 18px; color: var(--text-dim); max-width: 620px; margin: 0 auto 36px; }
+  .hero-ctas { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px; }
+  .hero-note { font-size: 13.5px; color: var(--text-dim); }
+
+  /* Trust strip */
+  .trust {
+    border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    background: var(--bg-alt);
+    padding: 22px 0;
+  }
+  .trust-inner {
+    display: flex; flex-wrap: wrap; gap: 14px 36px; justify-content: center;
+    font-size: 13.5px; color: var(--text-dim); text-align: center;
+  }
+  .trust-inner strong { color: var(--text); }
+
+  /* Section base */
+  section { padding: 90px 0; }
+  .section-label {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    text-transform: uppercase; letter-spacing: 2px; font-size: 12.5px;
+    color: var(--accent); font-weight: 700; margin-bottom: 14px;
+  }
+  h2 { font-size: 32px; font-weight: 800; max-width: 640px; margin-bottom: 16px; letter-spacing: -0.3px; }
+  .lead { font-size: 16.5px; color: var(--text-dim); max-width: 600px; margin-bottom: 48px; }
+  .center { text-align: center; margin-left: auto; margin-right: auto; }
+
+  /* Pillars */
+  .pillars { display: grid; grid-template-columns: 1fr; gap: 24px; }
+  @media (min-width: 760px) { .pillars { grid-template-columns: repeat(3, 1fr); } }
+  .pillar {
+    background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+    padding: 32px 26px; transition: border-color 0.2s ease;
+    display: flex; flex-direction: column; align-items: flex-start;
+  }
+  .pillar:hover { border-color: var(--accent); }
+  .pillar-icon {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    width: 44px; height: 44px; border-radius: 8px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; margin-bottom: 18px; color: var(--accent-text); font-weight: 800;
+  }
+  .pillar h3 { font-size: 19px; margin-bottom: 10px; }
+  .pillar p { font-size: 14.5px; color: var(--text-dim); margin-bottom: 14px; flex: 1; }
+  .pillar .tag {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: 0.4px;
+    color: var(--accent); border: 1px solid var(--border); padding: 4px 10px; border-radius: 999px;
+  }
+  .pillar-footer {
+    margin-top: auto; width: 100%; display: flex; align-items: flex-end; justify-content: space-between;
+    gap: 12px; padding-top: 22px;
+  }
+  .quote-link {
+    font-size: 12.5px; font-weight: 700; color: var(--text-dim);
+    text-decoration: underline; text-decoration-color: var(--border); text-underline-offset: 3px;
+  }
+  .quote-link:hover { color: var(--accent); text-decoration-color: var(--accent); }
+
+  /* Stats */
+  .stats { background: var(--bg-alt); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; text-align: center; }
+  @media (min-width: 720px) { .stats-grid { grid-template-columns: repeat(4, 1fr); } }
+  .stat-num {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 52px; font-weight: 800; letter-spacing: -1px; line-height: 1;
+  }
+  .stat-num { text-align: center; }
+  .stat-label { font-size: 16px; font-weight: 700; color: var(--text); margin-top: 10px; text-align: center; }
+
+  /* Parcours */
+  .steps { display: grid; grid-template-columns: 1fr; gap: 0; counter-reset: step; }
+  @media (min-width: 760px) { .steps { grid-template-columns: repeat(4, 1fr); gap: 24px; } }
+  .step { position: relative; padding: 24px 0 24px 0; border-top: 1px solid var(--border); }
+  @media (min-width: 760px) { .step { border-top: none; padding: 0; } }
+  .step-num {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    counter-increment: step; font-size: 13px; font-weight: 800; color: var(--accent-text);
+    background: var(--accent); width: 30px; height: 30px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; margin-bottom: 16px;
+  }
+  .step-num::before { content: counter(step); }
+  .step h3 { font-size: 16.5px; margin-bottom: 8px; }
+  .step p { font-size: 14px; color: var(--text-dim); }
+
+  /* Audit CTA card */
+  .audit-card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 14px;
+    padding: 44px; display: flex; flex-direction: column; gap: 20px;
+    background-image: radial-gradient(circle at top right, rgba(255,176,32,0.08), transparent 60%);
+  }
+  @media (min-width: 800px) { .audit-card { flex-direction: row; align-items: center; justify-content: space-between; } }
+  .audit-card h3 { font-size: 24px; margin-bottom: 10px; max-width: 480px; }
+  .audit-card p { color: var(--text-dim); font-size: 15px; max-width: 460px; }
+
+  /* Testimonials */
+  .testimonials { display: grid; grid-template-columns: 1fr; gap: 24px; }
+  @media (min-width: 760px) { .testimonials { grid-template-columns: repeat(3, 1fr); } }
+  .testimonial { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 28px; }
+  .stars { color: var(--accent); font-size: 14px; margin-bottom: 14px; letter-spacing: 2px; }
+  .testimonial p.quote { font-size: 14.5px; color: var(--text); margin-bottom: 18px; font-style: italic; }
+  .testimonial .who { font-size: 13.5px; color: var(--text-dim); }
+  .testimonial .who strong { color: var(--text); }
+
+  /* About */
+  .about-grid { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: center; }
+  @media (min-width: 860px) { .about-grid { grid-template-columns: 0.9fr 1.1fr; } }
+  .about-card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 36px;
+  }
+  .about-card ul { padding-left: 20px; color: var(--text-dim); font-size: 14.5px; margin-top: 16px; }
+  .about-card li { margin-bottom: 10px; }
+
+  /* CTA band */
+  .cta-band { text-align: center; background: var(--bg-alt); border-top: 1px solid var(--border); }
+  .cta-band h2 { margin: 0 auto 14px; }
+  .cta-band .lead { margin: 0 auto 32px; }
+
+  /* FAQ */
+  .faq-item { border-bottom: 1px solid var(--border); padding: 22px 0; }
+  .faq-item h3 { font-size: 16px; margin-bottom: 8px; }
+  .faq-item p { font-size: 14.5px; color: var(--text-dim); }
+
+  /* Contact */
+  .contact-methods { display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 640px; margin: 0 auto; }
+  @media (min-width: 640px) { .contact-methods { grid-template-columns: 1fr 1fr; } }
+  .contact-card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+    padding: 28px; display: flex; align-items: center; gap: 18px; transition: border-color 0.2s ease;
+  }
+  .contact-card:hover { border-color: var(--accent); }
+  .contact-icon {
+    width: 48px; height: 48px; border-radius: 10px; flex-shrink: 0;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    display: flex; align-items: center; justify-content: center;
+  }
+  .contact-icon svg { width: 24px; height: 24px; }
+  .contact-label { font-size: 12.5px; color: var(--text-dim); margin-bottom: 4px; }
+  .contact-value { font-size: 16px; font-weight: 700; color: var(--text); }
+
+  /* Footer */
+  footer { padding: 44px 0; border-top: 1px solid var(--border); font-size: 13.5px; color: var(--text-dim); }
+  .footer-inner { display: flex; flex-direction: column; gap: 10px; align-items: center; text-align: center; justify-content: center; }
+  footer a { color: var(--text); font-weight: 600; }
+  footer a:hover { color: var(--accent); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container header-inner">
+    <div class="logo">NELION<span>.</span></div>
+    <nav>
+      <ul>
+        <li><a href="#offre">L'offre</a></li>
+        <li><a href="#parcours">Comment ça marche</a></li>
+        <li><a href="#temoignages">Témoignages</a></li>
+        <li><a href="#audit">Audit gratuit</a></li>
+      </ul>
+    </nav>
+    <a href="https://calendar.app.google/tMXi9i3qAubQbQXa7" target="_blank" rel="noopener" class="btn btn-primary header-cta">Réserver un RDV découverte</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="badge"><span class="dot"></span> Formations éligibles CPF & OPCO · Partout en France</div>
+    <h1>Faites entrer votre entreprise dans l'ère de l'<span class="grad">IA</span>, sans perdre de temps ni d'argent</h1>
+    <p class="sub">Nelion accompagne les dirigeants de TPE/PME dans leur transition IA : formations certifiantes de vos équipes, mise en place d'agents IA sur-mesure, et suivi personnalisé jusqu'aux résultats.</p>
+    <div class="hero-ctas">
+      <a href="https://calendar.app.google/tMXi9i3qAubQbQXa7" target="_blank" rel="noopener" class="btn btn-primary">Réserver un RDV découverte</a>
+      <a href="audit-ia.html" class="btn btn-outline">Faire mon audit rapide gratuit</a>
+    </div>
+    <div class="hero-note">15 min pour identifier vos 3 premiers quick-wins IA — sans engagement</div>
+  </div>
+</section>
+
+<section id="offre">
+  <div class="container">
+    <div class="section-label">Notre offre</div>
+    <h2>Trois leviers pour réussir votre transition IA</h2>
+    <p class="lead">Que vous partiez de zéro ou que vous cherchiez à passer à l'échelle, chaque volet peut être activé seul ou combiné selon vos besoins.</p>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pillar-icon">01</div>
+        <h3>Formations certifiantes</h3>
+        <p>Montez en compétence, vous et vos équipes, sur l'IA générative et les automatisations — des programmes concrets, pensés pour être appliqués dès le lendemain dans votre activité.</p>
+        <div class="pillar-footer">
+          <span class="tag">Éligible CPF / OPCO</span>
+          <a class="quote-link" href="https://calendar.app.google/tMXi9i3qAubQbQXa7" target="_blank" rel="noopener">Demande de RDV découverte →</a>
+        </div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">02</div>
+        <h3>Agents IA sur-mesure</h3>
+        <p>Conception et mise en place d'agents IA adaptés à vos process métier : gain de temps réel, pas de gadget technologique.</p>
+        <div class="pillar-footer">
+          <span class="tag">100% personnalisé</span>
+          <a class="quote-link" href="devis.html">Demander un devis →</a>
+        </div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">03</div>
+        <h3>Accompagnement à la transition</h3>
+        <p>Un suivi régulier et personnalisé pour les dirigeants de TPE/PME qui veulent avancer sereinement, à leur rythme, sans jargon technique.</p>
+        <div class="pillar-footer">
+          <span class="tag">Suivi dans la durée</span>
+          <a class="quote-link" href="devis.html">Demander un devis →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="container stats-grid">
+    <div>
+      <div class="stat-num accent">+100</div>
+      <div class="stat-label">professionnels formés</div>
+    </div>
+    <div>
+      <div class="stat-num accent">100%</div>
+      <div class="stat-label">sur-mesure</div>
+    </div>
+    <div>
+      <div class="stat-num accent">CPF/OPCO</div>
+      <div class="stat-label">financement</div>
+    </div>
+    <div>
+      <div class="stat-num accent">France</div>
+      <div class="stat-label">entière</div>
+    </div>
+  </div>
+</section>
+
+<section id="parcours">
+  <div class="container">
+    <div class="section-label">Comment ça marche</div>
+    <h2>Un parcours simple, du premier échange aux résultats</h2>
+    <p class="lead">Pas de blabla théorique : chaque étape produit un livrable concret pour votre entreprise.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num"></div>
+        <h3>Audit rapide</h3>
+        <p>15 minutes pour identifier vos quick-wins IA prioritaires et votre niveau de maturité.</p>
+      </div>
+      <div class="step">
+        <div class="step-num"></div>
+        <h3>RDV découverte</h3>
+        <p>On échange sur vos enjeux, vos équipes et vos priorités pour cadrer le bon plan d'action.</p>
+      </div>
+      <div class="step">
+        <div class="step-num"></div>
+        <h3>Formation et/ou agents IA</h3>
+        <p>Mise en œuvre : montée en compétence de vos équipes et/ou déploiement de vos agents IA sur-mesure.</p>
+      </div>
+      <div class="step">
+        <div class="step-num"></div>
+        <h3>Suivi & ajustement</h3>
+        <p>Accompagnement dans la durée pour ancrer les usages et mesurer les résultats.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="audit" style="padding-top:0;">
+  <div class="container">
+    <div class="audit-card">
+      <div>
+        <div class="section-label">Quick-wins</div>
+        <h3>Obtenez votre audit IA gratuit en 15 minutes</h3>
+        <p>On identifie ensemble les 3 actions IA les plus rentables à mettre en œuvre immédiatement dans votre entreprise — sans engagement.</p>
+      </div>
+      <a href="audit-ia.html" class="btn btn-primary">Réserver mon audit gratuit</a>
+    </div>
+  </div>
+</section>
+
+<section id="temoignages">
+  <div class="container">
+    <div class="section-label">Ils sont passés à l'IA</div>
+    <h2>Ce qu'en disent les entrepreneurs accompagnés</h2>
+    <p class="lead">Des retours vérifiés, laissés par des professionnels formés à l'IA.</p>
+    <div class="testimonials">
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p class="quote">« 2 jours en présentiel avec Maxime. La formation est très intéressante sur l'IA et apporte beaucoup de perspectives à mettre en œuvre. Merci »</p>
+      </div>
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p class="quote">« La formation était très constructive, interactive, professionnelle... Je recommande fortement. Je me suis d'ailleurs inscrit à un nouveau module. »</p>
+      </div>
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p class="quote">« J'ai suivi une formation certifiante en intelligence artificielle appliquée, pendant 3 jours en présentiel. Ambiance professionnelle et très bien animée par un passionné d'IA. Merci Maxime 👍 On repart avec les 8 modules appris ainsi qu'un suivi pédagogique. Je recommande vivement ces formations afin d'expérimenter et comprendre les derniers outils en IA. 👌 »</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="apropos">
+  <div class="container about-grid">
+    <div>
+      <div class="section-label">Qui je suis</div>
+      <h2>Un accompagnement de terrain, pas une promesse marketing</h2>
+      <p class="lead" style="margin-bottom:0;">J'ai formé plus de 100 professionnels — chefs d'entreprise, indépendants, salariés et porteurs de projets — à l'IA générative et aux automatisations, tous secteurs confondus. J'interviens en direct pour la formation comme pour l'accompagnement régulier des dirigeants de TPE/PME.</p>
+    </div>
+    <div class="about-card">
+      <h3 style="font-size:19px; margin-bottom:6px;">Pourquoi Nelion</h3>
+      <ul>
+        <li>Plus de 100 professionnels déjà formés à l'IA générative</li>
+        <li>Formations éligibles CPF/OPCO selon votre situation</li>
+        <li>Agents IA conçus sur-mesure pour votre activité, pas des templates génériques</li>
+        <li>Un interlocuteur unique du diagnostic jusqu'au suivi</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="container">
+    <div class="section-label">Questions fréquentes</div>
+    <h2>Tout ce qu'il faut savoir avant de se lancer</h2>
+    <div class="faq-list" style="margin-top:24px;">
+      <div class="faq-item">
+        <h3>La formation est-elle vraiment finançable via CPF ou OPCO ?</h3>
+        <p>Oui, selon votre statut et votre OPCO. On vérifie ensemble votre éligibilité au financement dès le premier échange.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Faut-il déjà connaître l'IA pour se lancer ?</h3>
+        <p>Non. L'accompagnement s'adapte à votre niveau de départ, que vous partiez de zéro ou que vous cherchiez à structurer des usages déjà en place.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Qu'est-ce qu'un "agent IA sur-mesure" concrètement ?</h3>
+        <p>Un outil conçu pour automatiser une tâche précise de votre activité (réponses clients, traitement de documents, reporting...), configuré et testé sur votre contexte réel.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Intervenez-vous partout en France ?</h3>
+        <p>Oui, à distance ou sur site selon les besoins, pour des entreprises de tous secteurs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band" id="contact">
+  <div class="container">
+    <div class="section-label" style="margin-left:auto; margin-right:auto;">Prochaine étape</div>
+    <h2 class="center">Réservez votre RDV découverte</h2>
+    <p class="lead center">30 minutes pour faire le point sur votre situation et définir la meilleure porte d'entrée : formation, agents IA, ou accompagnement complet.</p>
+    <div class="hero-ctas">
+      <a href="https://calendar.app.google/tMXi9i3qAubQbQXa7" target="_blank" rel="noopener" class="btn btn-primary">Réserver un RDV découverte</a>
+      <a href="audit-ia.html" class="btn btn-outline">Faire mon audit rapide gratuit</a>
+    </div>
+  </div>
+</section>
+
+<section id="contact-direct">
+  <div class="container">
+    <div class="section-label" style="margin-left:auto; margin-right:auto;">Une question ?</div>
+    <h2 class="center">Contactez-nous directement</h2>
+    <p class="lead center">Par email ou WhatsApp, on vous répond rapidement.</p>
+    <div class="contact-methods">
+      <a class="contact-card" href="mailto:maxime@nelion.fr">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 6.5C3 5.67 3.67 5 4.5 5h15c.83 0 1.5.67 1.5 1.5v11c0 .83-.67 1.5-1.5 1.5h-15C3.67 19 3 18.33 3 17.5v-11Z" stroke="#0b0c0e" stroke-width="1.6"/>
+            <path d="M4 6.5 12 13l8-6.5" stroke="#0b0c0e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div>
+          <div class="contact-label">Email</div>
+          <div class="contact-value">maxime@nelion.fr</div>
+        </div>
+      </a>
+      <a class="contact-card" href="https://wa.me/33638397886" target="_blank" rel="noopener">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" fill="#0b0c0e" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12.01 2C6.48 2 2 6.48 2 12.01c0 1.99.58 3.85 1.58 5.41L2 22l4.72-1.55a9.94 9.94 0 0 0 5.29 1.52h.01c5.52 0 10-4.48 10-10.01C22 6.48 17.53 2 12.01 2Zm5.86 14.27c-.24.68-1.4 1.3-1.93 1.38-.5.08-1.12.11-1.81-.11-.42-.13-.95-.31-1.63-.6-2.87-1.24-4.74-4.14-4.88-4.33-.14-.19-1.17-1.56-1.17-2.98 0-1.42.75-2.11 1.01-2.4.26-.29.58-.36.77-.36.19 0 .39 0 .55.01.18.01.42-.07.65.5.24.58.82 2 .89 2.14.07.14.12.31.02.5-.1.19-.15.31-.29.48-.14.17-.3.37-.43.5-.14.14-.29.29-.13.57.17.29.75 1.24 1.61 2 1.11.98 2.04 1.29 2.33 1.43.29.14.46.12.63-.07.17-.19.72-.84.92-1.13.19-.29.38-.24.64-.14.26.1 1.66.78 1.94.93.29.14.48.21.55.33.07.12.07.68-.17 1.35Z"/>
+          </svg>
+        </div>
+        <div>
+          <div class="contact-label">WhatsApp</div>
+          <div class="contact-value">+33 6 38 39 78 86</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-inner">
+    <div>© <span id="year"></span> Nelion — Accompagnement à la transition IA pour TPE/PME</div>
+  </div>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+</body>
+</html>
