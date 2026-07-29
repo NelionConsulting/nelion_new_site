@@ -5,59 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Audit IA gratuit en 2 minutes | Nelion</title>
 <meta name="description" content="Évaluez en 2 minutes le potentiel IA de votre entreprise et obtenez votre score sur 10, avec des recommandations concrètes.">
-<link rel="canonical" href="https://www.nelion.fr/audit-ia.html">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
-
-<meta property="og:type" content="website">
-<meta property="og:locale" content="fr_FR">
-<meta property="og:title" content="Audit IA gratuit en 2 minutes | Nelion">
-<meta property="og:description" content="Évaluez en 2 minutes le potentiel IA de votre entreprise et obtenez votre score sur 10, avec des recommandations concrètes.">
-<meta property="og:url" content="https://www.nelion.fr/audit-ia.html">
-<meta property="og:image" content="https://www.nelion.fr/og-image.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Audit IA gratuit en 2 minutes | Nelion">
-<meta name="twitter:description" content="Évaluez en 2 minutes le potentiel IA de votre entreprise et obtenez votre score sur 10, avec des recommandations concrètes.">
-<meta name="twitter:image" content="https://www.nelion.fr/og-image.png">
-
-<!-- Plausible Analytics : mesure d'audience sans cookie, aucun consentement requis -->
-<script defer data-domain="nelion.fr" src="https://plausible.io/js/script.js"></script>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Nelion Consulting",
-  "url": "https://www.nelion.fr/",
-  "logo": "https://www.nelion.fr/favicon.svg",
-  "email": "maxime@nelion.fr",
-  "founder": { "@type": "Person", "name": "Maxime Strauss" },
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "17 rue des Pommiers",
-    "postalCode": "68180",
-    "addressLocality": "Horbourg-Wihr",
-    "addressCountry": "FR"
-  },
-  "areaServed": "FR"
-}
-</script>
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700;800&display=swap" rel="stylesheet">
 <style>
-  /* Police self-hostée (plus de dépendance à Google Fonts) */
-  @font-face {
-    font-family: 'JetBrains Mono';
-    font-style: normal;
-    font-weight: 700;
-    font-display: swap;
-    src: url('fonts/jetbrains-mono-700.ttf') format('truetype');
-  }
-  @font-face {
-    font-family: 'JetBrains Mono';
-    font-style: normal;
-    font-weight: 800;
-    font-display: swap;
-    src: url('fonts/jetbrains-mono-800.ttf') format('truetype');
-  }
   :root {
     --bg: #0b0c0e;
     --bg-alt: #131519;
@@ -71,7 +22,6 @@
     --mono: 'JetBrains Mono', 'Courier New', monospace;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  html, body { overflow-x: hidden; }
   body {
     font-family: -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
     background: var(--bg);
@@ -176,22 +126,6 @@
   .result-ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 
   footer { border-top: 1px solid var(--border); padding: 30px 0; text-align: center; font-size: 13px; color: var(--text-dim); }
-  footer a { color: var(--text-dim); text-decoration: underline; }
-  footer a:hover { color: var(--accent); }
-
-  /* Cookie consent banner */
-  #cookie-banner {
-    position: fixed; left: 0; right: 0; bottom: 0; z-index: 100;
-    background: var(--bg-alt); border-top: 1px solid var(--border);
-    box-shadow: 0 -4px 24px rgba(0,0,0,0.4);
-  }
-  .cookie-banner-inner {
-    max-width: 720px; margin: 0 auto; padding: 20px 24px;
-    display: flex; flex-wrap: wrap; align-items: center; gap: 18px; justify-content: space-between;
-  }
-  .cookie-banner-inner p { font-size: 13.5px; color: var(--text-dim); max-width: 720px; margin: 0; }
-  .cookie-banner-inner a { color: var(--text); text-decoration: underline; }
-  .cookie-banner-actions { display: flex; gap: 10px; flex-shrink: 0; }
 </style>
 </head>
 <body>
@@ -251,8 +185,7 @@
       </div>
       <div class="field">
         <label for="mobile">Téléphone mobile *</label>
-        <input type="tel" id="mobile" required placeholder="06 12 34 56 78" pattern="^(?:\+33|0)[1-9](?:[\s.-]?\d{2}){4}$">
-        <div class="field-error" id="mobile-error" style="display:none; color:#ff6b6b; font-size:12.5px; margin-top:6px;">Merci de saisir un numéro de téléphone français valide (ex : 06 12 34 56 78).</div>
+        <input type="tel" id="mobile" required placeholder="06 12 34 56 78">
       </div>
       <div class="field">
         <label for="secteur">Secteur d'activité *</label>
@@ -270,14 +203,8 @@
           <option>Autre</option>
         </select>
       </div>
-      <!-- Honeypot anti-spam : champ invisible pour les humains, rempli seulement par les bots -->
-      <div style="position:absolute; left:-9999px; top:-9999px;" aria-hidden="true">
-        <label for="societe_site">Ne pas remplir ce champ</label>
-        <input type="text" id="societe_site" name="societe_site" tabindex="-1" autocomplete="off">
-      </div>
-      <div class="form-note">En validant, vous acceptez d'être recontacté par Nelion au sujet de votre audit IA. Vos données sont transmises à Google Forms pour traitement — voir notre <a href="confidentialite.html" style="color:var(--text);text-decoration:underline;">politique de confidentialité</a>.</div>
-      <button type="submit" class="btn btn-primary btn-full" id="submitBtn">Voir mon score</button>
-      <div id="formStatus" style="display:none; margin-top:14px; font-size:13.5px; color:var(--text-dim);"></div>
+      <div class="form-note">En validant, vous acceptez d'être recontacté par Nelion au sujet de votre audit IA.</div>
+      <button type="submit" class="btn btn-primary btn-full">Voir mon score</button>
     </form>
   </div>
 
@@ -298,19 +225,10 @@
 
 </main>
 
-<footer>© <span id="year"></span> Nelion — Accompagnement à la transition IA pour TPE/PME · <a href="mentions-legales.html">Mentions légales</a> · <a href="confidentialite.html">Confidentialité</a></footer>
+<footer>© <span id="year"></span> Nelion — Accompagnement à la transition IA pour TPE/PME</footer>
 
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
-
-// Tracking des clics sur les CTA externes vers Google Calendar (RDV découverte)
-document.querySelectorAll('a[href*="calendar.app.google"]').forEach(function (link) {
-  link.addEventListener('click', function () {
-    if (typeof plausible === 'function') {
-      plausible('RDV Calendar Click', { props: { page: 'audit-ia' } });
-    }
-  });
-});
 
 // ---- QUESTIONS -------------------------------------------------------
 // Each option value = points (0, 0.5 or 1). Sum of the 10 answers = score /10.
@@ -480,52 +398,21 @@ function computeScore() {
   return Math.round(sum * 10) / 10;
 }
 
-// Validation format téléphone français (mobile ou fixe, avec ou sans indicatif +33)
-const PHONE_REGEX = /^(?:\+33|0)[1-9](?:[\s.-]?\d{2}){4}$/;
-
 function submitContact(e) {
   e.preventDefault();
-
-  // Honeypot anti-spam : si ce champ caché est rempli, on ignore silencieusement la soumission
-  const honeypot = document.getElementById('societe_site');
-  if (honeypot && honeypot.value.trim() !== '') {
-    console.warn('Soumission ignorée (honeypot rempli).');
-    return false;
-  }
-
-  const mobileField = document.getElementById('mobile');
-  const mobileError = document.getElementById('mobile-error');
-  if (!PHONE_REGEX.test(mobileField.value.trim())) {
-    mobileError.style.display = 'block';
-    mobileField.focus();
-    return false;
-  }
-  mobileError.style.display = 'none';
-
   contact = {
     prenom: document.getElementById('prenom').value.trim(),
     nom: document.getElementById('nom').value.trim(),
     email: document.getElementById('email').value.trim(),
-    mobile: mobileField.value.trim(),
+    mobile: document.getElementById('mobile').value.trim(),
     secteur: document.getElementById('secteur').value,
     score: computeScore()
   };
 
-  const submitBtn = document.getElementById('submitBtn');
-  const formStatus = document.getElementById('formStatus');
-  submitBtn.disabled = true;
-  submitBtn.textContent = 'Envoi en cours…';
+  sendToGoogleForm(contact, answers);
 
-  sendToGoogleForm(contact, answers).finally(() => {
-    // Google Forms est appelé en mode no-cors : on ne peut jamais savoir si l'envoi a
-    // techniquement réussi côté Google. On affiche donc toujours un message clair et on
-    // montre le score localement (déjà calculé), qui ne dépend pas de la réponse de Google Forms.
-    formStatus.style.display = 'block';
-    formStatus.textContent = 'Vos informations ont été envoyées. Si vous ne recevez rien sous 24h, contactez-nous directement à maxime@nelion.fr.';
-    document.getElementById('contactGate').classList.remove('active');
-    showResult(contact.score);
-  });
-
+  document.getElementById('contactGate').classList.remove('active');
+  showResult(contact.score);
   return false;
 }
 
@@ -565,7 +452,7 @@ function sendToGoogleForm(contactData, answersData) {
   if (GOOGLE_FORM_ACTION_URL.includes('REPLACE_WITH_YOUR_FORM_ID')) {
     // Google Form non configuré : on n'envoie rien, on log juste pour debug.
     console.warn('Google Form non configuré — voir les commentaires en haut de sendToGoogleForm().');
-    return Promise.resolve();
+    return;
   }
   const formData = new FormData();
   formData.append(ENTRY_IDS.prenom, contactData.prenom);
@@ -576,19 +463,13 @@ function sendToGoogleForm(contactData, answersData) {
   formData.append(ENTRY_IDS.score, contactData.score);
   formData.append(ENTRY_IDS.reponses, JSON.stringify(answersData));
 
-  if (typeof plausible === 'function') {
-    plausible('Audit IA soumis', { props: { score: contactData.score, secteur: contactData.secteur } });
-  }
-
-  return fetch(GOOGLE_FORM_ACTION_URL, {
+  fetch(GOOGLE_FORM_ACTION_URL, {
     method: 'POST',
     mode: 'no-cors',
     body: formData
   }).catch(() => { /* no-cors: on ne peut pas lire la réponse, c'est normal */ });
 }
 </script>
-
-<script src="cookie-consent.js" defer></script>
 
 </body>
 </html>

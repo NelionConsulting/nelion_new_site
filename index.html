@@ -4,91 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nelion | Accompagnement à la transition IA pour TPE & PME</title>
-<meta name="description" content="Formations IA éligibles CPF/OPCO, agents IA sur-mesure et accompagnement à la transition pour les TPE/PME en France.">
-<link rel="canonical" href="https://www.nelion.fr/">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
-
-<meta property="og:type" content="website">
-<meta property="og:locale" content="fr_FR">
-<meta property="og:title" content="Nelion | Accompagnement à la transition IA pour TPE & PME">
-<meta property="og:description" content="Formations IA éligibles CPF/OPCO, agents IA sur-mesure et accompagnement à la transition pour les TPE/PME en France.">
-<meta property="og:url" content="https://www.nelion.fr/">
-<meta property="og:image" content="https://www.nelion.fr/og-image.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Nelion | Accompagnement à la transition IA pour TPE & PME">
-<meta name="twitter:description" content="Formations IA éligibles CPF/OPCO, agents IA sur-mesure et accompagnement à la transition pour les TPE/PME en France.">
-<meta name="twitter:image" content="https://www.nelion.fr/og-image.png">
-
-<!-- Plausible Analytics : mesure d'audience sans cookie, aucun consentement requis -->
-<script defer data-domain="nelion.fr" src="https://plausible.io/js/script.js"></script>
-
-<!-- JetBrains Mono est self-hostée (voir @font-face plus bas + fichiers dans /fonts) : plus de dépendance à Google Fonts. -->
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Nelion Consulting",
-  "url": "https://www.nelion.fr/",
-  "logo": "https://www.nelion.fr/favicon.svg",
-  "email": "maxime@nelion.fr",
-  "founder": { "@type": "Person", "name": "Maxime Strauss" },
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "17 rue des Pommiers",
-    "postalCode": "68180",
-    "addressLocality": "Horbourg-Wihr",
-    "addressCountry": "FR"
-  },
-  "areaServed": "FR",
-  "description": "Formations certifiantes IA éligibles CPF/OPCO, agents IA sur-mesure et accompagnement à la transition IA pour les TPE/PME."
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "La formation est-elle vraiment finançable via CPF ou OPCO ?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Oui, selon votre statut et votre OPCO. On vérifie ensemble votre éligibilité au financement dès le premier échange." }
-    },
-    {
-      "@type": "Question",
-      "name": "Faut-il déjà connaître l'IA pour se lancer ?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Non. L'accompagnement s'adapte à votre niveau de départ, que vous partiez de zéro ou que vous cherchiez à structurer des usages déjà en place." }
-    },
-    {
-      "@type": "Question",
-      "name": "Qu'est-ce qu'un \"agent IA sur-mesure\" concrètement ?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Un outil conçu pour automatiser une tâche précise de votre activité (réponses clients, traitement de documents, reporting...), configuré et testé sur votre contexte réel." }
-    },
-    {
-      "@type": "Question",
-      "name": "Intervenez-vous partout en France ?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Oui, à distance ou sur site selon les besoins, pour des entreprises de tous secteurs." }
-    }
-  ]
-}
-</script>
-
+<meta name="description" content="Formations certifiantes IA éligibles CPF/OPCO, mise en place d'agents IA sur-mesure et accompagnement à la transition pour les TPE/PME partout en France. Réservez un audit rapide gratuit.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700;800&display=swap" rel="stylesheet">
 <style>
-  /* Police self-hostée (plus de dépendance à Google Fonts) */
-  @font-face {
-    font-family: 'JetBrains Mono';
-    font-style: normal;
-    font-weight: 700;
-    font-display: swap;
-    src: url('fonts/jetbrains-mono-700.ttf') format('truetype');
-  }
-  @font-face {
-    font-family: 'JetBrains Mono';
-    font-style: normal;
-    font-weight: 800;
-    font-display: swap;
-    src: url('fonts/jetbrains-mono-800.ttf') format('truetype');
-  }
   :root {
     --bg: #0b0c0e;
     --bg-alt: #131519;
@@ -99,9 +19,9 @@
     --accent: #ffb020;
     --accent2: #ff7a1a;
     --accent-text: #0b0c0e;
+    --header-h: 73px;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  html, body { overflow-x: hidden; }
   html { scroll-behavior: smooth; }
   body {
     font-family: -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
@@ -130,6 +50,7 @@
   nav ul { list-style: none; display: flex; gap: 30px; font-size: 14.5px; }
   nav a { color: var(--text-dim); font-weight: 500; }
   nav a:hover { color: var(--text); }
+  nav a.active { color: var(--accent); font-weight: 700; }
   .btn {
     display: inline-block; font-weight: 700; font-size: 14.5px;
     padding: 12px 24px; border-radius: 6px; transition: all 0.2s ease; white-space: nowrap;
@@ -139,15 +60,35 @@
   .btn-primary:hover { filter: brightness(1.08); transform: translateY(-1px); }
   .btn-outline { border: 1.5px solid var(--border); color: var(--text); }
   .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
-  /* CTA sticky du header : néon cyan pour se distinguer des CTA amber/orange qui apparaissent au scroll */
-  .btn-sticky {
-    background: linear-gradient(90deg, #35e6ff, #00b8d9);
-    color: var(--accent-text);
-    box-shadow: 0 0 18px rgba(53,230,255,0.35);
+  .btn-neon {
+    background: linear-gradient(90deg, #6d5dfc, #3b82f6); color: #f2f3f5;
+    box-shadow: 0 0 18px rgba(109,93,252,0.45), 0 0 2px rgba(59,130,246,0.6);
   }
-  .btn-sticky:hover { filter: brightness(1.08); transform: translateY(-1px); box-shadow: 0 0 24px rgba(53,230,255,0.5); }
+  .btn-neon:hover { filter: brightness(1.1); transform: translateY(-1px); box-shadow: 0 0 26px rgba(109,93,252,0.6), 0 0 4px rgba(59,130,246,0.7); }
   .header-cta { display: none; }
   @media (min-width: 640px) { .header-cta { display: inline-block; } }
+  .header-right { display: flex; align-items: center; gap: 12px; }
+  .mobile-menu-btn {
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px;
+    width: 40px; height: 40px; background: transparent; border: 1.5px solid var(--border);
+    border-radius: 6px; cursor: pointer; padding: 0; flex-shrink: 0;
+  }
+  .mobile-menu-btn span { display: block; width: 18px; height: 2px; background: var(--text); border-radius: 2px; transition: all 0.2s ease; }
+  .mobile-menu-btn.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .mobile-menu-btn.open span:nth-child(2) { opacity: 0; }
+  .mobile-menu-btn.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  @media (min-width: 900px) { .mobile-menu-btn { display: none; } }
+  .mobile-nav {
+    display: none; flex-direction: column;
+    background: var(--bg-alt); border-top: 1px solid var(--border);
+    padding: 8px 24px 20px;
+  }
+  .mobile-nav.open { display: flex; }
+  .mobile-nav a { padding: 13px 0; font-size: 15.5px; font-weight: 500; color: var(--text-dim); border-bottom: 1px solid var(--border); }
+  .mobile-nav a:hover { color: var(--text); }
+  .mobile-nav a.active { color: var(--accent); font-weight: 700; }
+  .mobile-nav .btn { margin-top: 14px; }
+  @media (min-width: 900px) { .mobile-nav { display: none !important; } }
 
   /* Hero */
   .hero { padding: 90px 0 70px; text-align: center; position: relative; overflow: hidden; }
@@ -226,18 +167,46 @@
   }
   .quote-link:hover { color: var(--accent); text-decoration-color: var(--accent); }
 
+  /* Services (prestations) */
+  .services { display: grid; grid-template-columns: 1fr; gap: 24px; }
+  @media (min-width: 760px) { .services { grid-template-columns: repeat(2, 1fr); } }
+  .service {
+    background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+    padding: 32px 30px; transition: border-color 0.2s ease;
+    display: flex; flex-direction: column; align-items: flex-start;
+  }
+  .service:hover { border-color: var(--accent); }
+  .service-icon {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    width: 44px; height: 44px; border-radius: 8px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; margin-bottom: 18px; color: var(--accent-text); font-weight: 800;
+  }
+  .service h3 { font-size: 20px; margin-bottom: 10px; }
+  .service p { font-size: 14.5px; color: var(--text-dim); margin-bottom: 14px; flex: 1; }
+  .service .tag {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: 0.4px;
+    color: var(--accent); border: 1px solid var(--border); padding: 4px 10px; border-radius: 999px;
+  }
+  .service-footer {
+    margin-top: auto; width: 100%; display: flex; align-items: flex-end; justify-content: space-between;
+    gap: 12px; padding-top: 22px;
+  }
+
   /* Stats */
   .stats { background: var(--bg-alt); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-  .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; text-align: center; }
-  @media (min-width: 720px) { .stats-grid { grid-template-columns: repeat(4, 1fr); } }
-  .stats-grid > div { min-width: 0; }
+  .stats-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 16px; text-align: center; }
+  @media (min-width: 720px) { .stats-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
   .stat-num {
     font-family: 'JetBrains Mono', 'Courier New', monospace;
-    font-size: 32px; font-weight: 800; letter-spacing: -1px; line-height: 1; overflow-wrap: break-word; text-transform: uppercase;
+    font-size: clamp(26px, 7vw, 52px); font-weight: 800; letter-spacing: -1px; line-height: 1.1;
+    overflow-wrap: break-word;
   }
-  @media (min-width: 720px) { .stat-num { font-size: 52px; } }
   .stat-num { text-align: center; }
-  .stat-label { font-size: 16px; font-weight: 700; color: var(--text); margin-top: 10px; text-align: center; }
+  .stat-label { font-size: 14.5px; font-weight: 700; color: var(--text); margin-top: 10px; text-align: center; }
+  @media (min-width: 480px) { .stat-label { font-size: 16px; } }
 
   /* Parcours */
   .steps { display: grid; grid-template-columns: 1fr; gap: 0; counter-reset: step; }
@@ -273,6 +242,22 @@
   .testimonial .who { font-size: 13.5px; color: var(--text-dim); }
   .testimonial .who strong { color: var(--text); }
 
+  /* Partners */
+  .partners { background: var(--bg-alt); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 44px 0; }
+  .partners .section-label { text-align: center; margin-bottom: 26px; }
+  .partners-inner { display: flex; align-items: center; justify-content: center; gap: 56px; flex-wrap: wrap; }
+  .partner-link { display: flex; align-items: center; justify-content: center; height: 44px; }
+  .partner-logo {
+    height: 34px; width: auto; filter: grayscale(1) brightness(1.8) opacity(0.65);
+    transition: filter 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
+  }
+  .partner-link:hover .partner-logo { filter: none; opacity: 1; transform: translateY(-1px); }
+  .partner-text {
+    font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 18px; font-weight: 800;
+    letter-spacing: 1px; color: var(--text-dim); opacity: 0.75; transition: color 0.2s ease, opacity 0.2s ease;
+  }
+  .partner-link:hover .partner-text { color: var(--accent); opacity: 1; }
+
   /* About */
   .about-grid { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: center; }
   @media (min-width: 860px) { .about-grid { grid-template-columns: 0.9fr 1.1fr; } }
@@ -281,6 +266,26 @@
   }
   .about-card ul { padding-left: 20px; color: var(--text-dim); font-size: 14.5px; margin-top: 16px; }
   .about-card li { margin-bottom: 10px; }
+
+  /* Formation cards (quick compare) */
+  .formation-cards { display: grid; grid-template-columns: 1fr; gap: 24px; margin-bottom: 40px; }
+  @media (min-width: 760px) { .formation-cards { grid-template-columns: repeat(2, 1fr); } }
+  .formation-card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+    padding: 30px 28px; display: flex; flex-direction: column;
+  }
+  .formation-card .tag {
+    font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 12px; font-weight: 700; letter-spacing: 0.4px;
+    color: var(--accent); border: 1px solid var(--border); padding: 4px 10px; border-radius: 999px;
+    align-self: flex-start; margin-bottom: 16px;
+  }
+  .formation-card h3 { font-size: 19px; margin-bottom: 20px; }
+  .formation-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 14px; margin-bottom: 24px; }
+  .formation-meta .meta-label { display: block; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-dim); margin-bottom: 4px; }
+  .formation-meta .meta-value { display: block; font-size: 14px; font-weight: 700; color: var(--text); line-height: 1.35; }
+  .formation-meta .meta-value.accent { color: var(--accent); font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 17px; }
+  .formation-meta .meta-value small { color: var(--text-dim); font-weight: 500; font-family: -apple-system, sans-serif; font-size: 11.5px; }
+  .formation-card .quote-link { margin-top: auto; }
 
   /* CTA band */
   .cta-band { text-align: center; background: var(--bg-alt); border-top: 1px solid var(--border); }
@@ -293,8 +298,9 @@
   .faq-item p { font-size: 14.5px; color: var(--text-dim); }
 
   /* Contact */
-  .contact-methods { display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 640px; margin: 0 auto; }
-  @media (min-width: 640px) { .contact-methods { grid-template-columns: 1fr 1fr; } }
+  .contact-methods { display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 900px; margin: 0 auto; }
+  @media (min-width: 640px) { .contact-methods { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 900px) { .contact-methods { grid-template-columns: repeat(3, 1fr); } }
   .contact-card {
     background: var(--card); border: 1px solid var(--border); border-radius: 12px;
     padding: 28px; display: flex; align-items: center; gap: 18px; transition: border-color 0.2s ease;
@@ -315,19 +321,52 @@
   footer a { color: var(--text); font-weight: 600; }
   footer a:hover { color: var(--accent); }
 
-  /* Cookie consent banner */
-  #cookie-banner {
-    position: fixed; left: 0; right: 0; bottom: 0; z-index: 100;
-    background: var(--bg-alt); border-top: 1px solid var(--border);
-    box-shadow: 0 -4px 24px rgba(0,0,0,0.4);
+  /* One screen per nav section (desktop) — experimental */
+  @media (min-width: 900px) {
+    html { scroll-snap-type: y proximity; }
+    #offre, #formations, #prestations, #parcours, #audit, #temoignages, #faq, #contact-direct {
+      min-height: calc(100vh - var(--header-h));
+      display: flex; align-items: center; padding: 28px 0;
+      scroll-snap-align: start; scroll-margin-top: var(--header-h);
+    }
+    #offre > .container, #formations > .container, #prestations > .container,
+    #parcours > .container, #audit > .container, #temoignages > .container, #faq > .container,
+    #contact-direct > .container { width: 100%; }
+
+    #offre h2, #formations h2, #prestations h2, #parcours h2, #temoignages h2, #faq h2, #contact-direct h2 { font-size: 26px; margin-bottom: 10px; }
+    #offre .lead, #formations .lead, #prestations .lead, #parcours .lead, #temoignages .lead, #contact-direct .lead { margin-bottom: 26px; font-size: 15px; }
+
+    #offre .pillar, #prestations .service { padding: 22px 20px; }
+    #offre .pillar p, #prestations .service p { font-size: 13.5px; margin-bottom: 10px; }
+    #offre .pillar-icon, #prestations .service-icon { width: 36px; height: 36px; font-size: 16px; margin-bottom: 12px; }
+    #offre .pillar h3, #prestations .service h3 { font-size: 17px; margin-bottom: 6px; }
+    #offre .pillar-footer, #prestations .service-footer { padding-top: 14px; }
+
+    #formations .formation-cards { margin-bottom: 0; gap: 18px; }
+    #formations .formation-card { padding: 22px 22px; }
+    #formations .formation-card h3 { font-size: 17px; margin-bottom: 14px; }
+    #formations .formation-meta { margin-bottom: 16px; gap: 12px 14px; }
+
+    #parcours .step p { font-size: 13px; }
+    #parcours .step h3 { font-size: 15.5px; }
+
+    #temoignages .testimonial { padding: 20px; }
+    #temoignages .testimonial p.quote {
+      font-size: 13.5px; margin-bottom: 12px;
+      display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden;
+    }
+
+    #faq .faq-list { margin-top: 14px !important; }
+    #faq .faq-item { padding: 12px 0; }
+    #faq .faq-item h3 { font-size: 14.5px; margin-bottom: 4px; }
+    #faq .faq-item p { font-size: 13px; }
   }
-  .cookie-banner-inner {
-    max-width: 1140px; margin: 0 auto; padding: 20px 24px;
-    display: flex; flex-wrap: wrap; align-items: center; gap: 18px; justify-content: space-between;
+  @media (min-width: 900px) and (max-height: 780px) {
+    #offre, #formations, #prestations, #parcours, #audit, #temoignages, #faq, #contact-direct { padding: 18px 0; }
+    #offre .pillars, #prestations .services { gap: 14px; }
+    #temoignages .testimonial p.quote { -webkit-line-clamp: 3; }
+    #faq .faq-item { padding: 8px 0; }
   }
-  .cookie-banner-inner p { font-size: 13.5px; color: var(--text-dim); max-width: 720px; margin: 0; }
-  .cookie-banner-inner a { color: var(--text); text-decoration: underline; }
-  .cookie-banner-actions { display: flex; gap: 10px; flex-shrink: 0; }
 </style>
 </head>
 <body>
@@ -338,14 +377,33 @@
     <nav>
       <ul>
         <li><a href="#offre">L'offre</a></li>
-        <li><a href="formations.html">Formations</a></li>
+        <li><a href="#formations">Formations</a></li>
+        <li><a href="#prestations">Prestations</a></li>
         <li><a href="#parcours">Comment ça marche</a></li>
         <li><a href="#temoignages">Témoignages</a></li>
         <li><a href="#audit">Audit gratuit</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact-direct">Contact</a></li>
       </ul>
     </nav>
-    <a href="https://calendar.app.google/tMXi9i3qAubQbQXa7" target="_blank" rel="noopener" class="btn btn-sticky header-cta">Réserver un RDV découverte</a>
+    <div class="header-right">
+      <a href="https://calendar.app.google/tMXi9i3qAubQbQXa7" target="_blank" rel="noopener" class="btn btn-neon header-cta">Réserver un RDV découverte</a>
+      <button class="mobile-menu-btn" id="menuBtn" aria-label="Ouvrir le menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
+  <nav class="mobile-nav" id="mobileNav">
+    <a href="#offre">L'offre</a>
+    <a href="#formations">Formations</a>
+    <a href="#prestations">Prestations</a>
+    <a href="#parcours">Comment ça marche</a>
+    <a href="#temoignages">Témoignages</a>
+    <a href="#audit">Audit gratuit</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact-direct">Contact</a>
+    <a href="https://calendar.app.google/tMXi9i3qAubQbQXa7" target="_blank" rel="noopener" class="btn btn-neon">Réserver un RDV découverte</a>
+  </nav>
 </header>
 
 <section class="hero">
@@ -355,7 +413,7 @@
     <p class="sub">Nelion accompagne les dirigeants de TPE/PME dans leur transition IA : formations certifiantes de vos équipes, mise en place d'agents IA sur-mesure, et suivi personnalisé jusqu'aux résultats.</p>
     <div class="hero-ctas">
       <a href="https://calendar.app.google/tMXi9i3qAubQbQXa7" target="_blank" rel="noopener" class="btn btn-primary">Réserver un RDV découverte</a>
-      <a href="audit-ia.html" class="btn btn-outline">Faire mon audit rapide gratuit</a>
+      <a class="btn btn-outline" href="audit-ia.html">Faire mon audit rapide gratuit</a>
     </div>
     <div class="hero-note">15 min pour identifier vos 3 premiers quick-wins IA — sans engagement</div>
   </div>
@@ -373,16 +431,16 @@
         <p>Montez en compétence, vous et vos équipes, sur l'IA générative et les automatisations — des programmes concrets, pensés pour être appliqués dès le lendemain dans votre activité.</p>
         <div class="pillar-footer">
           <span class="tag">Éligible CPF / OPCO</span>
-          <a class="quote-link" href="formations.html">Voir les formations détaillées →</a>
+          <a class="quote-link" href="#formations">Découvrir les formations →</a>
         </div>
       </div>
       <div class="pillar">
         <div class="pillar-icon">02</div>
-        <h3>Agents IA sur-mesure</h3>
-        <p>Conception et mise en place d'agents IA adaptés à vos process métier : gain de temps réel, pas de gadget technologique.</p>
+        <h3>Prestations sur-mesure</h3>
+        <p>Agents IA, sites web, workflows et intégrations métier : des solutions concrètes conçues pour votre activité, jamais des templates génériques.</p>
         <div class="pillar-footer">
           <span class="tag">100% personnalisé</span>
-          <a class="quote-link" href="devis.html">Demander un devis →</a>
+          <a class="quote-link" href="#prestations">Découvrir les prestations →</a>
         </div>
       </div>
       <div class="pillar">
@@ -391,6 +449,110 @@
         <p>Un suivi régulier et personnalisé pour les dirigeants de TPE/PME qui veulent avancer sereinement, à leur rythme, sans jargon technique.</p>
         <div class="pillar-footer">
           <span class="tag">Suivi dans la durée</span>
+          <a class="quote-link" href="devis.html">Demander un devis →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="formations">
+  <div class="container">
+    <div class="section-label">Nos formations</div>
+    <h2>Deux formations certifiantes pour maîtriser l'IA dans votre activité</h2>
+    <p class="lead">Que vous soyez salarié, indépendant ou dirigeant de TPE/PME, choisissez le parcours certifiant adapté à votre métier : contenus rédactionnels et visuels, ou pilotage global de votre entreprise avec l'IA. Formations disponibles partout en France — présentiel notamment à Strasbourg, Paris, Lyon, Rennes, Nantes, Bordeaux, Montpellier, Toulon.</p>
+
+    <div class="formation-cards">
+      <div class="formation-card">
+        <span class="tag">RS6776 · Formation Initiation</span>
+        <h3>Création de contenus rédactionnels & visuels par l'IA</h3>
+        <div class="formation-meta">
+          <div>
+            <span class="meta-label">Durée</span>
+            <span class="meta-value">40h (26h e-learning + 14h présentiel)</span>
+          </div>
+          <div>
+            <span class="meta-label">Public</span>
+            <span class="meta-value">Salariés, assistants de direction, commerciaux</span>
+          </div>
+          <div>
+            <span class="meta-label">Tarif</span>
+            <span class="meta-value accent">1 790 € <small>(TVA exonérée)</small></span>
+          </div>
+          <div>
+            <span class="meta-label">Financement</span>
+            <span class="meta-value">CPF, OPCO, France Travail</span>
+          </div>
+        </div>
+        <a class="quote-link" href="formation-initiation.html">Voir le programme détaillé →</a>
+      </div>
+      <div class="formation-card">
+        <span class="tag">RS7311 · Formation Expertise</span>
+        <h3>Améliorer l'efficacité de sa TPE à l'aide de l'IA</h3>
+        <div class="formation-meta">
+          <div>
+            <span class="meta-label">Durée</span>
+            <span class="meta-value">44h (30h e-learning + 14h présentiel)</span>
+          </div>
+          <div>
+            <span class="meta-label">Public</span>
+            <span class="meta-value">Dirigeant(e)s, indépendants, porteurs de projet</span>
+          </div>
+          <div>
+            <span class="meta-label">Tarif</span>
+            <span class="meta-value accent">1 990 €</span>
+          </div>
+          <div>
+            <span class="meta-label">Financement</span>
+            <span class="meta-value">CPF, OPCO, France Travail</span>
+          </div>
+        </div>
+        <a class="quote-link" href="formation-expertise.html">Voir le programme détaillé →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="prestations">
+  <div class="container">
+    <div class="section-label">Nos prestations</div>
+    <h2>Quatre façons de faire avancer votre entreprise</h2>
+    <p class="lead">Agents IA, sites web, workflows et intégrations : des solutions concrètes conçues pour votre activité, jamais des templates génériques. Chaque prestation peut être activée seule ou combinée.</p>
+    <div class="services">
+      <div class="service">
+        <div class="service-icon">01</div>
+        <h3>Agents IA sur-mesure</h3>
+        <p>Conception et mise en place d'agents IA adaptés à vos process métier : gain de temps réel, pas de gadget technologique.</p>
+        <div class="service-footer">
+          <span class="tag">100% personnalisé</span>
+          <a class="quote-link" href="devis.html">Demander un devis →</a>
+        </div>
+      </div>
+      <div class="service">
+        <div class="service-icon">02</div>
+        <h3>Création de sites web</h3>
+        <p>Sites vitrines et landing pages pensés pour convertir : design sur-mesure, rapides à charger, sans usine à gaz technique.</p>
+        <div class="service-footer">
+          <span class="tag">Design sur-mesure</span>
+          <a class="quote-link" href="devis.html">Demander un devis →</a>
+        </div>
+      </div>
+      <div class="service">
+        <div class="service-icon">03</div>
+        <h3>Workflows & automatisations</h3>
+        <p>Automatisation de vos tâches répétitives entre vos outils (emails, reporting, facturation, suivi client...) pour regagner un temps concret chaque semaine.</p>
+        <div class="service-footer">
+          <span class="tag">Gain de temps mesurable</span>
+          <a class="quote-link" href="devis.html">Demander un devis →</a>
+        </div>
+      </div>
+      <div class="service">
+        <div class="service-icon">04</div>
+        <h3>Intégrations & connecteurs métier</h3>
+        <p>Connexion de vos outils existants entre eux (CRM, messagerie, facturation, agenda) pour fluidifier vos process sans changer d'outils.</p>
+        <div class="service-footer">
+          <span class="tag">Vos outils, connectés</span>
           <a class="quote-link" href="devis.html">Demander un devis →</a>
         </div>
       </div>
@@ -413,7 +575,7 @@
       <div class="stat-label">financement</div>
     </div>
     <div>
-      <div class="stat-num accent">France</div>
+      <div class="stat-num accent">FRANCE</div>
       <div class="stat-label">entière</div>
     </div>
   </div>
@@ -457,7 +619,7 @@
         <h3>Obtenez votre audit IA gratuit en 15 minutes</h3>
         <p>On identifie ensemble les 3 actions IA les plus rentables à mettre en œuvre immédiatement dans votre entreprise — sans engagement.</p>
       </div>
-      <a href="audit-ia.html" class="btn btn-primary">Réserver mon audit gratuit</a>
+      <a class="btn btn-primary" href="audit-ia.html">Réserver mon audit gratuit</a>
     </div>
   </div>
 </section>
@@ -484,6 +646,20 @@
   </div>
 </section>
 
+<section class="partners">
+  <div class="container">
+    <div class="section-label">Nos partenaires</div>
+    <div class="partners-inner">
+      <a class="partner-link" href="https://neo-ia.fr/" target="_blank" rel="noopener" title="Neo-IA">
+        <img class="partner-logo" src="neo-ia-logo.webp" alt="Neo-IA" loading="lazy">
+      </a>
+      <a class="partner-link" href="https://www.neoresilia.com/" target="_blank" rel="noopener" title="Neoresilia">
+        <img class="partner-logo" src="neoresilia-logo.webp" alt="Neoresilia" loading="lazy">
+      </a>
+    </div>
+  </div>
+</section>
+
 <section id="apropos">
   <div class="container about-grid">
     <div>
@@ -503,7 +679,7 @@
   </div>
 </section>
 
-<section style="padding-top:0;">
+<section id="faq" style="padding-top:0;">
   <div class="container">
     <div class="section-label">Questions fréquentes</div>
     <h2>Tout ce qu'il faut savoir avant de se lancer</h2>
@@ -535,7 +711,7 @@
     <p class="lead center">30 minutes pour faire le point sur votre situation et définir la meilleure porte d'entrée : formation, agents IA, ou accompagnement complet.</p>
     <div class="hero-ctas">
       <a href="https://calendar.app.google/tMXi9i3qAubQbQXa7" target="_blank" rel="noopener" class="btn btn-primary">Réserver un RDV découverte</a>
-      <a href="audit-ia.html" class="btn btn-outline">Faire mon audit rapide gratuit</a>
+      <a class="btn btn-outline" href="audit-ia.html">Faire mon audit rapide gratuit</a>
     </div>
   </div>
 </section>
@@ -569,6 +745,18 @@
           <div class="contact-value">+33 6 38 39 78 86</div>
         </div>
       </a>
+      <a class="contact-card" href="https://piloterousubir.beehiiv.com/subscribe" target="_blank" rel="noopener">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 4.5h16A1.5 1.5 0 0 1 21.5 6v12a1.5 1.5 0 0 1-1.5 1.5H4A1.5 1.5 0 0 1 2.5 18V6A1.5 1.5 0 0 1 4 4.5Z" stroke="#0b0c0e" stroke-width="1.6"/>
+            <path d="M6.5 8.5h7M6.5 12h11M6.5 15.5h11" stroke="#0b0c0e" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <div class="contact-label">Newsletter hebdo</div>
+          <div class="contact-value">Piloter ou subir</div>
+        </div>
+      </a>
     </div>
   </div>
 </section>
@@ -576,24 +764,54 @@
 <footer>
   <div class="container footer-inner">
     <div>© <span id="year"></span> Nelion — Accompagnement à la transition IA pour TPE/PME</div>
-    <div><a href="mentions-legales.html">Mentions légales</a> · <a href="confidentialite.html">Politique de confidentialité</a></div>
+    <div><a href="https://piloterousubir.beehiiv.com/subscribe" target="_blank" rel="noopener">S'abonner à la newsletter « Piloter ou subir »</a></div>
   </div>
 </footer>
 
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
-
-// Tracking des clics sur les CTA externes vers Google Calendar (RDV découverte)
-document.querySelectorAll('a[href*="calendar.app.google"]').forEach(function (link) {
-  link.addEventListener('click', function () {
-    if (typeof plausible === 'function') {
-      plausible('RDV Calendar Click', { props: { page: 'index' } });
-    }
+const menuBtn = document.getElementById('menuBtn');
+const mobileNav = document.getElementById('mobileNav');
+if (menuBtn && mobileNav) {
+  menuBtn.addEventListener('click', () => {
+    const isOpen = mobileNav.classList.toggle('open');
+    menuBtn.classList.toggle('open', isOpen);
+    menuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
   });
-});
-</script>
+  mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mobileNav.classList.remove('open');
+    menuBtn.classList.remove('open');
+    menuBtn.setAttribute('aria-expanded', 'false');
+  }));
+}
 
-<script src="cookie-consent.js" defer></script>
+// Scroll-spy: highlight the nav link matching the section currently in view
+const navSectionIds = ['offre', 'formations', 'prestations', 'parcours', 'temoignages', 'audit', 'faq', 'contact-direct'];
+const navLinks = document.querySelectorAll('nav a[href^="#"], .mobile-nav a[href^="#"]');
+const navSections = navSectionIds
+  .map(id => document.getElementById(id))
+  .filter(Boolean);
+
+function setActiveNav(id) {
+  navLinks.forEach(link => {
+    link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+  });
+}
+
+if (navSections.length) {
+  const spyObserver = new IntersectionObserver((entries) => {
+    let best = null;
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        if (!best || entry.intersectionRatio > best.intersectionRatio) best = entry;
+      }
+    });
+    if (best) setActiveNav(best.target.id);
+  }, { rootMargin: '-40% 0px -40% 0px', threshold: [0, 0.25, 0.5, 0.75, 1] });
+
+  navSections.forEach(section => spyObserver.observe(section));
+}
+</script>
 
 </body>
 </html>
