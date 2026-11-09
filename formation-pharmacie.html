@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IA appliquée aux missions de santé en pharmacie | Nelion × NEORESILIA</title>
+<meta name="description" content="Formation d'une journée pour titulaires et équipes officinales : entretiens pharmaceutiques, bilans de prévention, campagnes de santé publique et suivi patient avec une IA cadrée et sécurisée. 350 € · FIF PL / OPCO EP · sessions en décembre 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700;800&family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "IA appliquée aux missions de santé en pharmacie",
+  "description": "Entretiens pharmaceutiques, bilans de prévention et suivi patient avec une IA cadrée et sécurisée. 7 h en classe virtuelle + 1 h de préparation à distance.",
+  "provider": { "@type": "Organization", "name": "Nelion", "sameAs": "https://nelion.fr" },
+  "offers": { "@type": "Offer", "price": "350", "priceCurrency": "EUR", "category": "Formation professionnelle" },
+  "hasCourseInstance": [
+    { "@type": "CourseInstance", "courseMode": "online", "startDate": "2026-12-08", "endDate": "2026-12-08" },
+    { "@type": "CourseInstance", "courseMode": "online", "startDate": "2026-12-09", "endDate": "2026-12-09" },
+    { "@type": "CourseInstance", "courseMode": "online", "startDate": "2026-12-22", "endDate": "2026-12-22" }
+  ]
+}
+</script>
+<style>
+  :root {
+    --bg: #0B1026;
+    --bg-alt: #101838;
+    --card: #131C42;
+    --border: rgba(244,241,234,0.16);
+    --text: #F4F1EA;
+    --text-dim: #A9AEC6;
+    --accent: #F2C94C;
+    --accent2: #E8B33A;
+    --accent-text: #0B1026;
+    --serif: 'Fraunces', Georgia, 'Times New Roman', serif;
+    --mono: 'JetBrains Mono', 'Courier New', monospace;
+  }
+  .light {
+    --bg: #F4F1EA;
+    --bg-alt: #EAE5D8;
+    --card: #FFFFFF;
+    --border: #D8D2C2;
+    --text: #0B1026;
+    --text-dim: #4B5170;
+    --accent: #2F3FA6;
+    --accent2: #4F63D8;
+    --accent-text: #F4F1EA;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: #0B1026; color: #F4F1EA; line-height: 1.6;
+  }
+  a { text-decoration: none; color: inherit; }
+  img { max-width: 100%; display: block; }
+  .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+
+  /* Header */
+  header { position: sticky; top: 0; z-index: 50; background: rgba(11,16,38,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(244,241,234,0.16); }
+  .header-inner { display: flex; align-items: center; justify-content: space-between; padding: 18px 0; gap: 16px; }
+  .logo { font-family: var(--mono); font-size: 20px; font-weight: 800; letter-spacing: 1px; }
+  .logo span { color: #F2C94C; }
+  .back { font-size: 14px; color: #A9AEC6; }
+  .back:hover { color: #F4F1EA; }
+  .header-right { display: flex; align-items: center; gap: 24px; }
+  .btn { display: inline-block; font-weight: 600; font-size: 14.5px; padding: 12px 24px; border-radius: 6px; transition: all .2s ease; text-align: center; cursor: pointer; border: none; font-family: inherit; }
+  .btn-primary { background: linear-gradient(90deg, var(--accent), var(--accent2)); color: var(--accent-text); }
+  .btn-primary:hover { filter: brightness(1.08); transform: translateY(-1px); }
+  .btn-outline { border: 1.5px solid var(--border); color: var(--text); }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+  @media (max-width: 640px) { .header-right .btn { display: none; } }
+
+  section { padding: 80px 0; background: var(--bg); color: var(--text); }
+  section.alt { background: var(--bg-alt); }
+  .label { font-family: var(--mono); text-transform: uppercase; letter-spacing: 2px; font-size: 12.5px; color: var(--accent); font-weight: 700; margin-bottom: 14px; }
+  h1, h2, h3 { font-family: var(--serif); font-weight: 500; }
+  h1 { font-size: 46px; line-height: 1.15; letter-spacing: -0.5px; max-width: 760px; margin-bottom: 20px; }
+  h2 { font-size: 32px; line-height: 1.2; max-width: 680px; margin-bottom: 16px; }
+  .lead { font-size: 17px; color: var(--text-dim); max-width: 640px; margin-bottom: 40px; }
+  @media (max-width: 640px) { h1 { font-size: 34px; } h2 { font-size: 26px; } section { padding: 60px 0; } }
+
+  /* Hero */
+  .hero { padding: 80px 0 60px; position: relative; overflow: hidden; }
+  .hero::before { content: ""; position: absolute; top: -220px; right: -120px; width: 620px; height: 520px; background: radial-gradient(circle, rgba(242,201,76,0.14), transparent 70%); pointer-events: none; }
+  .hero .container { position: relative; }
+  .hero-badges { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 24px; }
+  .tag { font-family: var(--mono); display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: .4px; color: var(--accent); border: 1px solid var(--border); padding: 4px 12px; border-radius: 999px; }
+  .hero .sub { font-size: 18px; color: var(--text-dim); max-width: 620px; margin-bottom: 32px; }
+  .hero-ctas { display: flex; flex-wrap: wrap; gap: 14px; }
+
+  /* Facts */
+  .facts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 48px; }
+  @media (min-width: 760px) { .facts { grid-template-columns: repeat(4, 1fr); } }
+  .fact { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 20px; }
+  .fact .k { font-family: var(--mono); font-size: 11.5px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-dim); margin-bottom: 8px; }
+  .fact .v { font-family: var(--mono); font-size: 28px; font-weight: 800; color: var(--accent); line-height: 1.1; }
+  .fact .v.txt { font-size: 20px; }
+  .fact .d { font-size: 13px; color: var(--text-dim); margin-top: 6px; }
+
+  /* Trust */
+  .grid3 { display: grid; grid-template-columns: 1fr; gap: 20px; }
+  @media (min-width: 760px) { .grid3 { grid-template-columns: repeat(3, 1fr); } }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 28px 26px; }
+  .card h3 { font-size: 19px; margin-bottom: 10px; }
+  .card p { font-size: 14.5px; color: var(--text-dim); }
+  .card .num { font-family: var(--mono); font-size: 13px; font-weight: 800; color: var(--accent); margin-bottom: 12px; }
+  .quote-box { background: var(--card); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 10px; padding: 24px 28px; margin-bottom: 28px; max-width: 760px; }
+  .quote-box p { color: var(--text-dim); font-size: 15.5px; }
+  .quote-box strong { color: var(--text); }
+
+  /* Skills */
+  .skills { display: grid; grid-template-columns: 1fr; gap: 16px; }
+  @media (min-width: 640px) { .skills { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 960px) { .skills { grid-template-columns: repeat(5, 1fr); } }
+  .skill { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 20px 18px; }
+  .skill h3 { font-size: 16px; margin-bottom: 8px; line-height: 1.3; }
+  .skill p { font-size: 13.5px; color: var(--text-dim); }
+  .skill .m { font-family: var(--mono); font-size: 11.5px; color: var(--accent); margin-top: 10px; font-weight: 700; }
+
+  /* Modules */
+  .modules { display: flex; flex-direction: column; gap: 14px; }
+  details.module { background: var(--card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+  details.module[open] { border-color: var(--accent); }
+  details.module summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 16px; padding: 20px 24px; }
+  details.module summary::-webkit-details-marker { display: none; }
+  .mnum { font-family: var(--mono); font-weight: 800; font-size: 14px; background: var(--accent); color: var(--accent-text); width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .mtitle { font-family: var(--serif); font-size: 18px; line-height: 1.3; flex: 1; }
+  .chev { color: var(--accent); font-size: 20px; transition: transform .2s ease; }
+  details[open] .chev { transform: rotate(180deg); }
+  .mbody { padding: 0 24px 24px 74px; }
+  @media (max-width: 640px) { .mbody { padding-left: 24px; } }
+  .mbody ul { padding-left: 18px; color: var(--text-dim); font-size: 14.5px; }
+  .mbody li { margin-bottom: 8px; }
+  .mbody ul ul { margin-top: 8px; }
+  .livrables { margin-top: 16px; font-size: 13px; background: rgba(244,241,234,0.05); border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; color: var(--text-dim); }
+  .livrables strong { color: var(--text); }
+
+  /* Sessions */
+  .sessions { display: grid; grid-template-columns: 1fr; gap: 20px; }
+  @media (min-width: 760px) { .sessions { grid-template-columns: repeat(3, 1fr); } }
+  .session { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 28px 24px; display: flex; flex-direction: column; gap: 6px; }
+  .session .dow { font-family: var(--mono); font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+  .session .date { font-family: var(--serif); font-size: 28px; line-height: 1.15; }
+  .session .meta { font-size: 13.5px; color: var(--text-dim); margin-bottom: 14px; }
+  .session .btn { margin-top: auto; }
+  .note { font-size: 13.5px; color: var(--text-dim); margin-top: 22px; max-width: 700px; }
+
+  /* Price */
+  .price-box { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 36px; display: flex; flex-direction: column; gap: 20px; }
+  @media (min-width: 800px) { .price-box { flex-direction: row; align-items: center; justify-content: space-between; } }
+  .price { font-family: var(--mono); font-size: 52px; font-weight: 800; color: var(--accent); line-height: 1; }
+  .price small { font-size: 15px; color: var(--text-dim); font-weight: 700; margin-left: 8px; }
+  .price-box p { color: var(--text-dim); font-size: 15px; max-width: 460px; margin-top: 10px; }
+
+  /* Info columns */
+  .cols { display: grid; grid-template-columns: 1fr; gap: 20px; }
+  @media (min-width: 760px) { .cols { grid-template-columns: 1fr 1fr; } }
+  .card h3.sm { font-size: 17px; margin-bottom: 12px; }
+  .card ul { padding-left: 18px; color: var(--text-dim); font-size: 14.5px; }
+  .card li { margin-bottom: 8px; }
+  .card h3.sm + ul + h3.sm { margin-top: 20px; }
+
+  /* Partner */
+  .partner { display: flex; flex-direction: column; gap: 20px; align-items: flex-start; }
+  @media (min-width: 760px) { .partner { flex-direction: row; align-items: center; gap: 40px; } }
+  .partner-logo { background: #F4F1EA; border-radius: 12px; padding: 20px 28px; flex-shrink: 0; }
+  .partner-logo img { height: 56px; width: auto; }
+  .partner p { color: var(--text-dim); font-size: 15.5px; max-width: 560px; }
+
+  /* CTA band */
+  .cta-band { text-align: center; }
+  .cta-band h2, .cta-band .lead { margin-left: auto; margin-right: auto; }
+  .cta-band .hero-ctas { justify-content: center; }
+
+  footer { background: #0B1026; border-top: 1px solid rgba(244,241,234,0.16); padding: 36px 0; text-align: center; font-size: 13.5px; color: #A9AEC6; }
+  footer a { color: #F4F1EA; font-weight: 600; }
+  footer a:hover { color: #F2C94C; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container header-inner">
+    <a href="/" class="logo">NELION<span>.</span></a>
+    <div class="header-right">
+      <a href="/#formations" class="back">← Toutes nos formations</a>
+      <a href="#sessions" class="btn btn-primary">Réserver ma place</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-badges">
+      <span class="tag">Nouveau · Pharmacie d'officine</span>
+      <span class="tag">En partenariat avec NEORESILIA</span>
+    </div>
+    <h1>IA appliquée aux missions de santé en pharmacie</h1>
+    <p class="sub">Entretiens pharmaceutiques, bilans de prévention et suivi patient, avec une IA cadrée et sécurisée. Une journée pour repartir avec une charte d'usage, des scripts d'entretien et une automatisation qui fonctionne.</p>
+    <div class="hero-ctas">
+      <a href="#sessions" class="btn btn-primary">Voir les sessions de décembre</a>
+      <a href="#programme" class="btn btn-outline">Consulter le programme</a>
+    </div>
+
+    <div class="facts">
+      <div class="fact"><div class="k">Durée</div><div class="v">7 h</div><div class="d">+ 1 h de préparation à distance</div></div>
+      <div class="fact"><div class="k">Groupe</div><div class="v">5 à 8</div><div class="d">participants, un formateur dédié</div></div>
+      <div class="fact"><div class="k">Tarif</div><div class="v">350 €</div><div class="d">par participant · éligible FIF PL et OPCO EP</div></div>
+      <div class="fact"><div class="k">Format</div><div class="v txt">Classe virtuelle</div><div class="d">présentiel possible sur demande</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- POURQUOI -->
+<section class="light alt">
+  <div class="container">
+    <div class="label">Pourquoi cette formation</div>
+    <h2>En pharmacie, la question n'est pas l'outil. C'est la confiance.</h2>
+    <div class="quote-box">
+      <p>Qui a accès à la donnée ? Que se passe-t-il quand un membre de l'équipe colle une information sur un patient dans un outil gratuit, le soir, sans le dire à personne ? <strong>Aucun serveur ne règle ce problème.</strong> Il se règle avec un outil cadré et une équipe formée aux bons usages. Ce volet est au cœur de la journée.</p>
+    </div>
+    <div class="grid3">
+      <div class="card"><div class="num">01</div><h3>Un outil unique et cadré</h3><p>Il devient l'outil officiel de l'officine. Sans alternative utile, l'interdiction pousse les usages à se cacher.</p></div>
+      <div class="card"><div class="num">02</div><h3>Une charte d'usage</h3><p>Une page, construite pendant la formation et signée par toute l'équipe.</p></div>
+      <div class="card"><div class="num">03</div><h3>Des garde-fous techniques</h3><p>Une checklist à confier au prestataire informatique, en complément de la charte.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- OBJECTIF / COMPETENCES -->
+<section>
+  <div class="container">
+    <div class="label">Objectif</div>
+    <h2>Développer et objectiver les missions d'accompagnement pharmaceutique</h2>
+    <p class="lead">Permettre aux titulaires et à leurs équipes de développer leurs missions (entretiens pharmaceutiques, bilans de prévention, campagnes de santé publique, suivi des patients chroniques) en s'appuyant sur l'IA comme outil d'efficacité, dans le respect du cadre déontologique, réglementaire et RGPD applicable aux données de santé.</p>
+    <h3 style="font-size:20px; margin-bottom:20px;">Ce que vous saurez faire à l'issue de la journée</h3>
+    <div class="skills">
+      <div class="skill"><h3>Rédiger des communications</h3><p>patients, équipe, affichages</p><div class="m">→ Module 3</div></div>
+      <div class="skill"><h3>Préparer des documents</h3><p>protocoles, procédures</p><div class="m">→ Module 6</div></div>
+      <div class="skill"><h3>Synthétiser des informations</h3><p>médicaments, recommandations</p><div class="m">→ Module 2</div></div>
+      <div class="skill"><h3>Organiser certaines tâches</h3><p>planning, suivi, gestion</p><div class="m">→ Modules 4 et 6</div></div>
+      <div class="skill"><h3>Créer du contenu</h3><p>conseils, posts, supports</p><div class="m">→ Module 3</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMME -->
+<section class="alt" id="programme">
+  <div class="container">
+    <div class="label">Programme</div>
+    <h2>Six modules, une journée</h2>
+    <p class="lead">Chaque module aboutit à un livrable concret, travaillé sur des cas réels d'officine.</p>
+
+    <div class="modules">
+      <details class="module" open>
+        <summary><div class="mnum">1</div><div class="mtitle">Cadrage réglementaire, déontologique et usages sécurisés de l'IA</div><div class="chev">⌄</div></summary>
+        <div class="mbody">
+          <ul>
+            <li>RGPD et données de santé : ce qui peut ou ne peut pas être saisi dans un outil d'IA grand public</li>
+            <li>Responsabilité du titulaire : responsable de traitement, données de santé, secret professionnel</li>
+            <li>Nouveau code de déontologie des pharmaciens (décret de mars 2026) : ce qui est désormais permis sur les réseaux sociaux, contenu de santé majoritaire, jamais d'information sur un médicament mêlée à une promotion</li>
+            <li>Atelier « premier prompt » et étude de cas du « prompt piégé » pour ancrer les bons réflexes</li>
+            <li><strong>Cadrer les usages dans son officine</strong> (environ 30 min)
+              <ul>
+                <li>Restitution du mini-audit anonyme réalisé en amont : outils d'IA déjà utilisés par l'équipe, sur quels appareils</li>
+                <li>Choix d'un outil unique et cadré, qui devient l'outil officiel de l'officine</li>
+                <li>Atelier charte d'usage (une page) : outil autorisé, données interdites, circuit de validation, conduite à tenir en cas d'erreur</li>
+                <li>Checklist technique en 5 points pour le prestataire informatique : filtrage des IA grand public sur les postes, comptes nominatifs, aucun compte personnel sur le poste comptoir… Une recommandation, pas une garantie : le téléphone personnel reste hors de portée</li>
+              </ul>
+            </li>
+          </ul>
+          <div class="livrables"><strong>Livrables :</strong> fiche réflexe « je peux / je ne peux pas » · charte d'usage de l'officine · checklist technique pour le prestataire</div>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary><div class="mnum">2</div><div class="mtitle">Mener des entretiens pharmaceutiques et des bilans de prévention avec l'IA</div><div class="chev">⌄</div></summary>
+        <div class="mbody">
+          <ul>
+            <li>Repérage des patients éligibles sur ordonnance : bilan partagé de médication, entretien asthme, entretien AVK/AOD</li>
+            <li>Techniques d'accroche et de prise de rendez-vous patient</li>
+            <li>Synthèse assistée par IA des recommandations et de la documentation médicament utiles à l'entretien (HAS, RCP), avec vérification systématique à la source</li>
+            <li>Génération de scripts d'entretien et de fiches de repérage adaptés à la patientèle de l'officine</li>
+            <li>Synthèse post-entretien pour le médecin traitant : l'IA met en forme et clarifie, elle ne décide jamais d'un ajustement thérapeutique</li>
+          </ul>
+          <div class="livrables"><strong>Livrables :</strong> script d'entretien personnalisé · trame de synthèse pour le médecin traitant</div>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary><div class="mnum">3</div><div class="mtitle">Organiser une campagne de santé publique en officine</div><div class="chev">⌄</div></summary>
+        <div class="mbody">
+          <ul>
+            <li>Génération de contenus pour les campagnes de vaccination et de dépistage organisé (Octobre Rose, Mars Bleu)</li>
+            <li>Supports de la campagne : communications patients, affichages en officine, fiches conseil, publications sur les réseaux, conformes au nouveau code de déontologie</li>
+            <li>Relance des patients chroniques sur données anonymisées : numéro de dossier et échéance uniquement, jamais de nom</li>
+            <li>Techniques de prompt appliquées à la communication officinale</li>
+            <li>Argumentaires comptoir pour l'équipe</li>
+          </ul>
+          <div class="livrables"><strong>Livrables :</strong> trois contenus prêts à publier en moins de 5 minutes · prompt type réutilisable</div>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary><div class="mnum">4</div><div class="mtitle">Automatiser le suivi des patients chroniques</div><div class="chev">⌄</div></summary>
+        <div class="mbody">
+          <ul>
+            <li>Principes de l'automatisation sans code appliqués à l'officine</li>
+            <li>Un seul scénario, conforme : données anonymisées, message déposé en brouillon pour validation humaine avant tout envoi</li>
+            <li>Comptes et accès créés pendant la préparation à distance ; boîte mail de démonstration prévue pour les participants sans droits d'accès</li>
+            <li>Test et mise en service d'une automatisation qui fonctionne</li>
+          </ul>
+          <div class="livrables"><strong>Livrables :</strong> automatisation opérationnelle · fiche pas à pas</div>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary><div class="mnum">5</div><div class="mtitle">Objectiver le développement des nouvelles missions</div><div class="chev">⌄</div></summary>
+        <div class="mbody">
+          <ul>
+            <li>Rentabilité horaire par mission : coût horaire chargé par profil, marge conseil, code couleur</li>
+            <li>Répartition des missions entre titulaire et équipe</li>
+            <li>Simulation du gain annuel et de l'impact sur l'EBE de l'officine</li>
+            <li>Données de l'officine saisies avant la journée, pour consacrer le temps de formation à l'analyse</li>
+          </ul>
+          <div class="livrables"><strong>Livrable :</strong> diagnostic des missions personnalisé (rentabilité horaire et gain annuel)</div>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary><div class="mnum">6</div><div class="mtitle">Piloter son équipe avec l'IA</div><div class="chev">⌄</div></summary>
+        <div class="mbody">
+          <ul>
+            <li>Briefs d'équipe et ordres du jour de réunion préparés avec l'IA</li>
+            <li>Rédaction de procédures et protocoles internes (démarche qualité), organisation du planning et du suivi des tâches</li>
+            <li>Garde-fou : l'IA prépare les supports, la décision et l'évaluation restent humaines</li>
+          </ul>
+          <div class="livrables"><strong>Livrables :</strong> brief matinal type · procédure interne rédigée</div>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- PARCOURS PARTICIPANT -->
+<section>
+  <div class="container">
+    <div class="label">Parcours du participant</div>
+    <h2>Avant, pendant, après : un suivi complet</h2>
+    <p class="lead">La formation ne s'arrête pas à la journée : la préparation à distance fait gagner du temps en séance, et le suivi à J+30 mesure les résultats.</p>
+    <div class="cols">
+      <div class="card">
+        <h3 class="sm">Avant · à distance (1 h)</h3>
+        <ul>
+          <li>Questionnaire d'auto-positionnement : niveau en IA, missions déjà pratiquées</li>
+          <li>Mini-audit anonyme des usages de l'équipe</li>
+          <li>Vidéo « IA générative, les bases » et panorama des outils adaptés à l'officine</li>
+          <li>Création des comptes et des accès pour le module 4</li>
+          <li>Transmission des données de l'officine pour personnaliser les ateliers</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 class="sm">Après · suivi</h3>
+        <ul>
+          <li>Bibliothèque de prompts</li>
+          <li>Charte d'usage finalisée, à faire signer par toute l'équipe</li>
+          <li>Trame de réunion mensuelle et préparation d'entretien annuel</li>
+          <li>Évaluation à J+30 : temps gagné, entretiens et bilans menés, usage des automatisations</li>
+          <li>Canal de suivi pour les questions ponctuelles</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SESSIONS -->
+<section class="light alt" id="sessions">
+  <div class="container">
+    <div class="label">Prochaines sessions</div>
+    <h2>Trois dates en décembre 2026</h2>
+    <p class="lead">Sessions en classe virtuelle, de 9 h à 17 h. De 5 à 8 participants par session.</p>
+    <div class="sessions">
+      <div class="session">
+        <div class="dow">Mardi</div>
+        <div class="date">8 décembre 2026</div>
+        <div class="meta">9 h – 17 h · classe virtuelle</div>
+        <a class="btn btn-primary" href="mailto:maxime@nelion.fr?subject=Inscription%20formation%20IA%20pharmacie%20-%208%20d%C3%A9cembre%202026">Je m'inscris</a>
+      </div>
+      <div class="session">
+        <div class="dow">Mercredi</div>
+        <div class="date">9 décembre 2026</div>
+        <div class="meta">9 h – 17 h · classe virtuelle</div>
+        <a class="btn btn-primary" href="mailto:maxime@nelion.fr?subject=Inscription%20formation%20IA%20pharmacie%20-%209%20d%C3%A9cembre%202026">Je m'inscris</a>
+      </div>
+      <div class="session">
+        <div class="dow">Mardi</div>
+        <div class="date">22 décembre 2026</div>
+        <div class="meta">9 h – 17 h · classe virtuelle</div>
+        <a class="btn btn-primary" href="mailto:maxime@nelion.fr?subject=Inscription%20formation%20IA%20pharmacie%20-%2022%20d%C3%A9cembre%202026">Je m'inscris</a>
+      </div>
+    </div>
+    <p class="note">Inscription sans délai minimum, dans la limite des places disponibles. Présentiel possible sur demande, hors des locaux de l'officine.</p>
+  </div>
+</section>
+
+<!-- TARIF -->
+<section>
+  <div class="container">
+    <div class="label">Tarif et financement</div>
+    <h2>Une journée, un tarif clair</h2>
+    <div class="price-box">
+      <div>
+        <div class="price">350 €<small>par participant</small></div>
+        <p>Pour la journée de formation. Ce montant peut être pris en charge par le <strong>FIF PL</strong> (titulaires) ou par l'<strong>OPCO EP</strong> (salariés de l'officine).</p>
+      </div>
+      <a class="btn btn-primary" href="https://calendar.app.google/FgyTkdZ2rQ3WYgAs7" target="_blank" rel="noopener">Vérifier mon financement</a>
+    </div>
+  </div>
+</section>
+
+<!-- INFOS PRATIQUES -->
+<section class="alt">
+  <div class="container">
+    <div class="label">Informations pratiques</div>
+    <h2>Public, modalités et moyens</h2>
+    <div class="cols" style="margin-top:32px;">
+      <div class="card">
+        <h3 class="sm">Public visé</h3>
+        <ul>
+          <li>Titulaires de pharmacie d'officine</li>
+          <li>Collaborateurs directs du titulaire (pharmaciens adjoints, préparateurs)</li>
+        </ul>
+        <h3 class="sm">Prérequis</h3>
+        <ul><li>Être à l'aise avec les outils numériques de base</li></ul>
+        <h3 class="sm">Formateur</h3>
+        <ul><li>Formateur spécialisé dans l'intelligence artificielle et la pharmacie d'officine</li></ul>
+      </div>
+      <div class="card">
+        <h3 class="sm">Modalités pédagogiques et évaluation</h3>
+        <ul>
+          <li>Mises en situation et ateliers pratiques en sous-groupes sur des cas réels d'officine</li>
+          <li>Format mixte : 1 h de préparation à distance, puis 7 h en classe virtuelle (visio en direct avec le formateur)</li>
+          <li>QCM avant et après la formation sur les fondamentaux</li>
+          <li>Preuves concrètes en fin de journée : charte d'usage, automatisation opérationnelle, contenus produits, script d'entretien</li>
+          <li>Questionnaire de satisfaction à chaud et évaluation à froid à J+30</li>
+        </ul>
+        <h3 class="sm">Moyens techniques</h3>
+        <ul>
+          <li>Ordinateur par participant avec webcam, micro et connexion internet stable</li>
+          <li>Lien de connexion à la classe virtuelle envoyé avant la session</li>
+          <li>Comptes outils créés lors de la préparation à distance</li>
+          <li>Outil Pharmarise et outils d'IA générative</li>
+        </ul>
+      </div>
+    </div>
+    <p class="note" style="margin-top:24px;">Formation accessible aux personnes en situation de handicap. Des aménagements pédagogiques, techniques ou organisationnels peuvent être mis en place avec notre référent handicap.</p>
+  </div>
+</section>
+
+<!-- PARTENAIRE -->
+<section>
+  <div class="container">
+    <div class="label">En partenariat avec</div>
+    <div class="partner">
+      <div class="partner-logo"><img src="/logos/neoresilia.webp" alt="NEORESILIA, partenaire de Nelion" height="56"></div>
+      <p>Cette formation est proposée par Nelion en partenariat avec NEORESILIA, pour accompagner les titulaires et leurs équipes dans le développement des missions de santé publique en officine.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="light alt cta-band">
+  <div class="container">
+    <div class="label">Prochaine étape</div>
+    <h2>Réservez votre place pour décembre</h2>
+    <p class="lead">Choisissez votre date, ou échangez 30 minutes avec nous pour voir comment adapter la journée à votre officine.</p>
+    <div class="hero-ctas">
+      <a href="#sessions" class="btn btn-primary">Choisir ma session</a>
+      <a href="https://calendar.app.google/FgyTkdZ2rQ3WYgAs7" target="_blank" rel="noopener" class="btn btn-outline">Réserver un RDV découverte</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div>© <span id="year"></span> Nelion — Accompagnement à la transition IA pour TPE/PME · <a href="mailto:maxime@nelion.fr">maxime@nelion.fr</a></div>
+  </div>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+</body>
+</html>

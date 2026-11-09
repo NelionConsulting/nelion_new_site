@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CelestIA | Hub d'agents IA en marque blanche | Nelion</title>
+<meta name="description" content="CelestIA : un hub de dix agents IA qui veillent, publient, répondent, vendent, recrutent, forment, facturent, planifient et pilotent. Vous validez en un clic. Déploiement sur devis.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#0B1026;--bg-alt:#101838;--card:#131C42;--border:rgba(244,241,234,.16);--text:#F4F1EA;--text-dim:#A9AEC6;--accent:#F2C94C;--accent2:#E8B33A;--accent-text:#0B1026;--header-h:61px}
+  .light{--bg:#F4F1EA;--bg-alt:#EAE5D8;--card:#FFFFFF;--border:#D8D2C2;--text:#0B1026;--text-dim:#4B5170;--accent:#2F3FA6;--accent2:#4F63D8;--accent-text:#F4F1EA}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+  a{text-decoration:none;color:inherit}
+  .container{max-width:1140px;margin:0 auto;padding:0 24px}
+  .ia{color:#7FB2FF}
+  .grad{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  header.site{position:sticky;top:0;z-index:50;background:rgba(11,16,38,.92);backdrop-filter:blur(8px);border-bottom:1px solid rgba(244,241,234,.12)}
+  .header-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+  .logo{font-family:'JetBrains Mono','Courier New',monospace;font-size:20px;font-weight:800;letter-spacing:.5px}
+  .logo span{color:var(--accent)}
+  nav.main{display:none}
+  @media(min-width:1160px){nav.main{display:block}}
+  nav.main ul{list-style:none;display:flex;gap:30px;font-size:14.5px}
+  nav.main a{color:var(--text-dim);font-weight:500}
+  nav.main a:hover,nav.main a[aria-current="page"]{color:var(--accent)}
+  .btn{display:inline-block;font-weight:700;font-size:14.5px;padding:12px 24px;border-radius:6px;transition:all .2s ease;white-space:nowrap;text-align:center}
+  .btn-primary{background:linear-gradient(90deg,var(--accent),var(--accent2));color:var(--accent-text)}
+  .btn-primary:hover{filter:brightness(1.08);transform:translateY(-1px)}
+  .header-cta{display:none}
+  @media(min-width:640px){.header-cta{display:inline-block}}
+  .cta-end{background:var(--bg);color:var(--text);padding:80px 0;text-align:center}
+  .cta-end h2{font-family:'Fraunces',Georgia,serif;font-size:34px;font-weight:500;margin:0 auto 14px;letter-spacing:-.01em;line-height:1.2}
+  .cta-end p{color:var(--text-dim);max-width:600px;margin:0 auto 28px}
+  footer.site{background:#0B1026;color:#A9AEC6;border-top:1px solid rgba(244,241,234,.12);padding:44px 0;font-size:13.5px;text-align:center}
+
+:root{ --night:#0B1026;
+  --night-2:#101838;
+  --moon:#F4F1EA;
+  --gold:#F2C94C;
+  --muted:#A9AEC6;
+  --soft:#D5D7E4;
+  --line:rgba(244,241,234,.16);
+  --vis:#9B8CFF;
+  --ven:#5BA8FF;
+  --equ:#5FD3A0;
+  --adm:#FFA24C;
+  --serif:"Fraunces",Georgia,"Times New Roman",serif;
+  --sans:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+
+.cel{
+  background:var(--night);color:var(--moon);
+  font:400 16px/1.6 var(--sans);
+  padding-block:56px 72px;
+  padding-left:max(24px,env(safe-area-inset-left,0px));
+  padding-right:max(24px,env(safe-area-inset-right,0px));
+}
+.wrap{max-width:1120px;margin:0 auto;display:flex;flex-direction:column;gap:30px}
+.tag{font:400 11px/1.4 var(--mono);letter-spacing:.14em;color:var(--gold)}
+h1{font:400 clamp(46px,9vw,88px)/1 var(--serif);letter-spacing:-.01em;margin:10px 0 8px;overflow-wrap:anywhere}
+.slogan{font:italic 400 clamp(20px,3.4vw,28px)/1.25 var(--serif);margin:0 0 14px;text-wrap:balance}
+.lead{max-width:60ch;color:var(--muted);margin:0}
+
+.ctrl{display:flex;flex-direction:column;gap:12px}
+.ctrl-h{font:400 11px/1.4 var(--mono);letter-spacing:.12em;color:var(--muted);margin:0}
+.jbtns{display:flex;flex-wrap:wrap;gap:8px}
+.jb{font:500 14px/1.2 var(--sans);color:var(--moon);background:transparent;border:1px solid var(--line);padding:10px 16px;border-radius:999px;cursor:pointer;min-height:44px;transition:border-color .2s,background .2s,color .2s}
+.jb:hover{border-color:var(--gold)}
+.jb[aria-pressed="true"]{background:var(--gold);color:var(--night);border-color:var(--gold)}
+.jb:focus-visible,.chip:focus-visible,.lk:focus-visible,.sw:focus-visible,input:focus-visible,.node:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.jcap{min-height:3.4em;margin:0;font-size:15px;max-width:72ch}
+.jcap .st{font:400 11px var(--mono);letter-spacing:.12em;color:var(--gold);margin-right:8px;white-space:nowrap}
+
+.stage{display:grid;grid-template-columns:minmax(0,1fr);gap:16px;align-items:start}
+@media(min-width:920px){
+  .stage{grid-template-columns:minmax(0,1.65fr) minmax(300px,1fr)}
+  .panel{position:sticky;top:84px}
+}
+.sky{border:1px solid var(--line);border-radius:14px;background:radial-gradient(110% 80% at 72% 0%,#17214f 0%,var(--night) 62%);padding:8px 8px 14px;min-width:0}
+#cv{display:block;margin:0 auto;max-width:100%;touch-action:pan-y;border-radius:10px}
+.legend{display:flex;flex-wrap:wrap;gap:8px;padding:8px 8px 0}
+.chip{font:400 13px/1.2 var(--sans);color:var(--moon);background:transparent;border:1px solid var(--line);border-radius:999px;padding:6px 12px;display:inline-flex;gap:8px;align-items:center;cursor:pointer;min-height:36px;transition:border-color .2s,background .2s}
+.chip i{width:9px;height:9px;border-radius:50%;background:var(--c);flex:none}
+.chip:hover{border-color:var(--c)}
+.chip[aria-pressed="true"]{border-color:var(--c);background:rgba(244,241,234,.07)}
+.hint{font:400 11px/1.4 var(--mono);letter-spacing:.1em;color:var(--muted);padding:10px 8px 0;margin:0}
+
+.edge{fill:none;stroke:var(--gold);stroke-width:1;opacity:.42;transition:opacity .25s,stroke-width .25s}
+.edge.kpi{stroke-dasharray:1 6;stroke-linecap:round;opacity:.16}
+.edge.done{opacity:.75}
+.edge.on{opacity:1;stroke-width:1.9}
+.edge.kpi.on{opacity:.9;stroke-width:1.6}
+.edge.dim{opacity:.06}
+.edge.flux.draw{stroke-dasharray:var(--len);stroke-dashoffset:var(--len);animation:draw 1.4s cubic-bezier(.3,.6,.2,1) forwards;animation-delay:var(--d)}
+@keyframes draw{to{stroke-dashoffset:0}}
+.pulse{fill:var(--moon);stroke:var(--gold);stroke-opacity:.35;stroke-width:5px;pointer-events:none}
+.elab{font:500 12px var(--sans);fill:var(--moon);text-anchor:middle;paint-order:stroke;stroke:var(--night);stroke-width:4px;stroke-linejoin:round;opacity:0;transition:opacity .25s;pointer-events:none}
+.field{fill:var(--moon)}
+.tw{animation:tw 4.5s ease-in-out infinite;animation-delay:var(--d)}
+@keyframes tw{0%,100%{opacity:.25}50%{opacity:.95}}
+
+.node{cursor:pointer;outline:none;transition:opacity .25s}
+.node.dim{opacity:.25}
+.node .core{fill:var(--c);transform-box:fill-box;transform-origin:center;transition:transform .25s}
+.node:hover .core,.node.act .core,.node:focus-visible .core{transform:scale(1.35)}
+.node .halo{fill:var(--c);opacity:.18;transform-box:fill-box;transform-origin:center;animation:halo 4s ease-in-out infinite;animation-delay:var(--d)}
+@keyframes halo{0%,100%{transform:scale(1);opacity:.2}50%{transform:scale(1.6);opacity:.05}}
+.node .ring{fill:none;stroke:var(--c);stroke-width:1.2;opacity:0;transition:opacity .2s}
+.node:hover .ring,.node.act .ring,.node:focus-visible .ring{opacity:.95}
+.node .orbit{fill:none;stroke:var(--c);stroke-width:1;stroke-dasharray:2 6;opacity:.65;transform-box:fill-box;transform-origin:center;animation:spin 40s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.node .orbit2{animation-duration:26s;animation-direction:reverse}
+.node text{font-family:var(--sans);font-weight:500;fill:var(--moon);text-anchor:middle;paint-order:stroke;stroke:var(--night);stroke-width:3px;stroke-linejoin:round;pointer-events:none}
+
+.panel{border:1px solid var(--line);border-radius:14px;background:var(--night-2);padding:22px;min-width:0;--c:var(--gold)}
+.pin{animation:fin .35s ease}
+@keyframes fin{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.ptag{font:400 11px/1.4 var(--mono);letter-spacing:.14em;color:var(--c)}
+.pname{font:400 38px/1.05 var(--serif);margin:8px 0 6px;overflow-wrap:anywhere}
+.pneed{font:italic 400 18px/1.35 var(--serif);margin:0 0 14px}
+.ptxt{margin:0 0 6px;color:var(--soft);font-size:15px}
+.pvalid{font-size:14px;border-top:1px solid var(--line);padding-top:12px;margin:14px 0 0}
+.plh{font:400 11px/1.4 var(--mono);letter-spacing:.12em;color:var(--muted);margin:18px 0 4px}
+.lk{display:grid;grid-template-columns:10px 1fr;gap:2px 10px;width:100%;text-align:left;background:none;border:0;border-top:1px solid var(--line);color:var(--moon);padding:9px 0;cursor:pointer;font:400 14px/1.35 var(--sans)}
+.lk i{width:8px;height:8px;border-radius:50%;background:var(--c);margin-top:6px}
+.lk b{font-weight:500}
+.lk em{font-style:normal;color:var(--muted);grid-column:2}
+.lk:hover b{color:var(--gold)}
+
+.hands{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px 32px;border-top:1px solid var(--line);padding-top:26px}
+.hands h2,.brand h2{font:400 28px/1.15 var(--serif);margin:0}
+.hands h2{grid-column:1/-1}
+.hc h3{font:400 11px/1.4 var(--mono);letter-spacing:.12em;color:var(--gold);margin:0 0 8px}
+.hc p{margin:0;color:var(--soft);font-size:15px}
+
+.brand{display:grid;gap:14px;border:1px solid var(--line);border-radius:14px;padding:22px;background:var(--night-2)}
+.brand p{margin:0;color:var(--soft);font-size:15px;max-width:62ch}
+.brow{display:flex;flex-wrap:wrap;gap:12px 18px;align-items:center}
+.brow label{font:400 11px var(--mono);letter-spacing:.12em;color:var(--muted)}
+.brow input{background:transparent;border:1px solid var(--line);color:var(--moon);font:400 16px var(--sans);padding:10px 12px;border-radius:8px;min-height:44px;width:min(100%,240px)}
+.sws{display:flex;gap:10px}
+.sw{width:36px;height:36px;border-radius:50%;border:2px solid transparent;background:var(--c);cursor:pointer;box-shadow:0 0 0 1px var(--line)}
+.sw[aria-pressed="true"]{border-color:var(--moon)}
+.foot{margin:0;color:var(--muted);font-size:14px;max-width:72ch}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+}
+@media(max-width:520px){.pname{font-size:32px}.panel,.brand{padding:18px}.cta-end .btn{white-space:normal}}
+</style>
+</head>
+<body>
+<header class="site">
+  <div class="container header-inner">
+    <a class="logo" href="index.html">NELION<span>.</span></a>
+    <nav class="main" aria-label="Navigation principale">
+      <ul>
+        <li><a href="index.html#offre">L'offre</a></li>
+        <li><a href="index.html#formations">Formations</a></li>
+        <li><a href="index.html#parcours">Comment ça marche</a></li>
+        <li><a href="celestia.html" aria-current="page">Celest<span class="ia">IA</span></a></li>
+        <li><a href="index.html#temoignages">Témoignages</a></li>
+        <li><a href="index.html#audit">Autodiagnostic gratuit</a></li>
+      </ul>
+    </nav>
+    <a href="https://calendar.app.google/tMXi9i3qAubQbQXa7" target="_blank" rel="noopener" class="btn btn-primary header-cta">Réserver un RDV découverte</a>
+  </div>
+</header>
+<main>
+<section class="cel" id="celestia">
+<div class="wrap">
+  <header>
+    <div class="tag">hub d'agents ia · marque blanche</div>
+    <h1 id="brand">Celest<span class="ia">IA</span></h1>
+    <p class="slogan">Un cosmos d'agents. Un seul cap.</p>
+    <p class="lead">Dix agents spécialisés veillent, publient, répondent, vendent, recrutent, forment, facturent, planifient et pilotent. Vous validez en un clic.</p>
+  </header>
+
+  <section class="ctrl" aria-label="Parcours guidés">
+    <p class="ctrl-h">suivre un parcours</p>
+    <div class="jbtns" id="jbtns"></div>
+    <p class="jcap" id="jcap" aria-live="polite"></p>
+  </section>
+
+  <section class="stage">
+    <div class="sky" id="sky">
+      <canvas id="cv" role="img" aria-label="Système solaire en 3D : Sirius, le soleil, au centre, et les neuf autres agents en orbite autour de lui"></canvas>
+      <div class="legend" id="legend"></div>
+      <div class="legend" id="roster" role="group" aria-label="Choisir un agent"></div>
+      <div class="legend"><button class="chip" id="pause" type="button" aria-pressed="false">Mettre en pause</button><button class="chip" id="reset" type="button">Recentrer la vue</button></div>
+      <p class="hint">glissez pour tourner · touchez ou survolez une planète · une famille pour filtrer</p>
+    </div>
+    <aside class="panel" id="panel" aria-live="polite"></aside>
+  </section>
+
+  <section class="hands">
+    <h2>Vous gardez la main</h2>
+    <div class="hc"><h3>les agents préparent</h3><p>Veiller, trier, classer, calculer, rédiger des brouillons, proposer des créneaux, rappeler les rendez-vous et les échéances, alerter en cas de panne.</p></div>
+    <div class="hc"><h3>vous validez toujours</h3><p>Un message à un prospect ou à un client, une publication, une facture, une relance de paiement, une invitation à un rendez-vous, un compte rendu, une convocation, une embauche, une purge de données.</p></div>
+    <div class="hc"><h3>ils ne font jamais</h3><p>Déplacer de l'argent, rejeter un candidat, modifier une écriture comptable, publier sans accord, promettre un résultat, supprimer vos données.</p></div>
+  </section>
+
+  <section class="brand" aria-label="Marque blanche">
+    <h2>Aux couleurs de votre marque</h2>
+    <p>Nom du hub, noms des agents, logo, couleurs, ton, langue et règles métier se paramètrent pour chaque client. Essayez avec le nom et l'accent ci-dessous.</p>
+    <div class="brow">
+      <label for="hubname">nom du hub</label>
+      <input id="hubname" type="text" maxlength="18" value="CelestIA" autocomplete="off">
+      <div class="sws" id="sws" role="group" aria-label="Couleur d'accent"></div>
+    </div>
+  </section>
+
+  <p class="foot">Déploiement sur devis. Prévoyez au minimum 2 jours d'entretien pour le système complet, ou ne retenez que les briques utiles. Proposé par Nelion Consulting.</p>
+</div>
+
+<script>
+(function(){
+var reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+var $=function(id){return document.getElementById(id)};
+
+var FAM={
+  vis:{l:"Visibilité et contenu",s:"visibilité",c:"var(--vis)"},
+  ven:{l:"Vente et relation client",s:"vente",c:"var(--ven)"},
+  equ:{l:"Équipe",s:"équipe",c:"var(--equ)"},
+  adm:{l:"Administratif et pilotage",s:"administratif",c:"var(--adm)"}
+};
+var AG={
+  prism:{n:"Prism",f:"vis",c:"var(--vis)",r:"Veille sectorielle",need:"Rester informé sans y passer vos soirées.",t:"Surveille les sources de votre secteur, note chaque information de 1 à 5 et vous alerte sur l'essentiel. Un digest chaque lundi, des posts prêts à valider. Il apprend de vos retours.",v:"Vous validez chaque post avant publication."},
+  quasar:{n:"Quasar",f:"vis",c:"var(--vis)",r:"Visibilité web et SEO",need:"Être trouvé par les bonnes personnes.",t:"Audite votre site, repère les mots-clés et les contenus qui vous manquent, prépare les briefs, suit vos positions et alerte en cas d'anomalie.",v:"Il propose, vous appliquez : rien ne change sur votre site sans votre accord."},
+  aura:{n:"Aura",f:"vis",c:"var(--vis)",r:"Posts et newsletter",need:"Publier régulièrement, dans votre voix.",t:"Détecte les sujets chauds, tient le calendrier éditorial, rédige posts et newsletter avec leurs visuels, à votre image.",v:"Rien n'est publié sans votre validation."},
+  lyra:{n:"Lyra",f:"ven",c:"var(--ven)",r:"Service client et accueil",need:"Répondre vite et bien, sans rien laisser passer.",t:"Répond aux emails et aux messages du formulaire, trie les demandes, escalade les cas sensibles et qualifie les demandes commerciales. Elle s'appuie sur votre base de connaissances et n'invente rien.",v:"Les cas sensibles vous sont toujours transmis."},
+  polaris:{n:"Polaris",f:"ven",c:"var(--ven)",r:"Pipeline de vente",need:"Ne perdre aucun prospect.",t:"Conduit un prospect de sa première réponse jusqu'à la signature : relances, rappels de rendez-vous, fiche de préparation, devis, proposition, après-vente et bilan chiffré chaque lundi.",v:"Chaque message au prospect attend votre clic de validation."},
+  argo:{n:"Argo",f:"equ",c:"var(--equ)",r:"Recrutement",need:"Recruter sans service RH.",t:"Rédige les offres, trie les candidatures sur CV anonymisé selon une grille connue, prépare la pré-qualification et les entretiens, accompagne l'onboarding.",v:"Il ne rejette jamais un candidat seul."},
+  nova:{n:"Nova",f:"equ",c:"var(--equ)",r:"Formation",need:"Transmettre votre savoir-faire.",t:"Transforme vos procédures en parcours de formation, les diffuse, planifie les rendez-vous et suit la progression de chaque recrue.",v:"Aucun contenu n'est diffusé sans votre validation."},
+  atlas:{n:"Atlas",f:"adm",c:"var(--adm)",r:"Administratif et facturation",need:"Alléger la paperasse.",t:"Classe et contrôle les documents reçus, prépare des factures numérotées, relance les impayés, surveille les échéances et prépare les pièces pour l'expert-comptable.",v:"Aucune facture ni relance ne part sans votre accord."},
+  solstice:{n:"Solstice",f:"adm",c:"var(--adm)",r:"Agenda et rendez-vous",need:"Ne plus perdre de temps à caser les rendez-vous.",t:"Tient l'agenda comme source unique : les autres agents lui demandent leurs créneaux au lieu de gérer chacun le leur. Il propose les disponibilités, confirme et déplace les rendez-vous, envoie les rappels, prépare chaque réunion et rédige le compte rendu.",v:"Aucune invitation ni aucun compte rendu ne part sans votre validation."},
+  sirius:{n:"Sirius",f:"adm",c:"var(--gold)",r:"Reporting et tableaux de bord",need:"Piloter avec des chiffres fiables.",t:"Reçoit les indicateurs de tous les agents et les chiffres de la compta, calcule vos KPI, signale les écarts et recommande. Chaque chiffre cite sa source et sa période.",v:"Il informe, vous décidez."}
+};
+var EDGES=[
+  {id:"e1",a:"prism",b:"aura",l:"Actualités et angles de contenu"},
+  {id:"e2",a:"quasar",b:"aura",l:"Briefs de contenu"},
+  {id:"e3",a:"prism",b:"quasar",l:"Évolutions du secteur"},
+  {id:"e4",a:"lyra",b:"quasar",l:"Questions fréquentes des clients"},
+  {id:"e5",a:"lyra",b:"polaris",l:"Demandes commerciales qualifiées"},
+  {id:"e6",a:"quasar",b:"polaris",l:"Leads issus du référencement",bend:[60,60]},
+  {id:"e7",a:"prism",b:"lyra",l:"Informations utiles aux réponses",bend:[40,-40]},
+  {id:"e8",a:"polaris",b:"atlas",l:"Devis accepté"},
+  {id:"e9",a:"lyra",b:"argo",l:"Candidatures spontanées"},
+  {id:"e10",a:"argo",b:"aura",l:"Annonce de poste validée"},
+  {id:"e11",a:"argo",b:"atlas",l:"Partie administrative d'une recrue"},
+  {id:"e12",a:"argo",b:"nova",l:"Embauche validée"},
+  {id:"s1",a:"polaris",b:"solstice",l:"Créneaux des rendez-vous de vente",bend:[-30,0]},
+  {id:"s2",a:"lyra",b:"solstice",l:"Créneaux des rendez-vous clients",bend:[50,40]},
+  {id:"s3",a:"argo",b:"solstice",l:"Créneaux des entretiens",bend:[-60,-50]},
+  {id:"s4",a:"nova",b:"solstice",l:"Créneaux des formations",bend:[-30,30]},
+  {id:"s5",a:"atlas",b:"solstice",l:"Échéances à inscrire à l'agenda"}
+];
+["polaris","atlas","nova","argo","aura","lyra","quasar","prism","solstice"].forEach(function(k,i){
+  var s=i%2?1:-1;
+  EDGES.push({id:"k_"+k,a:k,b:"sirius",l:"Indicateurs hebdomadaires",kind:"kpi",bend:[s*70,s*70]});
+});
+var E={};EDGES.forEach(function(e){E[e.id]=e});
+
+
+var JR=[
+  {t:"Du contenu au client",s:[
+    ["e1","Prism repère l'actualité de votre secteur et transmet les angles à Aura, qui les met au calendrier."],
+    ["e2","Quasar envoie ses briefs : il décide quoi publier, Aura rédige."],
+    ["e6","Quasar signale à Polaris les leads venus du référencement."],
+    ["e5","Lyra qualifie les demandes reçues et les confie à Polaris, qui les conduit jusqu'à la signature."]]},
+  {t:"De la signature à l'encaissement",s:[
+    ["e8","Un devis accepté chez Polaris devient une facture en brouillon chez Atlas, à valider."],
+    ["k_atlas","Atlas relance les impayés et remonte encaissements et retards à Sirius."],
+    ["k_polaris","Polaris remonte conversions et pipeline à Sirius, qui consolide le tout."]]},
+  {t:"Du recrutement à la formation",s:[
+    ["e9","Lyra transmet à Argo les candidatures spontanées reçues par le service client."],
+    ["e10","Argo fait diffuser l'annonce validée par Aura."],
+    ["e11","Après décision humaine, Argo confie à Atlas la partie administrative de la recrue."],
+    ["e12","Argo ouvre un parcours de formation chez Nova."],
+    ["k_nova","Nova remonte la progression des formations à Sirius."]]},
+  {t:"Du rendez-vous au compte rendu",s:[
+    ["s1","Polaris demande un créneau pour un rendez-vous de vente. Solstice, seule source de vérité sur l'agenda, propose les disponibilités."],
+    ["s3","Argo demande un créneau d'entretien. Solstice confirme après votre validation, rappelle les participants et prépare la réunion."],
+    ["s5","Atlas lui confie aussi les échéances administratives : tout passe par un seul agenda, sans double réservation."],
+    ["k_solstice","Solstice rédige le compte rendu, que vous validez avant diffusion, et remonte à Sirius les chiffres de prise de rendez-vous."]]}
+];
+var CAP0="Choisissez un parcours pour voir les agents se passer le relais.";
+
+var cv=$("cv"),ctx=cv.getContext("2d"),sky=$("sky"),panelEl=$("panel"),jcap=$("jcap");
+var COL={vis:"#9B8CFF",ven:"#5BA8FF",equ:"#5FD3A0",adm:"#FFA24C"};
+var gold="#F2C94C";
+function colOf(id){return id==="sirius"?gold:COL[AG[id].f]}
+var hov=null,sel=null,fam=null,jr=null,jt=null,lastPanel="__none__",paused=false;
+/* orbites : de l'intérieur (administratif) vers l'extérieur (visibilité) */
+var ORDER=["atlas","solstice","polaris","lyra","argo","nova","aura","quasar","prism"];
+var ORB={};
+ORDER.forEach(function(id,i){
+  var R=95+i*25;
+  ORB[id]={R:R,a0:i*2.399+0.6,w:0.2*Math.pow(100/R,1.3),tilt:(((i*37)%11)-5)*0.013};
+});
+var yaw=0.4,pitch=1.02,T=0,ts=1,W=600,H=500,K=1,CX=300,CY=250,DPR=1,FOV=900;
+var P={},S={},sunFlash=0,pulses=[],lastT=0,acc1=0,acc2=0,drag=null;
+var stars=[];(function(){var r=rng(7);for(var i=0;i<90;i++){stars.push([r(),r(),0.4+r()*1.1,r()*6.28,0.25+r()*0.5])}})();
+
+function rng(a){return function(){a|=0;a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+
+function proj(x,y,z){
+  var c=Math.cos(yaw),s=Math.sin(yaw),x1=x*c+z*s,z1=-x*s+z*c;
+  var cp=Math.cos(pitch),sp=Math.sin(pitch),y2=y*cp-z1*sp,z2=y*sp+z1*cp;
+  var k=FOV/(FOV+z2);
+  return {x:CX+x1*k*K,y:CY+y2*k*K,s:k,z:z2};
+}
+function layout(){
+  P.sirius={x:0,y:0,z:0};
+  ORDER.forEach(function(id){
+    var o=ORB[id],a=o.a0+T*o.w;
+    P[id]={x:o.R*Math.cos(a),y:Math.sin(a)*o.R*Math.sin(o.tilt),z:o.R*Math.sin(a)};
+  });
+  Object.keys(P).forEach(function(id){S[id]=proj(P[id].x,P[id].y,P[id].z)});
+}
+function resize(){
+  var w=Math.max(280,sky.clientWidth-16);
+  var narrow=sky.clientWidth<560;
+  var h=Math.round(Math.min(narrow?w*0.98:w*0.88,640));
+  DPR=Math.min(window.devicePixelRatio||1,2);
+  cv.style.width=w+"px";cv.style.height=h+"px";
+  cv.width=Math.round(w*DPR);cv.height=Math.round(h*DPR);
+  W=w;H=h;CX=w/2;CY=h/2;
+  var mg=narrow?22:34;
+  K=Math.min((w/2-mg)/305,(h/2-mg-6)/(300*Math.sin(pitch)*1.2+10));
+  K=Math.max(K,0.3);
+  draw();
+}
+
+function edgeLift(e){return e.kind==="kpi"?0.07:0.2}
+function edgePt(e,u){
+  var A=P[e.a],B=P[e.b];
+  var dx=B.x-A.x,dy=B.y-A.y,dz=B.z-A.z,d=Math.sqrt(dx*dx+dy*dy+dz*dz)||1;
+  return proj(A.x+dx*u,A.y+dy*u-Math.sin(Math.PI*u)*d*edgeLift(e),A.z+dz*u);
+}
+function ease(k){return k<0.5?2*k*k:1-Math.pow(-2*k+2,2)/2}
+
+function spawn(e,dur){
+  if(reduce)return;
+  pulses.push({e:e,age:0,dur:dur});
+}
+
+function stepsList(){return jr?JR[jr.k].s.map(function(s){return s[0]}):null}
+function states(){
+  var act=jr?null:(hov||sel),steps=stepsList(),lit=null,es={};
+  if(jr){
+    lit={};
+    for(var x=0;x<=jr.i;x++){lit[E[steps[x]].a]=1;lit[E[steps[x]].b]=1}
+    EDGES.forEach(function(e){var i=steps.indexOf(e.id);es[e.id]=i===jr.i?"on":(i>-1&&i<jr.i?"done":"dim")});
+  }else if(act){
+    lit={};lit[act]=1;
+    EDGES.forEach(function(e){if(connected(e,act)){es[e.id]="on";lit[e.a]=1;lit[e.b]=1}else{es[e.id]="dim"}});
+  }else if(fam){
+    lit={};
+    Object.keys(AG).forEach(function(k){if(AG[k].f===fam){lit[k]=1}});
+    EDGES.forEach(function(e){es[e.id]=(AG[e.a].f!==fam&&AG[e.b].f!==fam)?"dim":""});
+  }
+  return {act:act,lit:lit,es:es,cs:jr?E[steps[jr.i]]:null};
+}
+function connected(e,act){
+  if(e.kind==="kpi"){return e.b==="sirius"&&(act==="sirius"||e.a===act)}
+  return e.a===act||e.b===act;
+}
+
+function strokeEdge(e,alpha,width,dash,color){
+  ctx.beginPath();
+  for(var i=0;i<=26;i++){
+    var p=edgePt(e,i/26);
+    if(i===0){ctx.moveTo(p.x,p.y)}else{ctx.lineTo(p.x,p.y)}
+  }
+  ctx.globalAlpha=alpha;ctx.strokeStyle=color||gold;ctx.lineWidth=width;
+  ctx.setLineDash(dash||[]);ctx.lineCap="round";ctx.stroke();ctx.setLineDash([]);
+}
+function draw(){
+  layout();
+  var st=states(),fs=W<460?12:13;
+  ctx.setTransform(DPR,0,0,DPR,0,0);
+  ctx.clearRect(0,0,W,H);
+  ctx.globalAlpha=1;
+  /* champ d'étoiles */
+  ctx.fillStyle="#F4F1EA";
+  stars.forEach(function(s){
+    ctx.globalAlpha=s[4]*(0.55+0.45*Math.sin(T*0.7+s[3]));
+    ctx.beginPath();ctx.arc(s[0]*W,s[1]*H,s[2],0,6.283);ctx.fill();
+  });
+  /* orbites */
+  ORDER.forEach(function(id){
+    var o=ORB[id];
+    ctx.beginPath();
+    for(var i=0;i<=96;i++){
+      var a=i/96*6.2832,p=proj(o.R*Math.cos(a),Math.sin(a)*o.R*Math.sin(o.tilt),o.R*Math.sin(a));
+      if(i===0){ctx.moveTo(p.x,p.y)}else{ctx.lineTo(p.x,p.y)}
+    }
+    ctx.globalAlpha=st.lit&&!st.lit[id]?0.05:0.2;
+    ctx.strokeStyle=colOf(id);ctx.lineWidth=1;ctx.stroke();
+  });
+  /* liens */
+  EDGES.forEach(function(e){
+    var s=st.es[e.id]||"",kpi=e.kind==="kpi";
+    if(kpi){
+      if(s==="on"){strokeEdge(e,0.9,1.5,[1,5])}
+      else if(s==="dim"){strokeEdge(e,0.03,1,[1,6])}
+      else{strokeEdge(e,0.08,1,[1,6])}
+    }else{
+      if(s==="on"){strokeEdge(e,1,1.9)}
+      else if(s==="done"){strokeEdge(e,0.7,1.3)}
+      else if(s==="dim"){strokeEdge(e,0.04,1)}
+      else{strokeEdge(e,0.11,1)}
+    }
+  });
+  /* éléments triés en profondeur */
+  var items=Object.keys(P).sort(function(a,b){return S[b].z-S[a].z});
+  var q=Math.min(1.25,0.7+0.5*K);
+  items.forEach(function(id){
+    var p=S[id],big=id==="sirius",c=colOf(id),dim=st.lit&&!st.lit[id];
+    var on=id===st.act||(st.cs&&(id===st.cs.a||id===st.cs.b));
+    var r=(big?19:6.5)*p.s*q*(on&&!big?1.25:1);
+    ctx.globalAlpha=dim?0.25:1;
+    if(big){
+      var gr=r*(3.4+sunFlash*1.2),g=ctx.createRadialGradient(p.x,p.y,r*0.4,p.x,p.y,gr);
+      g.addColorStop(0,c);g.addColorStop(0.28,c+"88");g.addColorStop(1,c+"00");
+      ctx.fillStyle=g;ctx.beginPath();ctx.arc(p.x,p.y,gr,0,6.283);ctx.fill();
+      ctx.fillStyle=c;ctx.beginPath();ctx.arc(p.x,p.y,r*(1+sunFlash*0.12),0,6.283);ctx.fill();
+      ctx.globalAlpha=(dim?0.25:1)*0.55;ctx.strokeStyle="#F4F1EA";ctx.lineWidth=1;
+      ctx.setLineDash([2,6]);ctx.beginPath();ctx.arc(p.x,p.y,r*1.5,0,6.283);ctx.stroke();ctx.setLineDash([]);
+      ctx.globalAlpha=dim?0.25:1;
+    }else{
+      ctx.fillStyle=c;ctx.globalAlpha=(dim?0.25:1)*0.18;
+      ctx.beginPath();ctx.arc(p.x,p.y,r*2.4,0,6.283);ctx.fill();
+      ctx.globalAlpha=dim?0.25:1;
+      var g2=ctx.createRadialGradient(p.x-r*0.35,p.y-r*0.35,r*0.1,p.x,p.y,r);
+      g2.addColorStop(0,"#ffffff");g2.addColorStop(0.35,c);g2.addColorStop(1,c);
+      ctx.fillStyle=g2;ctx.beginPath();ctx.arc(p.x,p.y,r,0,6.283);ctx.fill();
+      if(on){ctx.strokeStyle=c;ctx.lineWidth=1.4;ctx.beginPath();ctx.arc(p.x,p.y,r+5,0,6.283);ctx.stroke()}
+    }
+    ctx.font="500 "+fs+"px Inter,system-ui,sans-serif";ctx.textAlign="center";
+    ctx.lineJoin="round";ctx.lineWidth=4;ctx.strokeStyle="#0B1026";
+    var ty=p.y+r+(big?r*0.9:0)+fs+3;
+    ctx.strokeText(AG[id].n,p.x,ty);ctx.fillStyle="#F4F1EA";ctx.fillText(AG[id].n,p.x,ty);
+  });
+  /* impulsions de données */
+  pulses.forEach(function(q){
+    var k=q.age/q.dur;if(k<0||k>1)return;
+    var e=ease(k);
+    for(var j=5;j>=0;j--){
+      var kk=Math.max(0,k-j*0.025),pp=edgePt(q.e,ease(kk));
+      ctx.globalAlpha=(j===0?1:0.35/j)*(k<0.1?k*10:(k>0.88?(1-k)/0.12:1));
+      ctx.fillStyle=j===0?"#F4F1EA":gold;
+      ctx.beginPath();ctx.arc(pp.x,pp.y,j===0?2.8:2.2-j*0.2,0,6.283);ctx.fill();
+    }
+  });
+  /* étiquette du lien en cours de parcours */
+  if(st.cs){
+    var m=edgePt(st.cs,0.5),tx=Math.max(80,Math.min(W-80,m.x));
+    ctx.globalAlpha=1;ctx.font="500 12px Inter,system-ui,sans-serif";ctx.textAlign="center";
+    ctx.lineWidth=4;ctx.strokeStyle="#0B1026";ctx.strokeText(st.cs.l,tx,m.y-24);
+    ctx.fillStyle="#F4F1EA";ctx.fillText(st.cs.l,tx,m.y-24);
+  }
+  ctx.globalAlpha=1;
+}
+
+function frame(now){
+  var dt=Math.min(0.05,(now-lastT)/1000||0.016);lastT=now;
+  if(!document.hidden){
+    var target=paused?0:((hov||sel||jr||fam)?0.12:1);
+    ts+=(target-ts)*Math.min(1,dt*4);
+    T+=dt*ts;
+    if(!drag&&!paused){yaw+=dt*0.035*ts}
+    sunFlash=Math.max(0,sunFlash-dt*1.6);
+    for(var i=pulses.length-1;i>=0;i--){
+      var q=pulses[i];q.age+=dt;
+      if(q.age>=q.dur){if(q.e.b==="sirius"){sunFlash=Math.min(1,sunFlash+0.35)}pulses.splice(i,1)}
+    }
+    acc1+=dt;acc2+=dt;
+    var act=hov||sel;
+    if(!jr&&!paused){
+      if(act){
+        if(acc2>1.3){acc2=0;EDGES.forEach(function(e){if(connected(e,act)){spawn(e,1.7)}})}
+      }else if(!fam){
+        if(acc1>0.45){acc1=0;var ks=EDGES.filter(function(e){return e.kind==="kpi"});spawn(ks[Math.floor(Math.random()*ks.length)],2.4)}
+        if(acc2>1.8){acc2=0;var fl=EDGES.filter(function(e){return e.kind!=="kpi"});spawn(fl[Math.floor(Math.random()*fl.length)],2.8)}
+      }
+    }
+    draw();
+  }
+  requestAnimationFrame(frame);
+}
+
+function hit(ev){
+  var rc=cv.getBoundingClientRect(),x=ev.clientX-rc.left,y=ev.clientY-rc.top,best=null,bd=1e9;
+  Object.keys(S).forEach(function(id){
+    var d=Math.hypot(S[id].x-x,S[id].y-y),lim=Math.max(20,(id==="sirius"?30:12)*S[id].s*K+10);
+    if(d<lim&&d<bd){bd=d;best=id}
+  });
+  return best;
+}
+cv.addEventListener("pointerdown",function(ev){
+  drag={x:ev.clientX,y:ev.clientY,moved:false};
+  try{cv.setPointerCapture(ev.pointerId)}catch(x){}
+});
+cv.addEventListener("pointermove",function(ev){
+  if(drag){
+    var dx=ev.clientX-drag.x,dy=ev.clientY-drag.y;
+    if(Math.hypot(dx,dy)>4){drag.moved=true}
+    if(drag.moved){
+      yaw+=dx*0.008;
+      if(ev.pointerType==="mouse"){pitch=Math.max(0.35,Math.min(1.45,pitch-dy*0.006))}
+      drag.x=ev.clientX;drag.y=ev.clientY;
+      if(reduce){draw()}
+    }
+  }else if(ev.pointerType==="mouse"){
+    var h=hit(ev);
+    if(h!==hov){hov=h;cv.style.cursor=h?"pointer":"grab";render()}
+  }
+});
+cv.addEventListener("pointerup",function(ev){
+  if(drag&&!drag.moved){
+    var h=hit(ev);
+    if(h){pick(h)}else if(sel){sel=null;render()}
+  }
+  drag=null;
+});
+cv.addEventListener("pointercancel",function(){drag=null});
+cv.addEventListener("pointerleave",function(){if(hov&&!drag){hov=null;render()}});
+
+function pick(id){
+  if(jr){stopJ()}
+  sel=(sel===id)?null:id;
+  render();
+}
+
+function lk(id,sub){
+  return '<button class="lk" type="button" data-go="'+id+'" style="--c:'+AG[id].c+'"><i></i><b>'+AG[id].n+'</b><em>'+sub+'</em></button>';
+}
+function panel(id){
+  if(id===lastPanel)return;
+  lastPanel=id;
+  if(!id){
+    panelEl.style.setProperty("--c","var(--gold)");
+    panelEl.innerHTML='<div class="pin"><div class="ptag">le hub</div><h2 class="pname">Neuf planètes, un seul soleil</h2><p class="pneed">Faites glisser pour tourner, touchez une planète.</p><p class="ptxt">Chaque planète est un agent spécialisé sur son orbite. Chaque trait est un échange automatique : l\'un transmet, l\'autre reçoit. Les points lumineux qui filent vers le centre sont les indicateurs que chaque agent remonte à Sirius, le soleil, qui consolide tout pour vous aider à piloter. Solstice, lui, tient l\'agenda de tous.</p></div>';
+    return;
+  }
+  var a=AG[id];
+  panelEl.style.setProperty("--c",a.c);
+  var inn=EDGES.filter(function(e){return e.b===id}).map(function(e){return lk(e.a,e.l)}).join("");
+  var out=EDGES.filter(function(e){return e.a===id&&e.kind!=="kpi"}).map(function(e){return lk(e.b,e.l)}).join("");
+  if(id!=="sirius"){out+=lk("sirius","Indicateurs hebdomadaires")}
+  var h='<div class="pin"><div class="ptag">'+(id==="sirius"?"le soleil":"planète")+' · '+FAM[a.f].s+'</div><h2 class="pname">'+a.n+'</h2><p class="pneed">'+a.need+'</p><p class="ptxt">'+a.t+'</p>';
+  if(inn){h+='<h3 class="plh">il reçoit</h3>'+inn}
+  if(out){h+='<h3 class="plh">il transmet</h3>'+out}
+  h+='<p class="pvalid">'+a.v+'</p></div>';
+  panelEl.innerHTML=h;
+}
+panelEl.addEventListener("click",function(ev){
+  var b=ev.target.closest("[data-go]");
+  if(!b)return;
+  if(jr){stopJ()}
+  sel=b.getAttribute("data-go");
+  render();
+});
+
+function render(){
+  var steps=stepsList();
+  panel(jr?E[steps[jr.i]].b:(sel||hov||null));
+  var chips=document.querySelectorAll(".chip[data-fam]");
+  for(var c=0;c<chips.length;c++){chips[c].setAttribute("aria-pressed",String(chips[c].getAttribute("data-fam")===fam))}
+  var ros=document.querySelectorAll(".chip[data-ag]");
+  for(var d=0;d<ros.length;d++){ros[d].setAttribute("aria-pressed",String(ros[d].getAttribute("data-ag")===sel))}
+  if(reduce){draw()}
+}
+
+function setCap(h){jcap.innerHTML=h}
+function setBtns(k){
+  var bs=document.querySelectorAll(".jb");
+  for(var i=0;i<bs.length;i++){bs[i].setAttribute("aria-pressed",String(i===k))}
+}
+function stopJ(msg){
+  clearTimeout(jt);jr=null;setBtns(-1);
+  setCap(msg||CAP0);
+  lastPanel="__none__";
+  render();
+}
+function stepJ(){
+  var J=JR[jr.k],s=J.s[jr.i];
+  setCap('<span class="st">étape '+(jr.i+1)+' sur '+J.s.length+'</span>'+s[1]);
+  render();
+  spawn(E[s[0]],2);
+  jt=setTimeout(function(){
+    jr.i++;
+    if(jr.i>=J.s.length){stopJ("Parcours terminé. Relancez-le ou choisissez-en un autre.")}
+    else{stepJ()}
+  },2800);
+}
+function startJ(k){
+  if(jr&&jr.k===k){stopJ();return}
+  clearTimeout(jt);
+  sel=null;fam=null;
+  jr={k:k,i:0};
+  setBtns(k);
+  stepJ();
+}
+
+JR.forEach(function(j,k){
+  var b=document.createElement("button");
+  b.type="button";b.className="jb";b.textContent=j.t;b.setAttribute("aria-pressed","false");
+  b.addEventListener("click",function(){startJ(k)});
+  $("jbtns").appendChild(b);
+});
+Object.keys(FAM).forEach(function(k){
+  var b=document.createElement("button");
+  b.type="button";b.className="chip";b.setAttribute("data-fam",k);b.setAttribute("aria-pressed","false");
+  b.style.setProperty("--c",FAM[k].c);
+  b.innerHTML="<i></i>"+FAM[k].l;
+  b.addEventListener("click",function(){
+    if(jr){stopJ()}
+    fam=(fam===k)?null:k;sel=null;render();
+  });
+  $("legend").appendChild(b);
+});
+Object.keys(AG).forEach(function(id){
+  var b=document.createElement("button");
+  b.type="button";b.className="chip";b.setAttribute("data-ag",id);b.setAttribute("aria-pressed","false");
+  b.style.setProperty("--c",AG[id].c);
+  b.innerHTML="<i></i>"+AG[id].n;
+  b.addEventListener("click",function(){pick(id)});
+  b.addEventListener("focus",function(){hov=id;render()});
+  b.addEventListener("blur",function(){hov=null;render()});
+  $("roster").appendChild(b);
+});
+$("pause").addEventListener("click",function(){
+  paused=!paused;
+  this.setAttribute("aria-pressed",String(paused));
+  this.textContent=paused?"Reprendre la rotation":"Mettre en pause";
+});
+$("reset").addEventListener("click",function(){yaw=0.4;pitch=1.02;resize()});
+
+var SW=[["Or","#F2C94C"],["Argent","#CBD5E1"],["Corail","#FF8F70"],["Glacier","#7FD6F0"]];
+SW.forEach(function(s,i){
+  var b=document.createElement("button");
+  b.type="button";b.className="sw";b.setAttribute("aria-label",s[0]);b.setAttribute("aria-pressed",String(i===0));
+  b.style.setProperty("--c",s[1]);
+  b.addEventListener("click",function(){
+    document.documentElement.style.setProperty("--gold",s[1]);gold=s[1];
+    var all=document.querySelectorAll(".sw");
+    for(var j=0;j<all.length;j++){all[j].setAttribute("aria-pressed",String(all[j]===b))}
+    if(reduce){draw()}
+  });
+  $("sws").appendChild(b);
+});
+$("hubname").addEventListener("input",function(ev){
+  var v=ev.target.value.trim();
+  if(v){$("brand").textContent=v}else{$("brand").innerHTML='Celest<span class="ia">IA</span>'}
+});
+
+setCap(CAP0);
+cv.style.cursor="grab";
+resize();render();
+if(window.ResizeObserver){new ResizeObserver(resize).observe(sky)}else{window.addEventListener("resize",resize)}
+if(!reduce){requestAnimationFrame(frame)}
+
+})();
+</script>
+</section>
+<section class="cta-end light">
+<div class="container">
+<h2>Un hub à <span class="grad">votre image</span></h2>
+<p>Le tarif dépend de vos besoins : parlons de ceux qui comptent pour vous. Le hub complet demande au minimum 2 jours d'entretien, ou vous ne retenez que les briques utiles.</p>
+<a class="btn btn-primary" href="devis.html">Demander un devis</a>
+</div>
+</section>
+</main>
+<footer class="site"><div class="container">© <span id="year"></span> Nelion — Accompagnement à la transition IA pour TPE/PME</div></footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

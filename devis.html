@@ -7,23 +7,24 @@
 <meta name="description" content="Décrivez votre projet — agents IA sur-mesure ou accompagnement à la transition — et recevez un devis personnalisé.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700;800&family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #0b0c0e;
-    --bg-alt: #131519;
-    --card: #1a1d22;
-    --border: #262a31;
-    --text: #f2f3f5;
-    --text-dim: #a6acb5;
-    --accent: #ffb020;
-    --accent2: #ff7a1a;
-    --accent-text: #0b0c0e;
+    --bg: #0B1026;
+    --bg-alt: #101838;
+    --card: #131C42;
+    --border: rgba(244,241,234,0.16);
+    --text: #F4F1EA;
+    --text-dim: #A9AEC6;
+    --accent: #F2C94C;
+    --accent2: #E8B33A;
+    --accent-text: #0B1026;
     --mono: 'JetBrains Mono', 'Courier New', monospace;
+    --serif: 'Fraunces', Georgia, serif;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
-    font-family: -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-family: 'Inter', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
     background: var(--bg);
     color: var(--text);
     line-height: 1.6;
@@ -37,7 +38,7 @@
     padding: 18px 0;
   }
   .header-inner { display: flex; align-items: center; justify-content: space-between; max-width: 720px; margin: 0 auto; padding: 0 24px; }
-  .logo { font-size: 20px; font-weight: 800; }
+  .logo { font-size: 20px; font-weight: 800; font-family: var(--mono); }
   .logo span { color: var(--accent); }
   .back-link { font-size: 13.5px; color: var(--text-dim); }
   .back-link:hover { color: var(--text); }
@@ -48,7 +49,7 @@
     font-family: var(--mono); text-transform: uppercase; letter-spacing: 2px;
     font-size: 12.5px; color: var(--accent); font-weight: 700; margin-bottom: 14px;
   }
-  h1 { font-size: 32px; font-weight: 800; margin-bottom: 14px; letter-spacing: -0.5px; }
+  h1 { font-family: var(--serif); font-size: 36px; font-weight: 500; margin-bottom: 14px; letter-spacing: -0.01em; }
   .intro-text { color: var(--text-dim); font-size: 16px; margin-bottom: 36px; max-width: 560px; }
 
   .btn {
@@ -77,6 +78,7 @@
   @media (max-width: 520px) { .field-row { grid-template-columns: 1fr; } }
   .form-note { font-size: 12.5px; color: var(--text-dim); margin: -6px 0 24px; }
   .section-title { font-size: 13.5px; color: var(--text-dim); font-weight: 600; margin: 32px 0 14px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; opacity: 0; }
 
   .options { display: flex; flex-direction: column; gap: 12px; margin-bottom: 4px; }
   .option {
@@ -85,7 +87,7 @@
     display: flex; align-items: center; gap: 12px;
   }
   .option:hover { border-color: var(--accent); }
-  .option.selected { border-color: var(--accent); background: rgba(255,176,32,0.08); }
+  .option.selected { border-color: var(--accent); background: rgba(242,201,76,0.10); }
   .option .radio {
     width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid var(--text-dim);
     flex-shrink: 0; position: relative;
@@ -102,10 +104,10 @@
   .check-ring {
     width: 96px; height: 96px; border-radius: 50%; margin: 0 auto 28px;
     display: flex; align-items: center; justify-content: center;
-    background: radial-gradient(circle, rgba(255,176,32,0.14), transparent 70%);
+    background: radial-gradient(circle, rgba(242,201,76,0.16), transparent 70%);
     border: 3px solid var(--accent); font-size: 40px; color: var(--accent);
   }
-  .result-title { font-size: 24px; font-weight: 800; margin-bottom: 14px; }
+  .result-title { font-family: var(--serif); font-size: 26px; font-weight: 500; margin-bottom: 14px; }
   .result-text { color: var(--text-dim); font-size: 15.5px; max-width: 500px; margin: 0 auto 32px; }
   .result-ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 
@@ -185,6 +187,11 @@
         </select>
       </div>
 
+      <div class="hp-field" aria-hidden="true">
+        <label for="website">Ne pas remplir</label>
+        <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+      </div>
+
       <div class="form-note">En validant, vous acceptez d'être recontacté par Nelion au sujet de votre demande de devis.</div>
       <button type="submit" class="btn btn-primary btn-full" id="submitBtn">Envoyer ma demande de devis</button>
     </form>
@@ -240,14 +247,31 @@ function submitDevis(e) {
     entreprise: document.getElementById('entreprise').value.trim(),
     besoin: besoinInput.value,
     description: document.getElementById('description').value.trim(),
-    budget: document.getElementById('budget').value
+    budget: document.getElementById('budget').value,
+    website: document.getElementById('website').value
   };
 
-  sendToGoogleForm(data);
+  // Les robots remplissent le champ piège : on affiche la confirmation sans rien envoyer.
+  if (!data.website) {
+    sendToGoogleForm(data);
+    sendToWorkflow(data);
+  }
 
   document.getElementById('quoteForm').classList.add('hidden');
   document.getElementById('resultCard').classList.add('active');
   return false;
+}
+
+// ---- WORKFLOW N8N (Sheet + notification Telegram) ---------------------
+const WORKFLOW_URL = "https://n8n.nelion.fr/webhook/demande-devis";
+
+function sendToWorkflow(data) {
+  fetch(WORKFLOW_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data),
+    keepalive: true
+  }).catch(() => { /* l'utilisateur voit la confirmation quoi qu'il arrive */ });
 }
 
 // ---- GOOGLE FORM SUBMISSION ------------------------------------------
