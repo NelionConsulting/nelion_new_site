@@ -274,6 +274,10 @@
   @media (min-width: 800px) { .audit-card { flex-direction: row; align-items: center; justify-content: space-between; } }
   .audit-card h3 { font-size: 24px; margin-bottom: 10px; max-width: 480px; font-family: var(--serif); font-weight: 500; }
   .audit-card p { color: var(--text-dim); font-size: 15px; max-width: 460px; }
+  .audit-qr { display: flex; flex-direction: column; align-items: center; gap: 10px; flex-shrink: 0; }
+  .audit-qr img { width: 168px; height: 168px; background: #fff; padding: 8px; border-radius: 10px; border: 1px solid var(--border); }
+  .audit-qr span { font-size: 13px; font-weight: 600; color: var(--text-dim); text-align: center; max-width: 190px; }
+  .audit-qr:hover span { color: var(--accent); }
 
   /* Celestia */
   .ia { color: #7FB2FF; }
@@ -604,7 +608,10 @@
         <h3>Faites votre autodiagnostic IA gratuit en 10 minutes</h3>
         <p>Répondez à quelques questions et obtenez une estimation du nombre d'heures que vous pouvez récupérer chaque semaine grâce à l'IA — sans engagement.</p>
       </div>
-      <a href="https://diagnostic-ia-three.vercel.app/?src=site-nelion-diagnostic" target="_blank" rel="noopener" class="btn btn-primary">Réaliser mon autodiagnostic gratuit</a>
+      <a href="https://go.nelion.fr/autodiag" target="_blank" rel="noopener" class="audit-qr" aria-label="Réaliser mon autodiagnostic gratuit">
+        <img src="qr-autodiag.png" width="168" height="168" alt="QR code pour réaliser l'autodiagnostic IA gratuit : go.nelion.fr/autodiag" loading="lazy">
+        <span>Scannez pour réaliser mon autodiagnostic gratuit</span>
+      </a>
     </div>
   </div>
 </section>
